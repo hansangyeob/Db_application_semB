@@ -1,34 +1,35 @@
-#branch table
+#branch tabl
 create table branch(
-    Bcode int(8),
-    Bname varchar(30),
-    Adress varchar(30),
-    Hotline_num varchar(10),
-    primary key (Bcode),
-    unique (Bcode, Bname)
+    b_code int(8) auto_increment,
+    b_name varchar(30),
+    adress varchar(100),
+    hotline_num varchar(10),
+    primary key (b_code),
+    unique (b_code, b_name)
 );
 
 #customer account table
 create table customer_account(
-    Email varchar(50) not null,
-    Phone varchar(10) not null,
-    Password char(48) not null,
-    Fname varchar(200) not null,
-    Lname varchar(200),
-    Inum int(20) not null,
-    Address varchar(30),
-    City varchar(100),
-    Country varchar(100),
-    Profile_pic blob,
-    Balance decimal(15,2) not null,
-    primary key (Inum),
-    Unique (Email,Phone,Inum)
+    i_num int(20) not null,
+    f_name varchar(200) not null,
+    l_name varchar(200) not null,
+    email varchar(50) not null,
+    phone varchar(10) not null,
+    password char(48) not null,
+    address varchar(100),
+    city varchar(100),
+    country varchar(100),
+    profile_pic blob,
+    balance decimal(15,2) not null,
+    primary key (i_num),
+    Unique (email,phone,i_num)
 );
 
 #auction product table
 create table auction_product(
-    name varchar(20) not null ,
+    p_id int(8) AUTO_INCREMENT,
+    p_name varchar(20) not null ,
     price_min decimal not null,
     closing_time datetime,
-    primary key (name)
+    primary key (p_id)
 );
