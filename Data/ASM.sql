@@ -36,3 +36,9 @@ create table auction_product(
 
 INSERT INTO `branch`(`b_code`, `b_name`, `adress`, `hotline_num`) VALUES (null,'HCMC','PHU THUAN,Q.7,HCMC','0127819228');
 INSERT INTO `branch`(`b_code`, `b_name`, `adress`, `hotline_num`) VALUES (null,'Seoul','113, Tongil-ro, Seodaemun-gu, Seoul, Republic of Korea','0139819441');
+
+INSERT INTO `customer_account`(`i_num`, `f_name`, `l_name`, `email`, `phone`, `password`, `address`, `city`, `country`, `profile_pic`, `balance`) VALUES (1111,'l_user1','f_user1','email1@gmail.com','0398276001','1234','sample address 1','HCMC','Vietnam',null,'100');
+INSERT INTO `customer_account`(`i_num`, `f_name`, `l_name`, `email`, `phone`, `password`, `address`, `city`, `country`, `profile_pic`, `balance`) VALUES (1112,'l_user2','f_user2','email2@gmail.com','0398276002','4321','sample address 2','Seoul','Korea',null,'200');
+
+INSERT INTO `auction_product`(`p_id`, `p_name`, `price_min`, `closing_time`) VALUES (null,'iPhone11',50,now());
+INSERT INTO `auction_product`(`p_id`, `p_name`, `price_min`, `closing_time`) VALUES (null,'iPhone13',100,now());
