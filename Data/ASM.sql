@@ -33,3 +33,6 @@ create table auction_product(
     closing_time datetime,
     primary key (p_id)
 );
+
+INSERT INTO `branch`(`b_code`, `b_name`, `adress`, `hotline_num`) VALUES (null,'HCMC','PHU THUAN,Q.7,HCMC','0127819228');
+INSERT INTO `branch`(`b_code`, `b_name`, `adress`, `hotline_num`) VALUES (null,'Seoul','113, Tongil-ro, Seodaemun-gu, Seoul, Republic of Korea','0139819441');
