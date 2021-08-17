@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <h1>Database Error</h1>
-    <p><?php echo $err_msg; ?></p>
+    <h1 style="color:red;">Database Error</h1>
+    <p style="color:red;"><?php echo $err_msg; ?></p>
 </body>
 
 </html>
