@@ -42,3 +42,4 @@ INSERT INTO `customer_account`(`i_num`, `f_name`, `l_name`, `email`, `phone`, `p
 
 INSERT INTO `auction_product`(`p_id`, `p_name`, `price_min`, `closing_time`) VALUES (null,'iPhone11',50,now());
 INSERT INTO `auction_product`(`p_id`, `p_name`, `price_min`, `closing_time`) VALUES (null,'iPhone13',100,now());
+
