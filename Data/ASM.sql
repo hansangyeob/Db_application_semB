@@ -42,6 +42,12 @@ create table admin(
     a_password varcahr(255)
 );  
 
+create table notification(
+    n_id int(8) AUTO_INCREMENT,
+    buyer varchar(255),
+    note varvhar(255),
+    status varchar(255)
+);
 INSERT INTO `branch`(`b_code`, `b_name`, `adress`, `hotline_num`) VALUES (null,'HCMC','PHU THUAN,Q.7,HCMC','0127819228');
 INSERT INTO `branch`(`b_code`, `b_name`, `adress`, `hotline_num`) VALUES (null,'Seoul','113, Tongil-ro, Seodaemun-gu, Seoul, Republic of Korea','0139819441');
 
@@ -52,4 +58,3 @@ INSERT INTO `customer_account`(`i_num`, `f_name`, `l_name`, `email`, `phone`, `p
 -- INSERT INTO `auction_product`(`p_id`, `p_name`, `price_min`, `closing_time`,`seller`,`buyer`,`status`) VALUES (null,'iPhone13',100,now());
 
 INSERT INTO `admin`(`a_email`,`a_password`) VALUES ('admin@admin.com','1234');
-
