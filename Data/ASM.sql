@@ -1,4 +1,4 @@
--- branch table
+
 create table branch(
     b_code int(8) auto_increment,
     b_name varchar(30),
@@ -8,7 +8,7 @@ create table branch(
     unique (b_code, b_name)
 );
 
--- customer account table
+
 create table customer_account(
     i_num int(20) not null,
     f_name varchar(200) not null,
@@ -25,7 +25,7 @@ create table customer_account(
     Unique (email,phone,i_num)
 );
 
--- auction product table
+
 create table auction_product(
     p_id int(8) AUTO_INCREMENT,
     p_name varchar(20) not null ,
@@ -39,14 +39,15 @@ create table auction_product(
 
 create table admin(
     a_email varchar(255),
-    a_password varcahr(255)
+    a_password varchar(255)
 );  
 
 create table notification(
     n_id int(8) AUTO_INCREMENT,
     buyer varchar(255),
-    note varvhar(255),
-    status varchar(255)
+    note varchar(255),
+    status varchar(255),
+    primary key(n_id)
 );
 INSERT INTO `branch`(`b_code`, `b_name`, `adress`, `hotline_num`) VALUES (null,'HCMC','PHU THUAN,Q.7,HCMC','0127819228');
 INSERT INTO `branch`(`b_code`, `b_name`, `adress`, `hotline_num`) VALUES (null,'Seoul','113, Tongil-ro, Seodaemun-gu, Seoul, Republic of Korea','0139819441');
