@@ -1,8 +1,3 @@
-# Db_application_semB
-
-TO run this program,
-1. Upload the dataset into your localhost inside 'Data' file.
-
-2. Change `'DB_USER'` as well as `'DB_PASSWORD'` inside of the "db_connect.php" into your local setting.
-
-
+# Online-Bidding-System-PHP
+An Online Auction, where users can sell or bid for products through the internet. 
+Tools and Technology: PHP,MYSQL,JAVASCRIPT,BOOTSTRAP,HTML,CSS
