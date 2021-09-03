@@ -22,11 +22,12 @@ CloseCon($conn);
 
   <script type="text/javascript">
     function bid(id) {
-      if (confirm('Sure you want to participate in thie item ?')) {
+      if (confirm('Sure you want to participate bidding in this item?')) {
         window.location = 'UserBid.php?bid=' + id
       }
     }
   </script>
+
   <style>
     #heading {
       text-align: center;
@@ -184,53 +185,56 @@ CloseCon($conn);
 
             echo "<br><br>";
         ?>
-        <a href="javascript:bid(<?php echo $row[0]; ?>)"><span style="color: green;font-size: 15px"><b>Running</b></span> </a>
+            <a href="javascript:bid(<?php echo $row[0]; ?>)"><span style="color: green;font-size: 15px"><b>Running</b></span> </a>
         <?php
             $break++;
             echo '</td>';
           }
         }
+        ?>
+        <?php
 
 
-        //bidding table
-        // $seller = $_SESSION['email'];
+        // bidding table
+        $seller = $_SESSION['email'];
 
-        // $query = "SELECT * FROM auction_product WHERE status='No' and seller!='$seller'";
-        // $Rows = mysqli_query(connection(), $query);
-        // $Result = mysqli_query(connection(), $query);
-        // $break = 0;
+        $query = "SELECT * FROM auction_product WHERE status='No' and seller!='$seller'";
+        $Rows = mysqli_query(connection(), $query);
+        $Result = mysqli_query(connection(), $query);
+        $break = 0;
 
-        // if (mysqli_num_rows($Rows) > 0) {
-        //   echo '<table class="data-table">';
-        //   echo '<thead>';
-        //   echo '<tr>';
-        //   echo '<th>ID</th>';
-        //   echo '<th>Product Name</th>';
-        //   echo '<th>Price</th>';
-        //   echo '<th>Seller</th>';
-        //   echo '<th>End Date</th>';
-        //   echo '<th>Sold</th>';
-        //   echo '<th>Bid</th>';
-        //   echo '</tr>';
-        //   echo '</thead>';
+        if (mysqli_num_rows($Rows) > 0) {
+          echo '<table class="data-table">';
+          echo '<thead>';
+          echo '<tr>';
+          echo '<th>ID</th>';
+          echo '<th>Product Name</th>';
+          echo '<th>Price</th>';
+          echo '<th>Seller</th>';
+          echo '<th>End Date</th>';
+          echo '<th>Sold</th>';
+          echo '<th>Bid</th>';
+          echo '</tr>';
+          echo '</thead>';
 
-        //   echo '<tbody>';
+          echo '<tbody>';
 
-        //   while ($row = mysqli_fetch_array($Rows)) {
-        //     echo '<tr>
-        //       <td>' . $row['p_id'] . '</td>
-        //       <td>' . $row['p_name'] . '</td>
-        //       <td>' . $row['price_min'] . '</td>
-        //       <td>' . $row['seller'] . '</td>
-        //       <td>' . $row['closing_time'] . '</td>
-        //       <td>' . $row['status'] . '</td>
-        //       <td>' . ' ' . '</td>
-        //     </tr>';
-        //   }
-        // } else {
-        //   echo "<script> window.alert('You Have Not Any Post Yet');</script>";
-        // }
-        // echo '</tbody>';
+          while ($row = mysqli_fetch_array($Rows)) {
+            $new_id = $row['p_id'];
+            echo '<tr>
+              <td>' . $row['p_id'] . '</td>
+              <td>' . $row['p_name'] . '</td>
+              <td>' . $row['price_min'] . '</td>
+              <td>' . $row['seller'] . '</td>
+              <td>' . $row['closing_time'] . '</td>
+              <td>' . $row['status'] . '</td>
+              <td>' . ' <a href="javascript:bid(<?php echo $row[0]; ?>)"><span style="color: green;font-size: 15px"><b>Running</b></span> </a>' . '</td>
+            </tr>';
+          }
+        } else {
+          echo "<script> window.alert('You Have Not Any Post Yet');</script>";
+        }
+        echo '</tbody>';
 
         ?>
 

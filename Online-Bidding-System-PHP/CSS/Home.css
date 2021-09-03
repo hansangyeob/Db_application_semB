@@ -1,4 +1,4 @@
-*{
+*,body{
     margin: 0;
     padding: 0;
     outline: 0;
@@ -13,14 +13,14 @@
 }
 .mainsection {
     background-color: lightgray;
-   width: 1000px;
+    width: 600px;
     padding: 30PX;
     float: left;
     margin: 10px;
 }
 
 .sidebar {
-    width: 305px;
+    width: 300px;
     background-color: #D3D3D3;
     padding: 10px;
     margin: 10px;

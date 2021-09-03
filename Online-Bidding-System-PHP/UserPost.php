@@ -59,57 +59,29 @@ CloseCon($conn);
 
       var name = BidForm.name;
       var price = BidForm.price;
-      // var description = BidForm.description;
-      var Quantity = BidForm.qty;
-      // var sdate = BidForm.sdate;
       var edate = BidForm.edate;
-
+      $closing_time =$_POST['closing_time'];
       if (name.value == "") {
         window.alert("Please Enter Product Name.");
         name.focus();
         return false;
       }
-      // if (document.getElementById("catagory").value == "Select Catagory") {
-      //   alert("Please select Catagory"); 
-      //   document.getElementById("catagory").focus();
-      //   return false;
-      // }
       if (price.value == "") {
-        window.alert("Need Product Base Price.");
+        window.alert("Need Product Base Price");
         price.focus();
         return false;
       }
-      // if (description.value == "") {
-      //   window.alert("Please Give Pruduct Description");
-      //   description.focus();
-      //   return false;
-      // }
-      // if (Quantity.value == "") {
-      //   window.alert("Please Enter Product Quantity");
-      //   Quantity.focus();
-      //   return false;
-      // }
-      // if (sdate.value == "") {
-      //   window.alert("Please Enter Start Date For Bid");
-      //   Quantity.focus();
-      //   return false;
-      // }
       if (edate.value == "") {
-        window.alert("Please Enter End Date For Bid");
+        window.alert("Please Enter End Date For product bid");
         Quantity.focus();
         return false;
       }
-      $datenow = date("Y-m-d");
-      if (sdate < datenow) {
+      $datenow = strtotime(date("Y-m-d H:i:s"));
+      if ($closing_time <= $datenow) {
         window.alert("wrong date format");
-        Quantity.focus();
+        edate.focus();
         return false;
       }
-      // if (edate < datenow || edate < sdate) {
-      //   window.alert("wrong date format");
-      //   Quantity.focus();
-      //   return false;
-      // }
       return true;
     }
   </script>
@@ -121,12 +93,10 @@ CloseCon($conn);
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-
-    $seller = $_SESSION['email'];
     $name = $_POST['name'];
     $price = $_POST['price'];
     $closing_time = $_POST['edate'];
-    // $ProductStatus = 'No';
+    $seller = $_SESSION['email'];
 
     // $destination = "ProductPhoto/" . $_FILES['Cpicture']['name'];
     // $filename    = $_FILES['Cpicture']['tmp_name'];
@@ -170,12 +140,12 @@ CloseCon($conn);
 
             <div class="form-group">
               <label class="control-label" for="signupEmail">Priduct Price</label>
-              <input type="text" name="price" maxlength="50" class="form-control" required>
+              <input type="number" name="price" maxlength="50" class="form-control" required>
             </div>
 
             <div class="form-group">
-              <label class="control-label">End Date</label>
-              <input type="date" name="edate" maxlength="50" class="form-control" required>
+              <label class="control-label">Closing Time</label>
+              <input type="datetime-local" name="edate" maxlength="50" class="form-control" required>
             </div>
             <!-- <div class="form-group">
               <label class="control-label">Product Picture</label>

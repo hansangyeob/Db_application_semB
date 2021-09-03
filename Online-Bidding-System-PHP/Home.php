@@ -1,4 +1,3 @@
-<!-- https://github.com/rmzn17/Online-Bidding-System-PHP- -->
 <?php
 session_start();
 include 'DatabaseConnection.php';
@@ -24,7 +23,7 @@ while ($row = mysqli_fetch_array($result)) {
 
     $buyer = $row['Buyer'];
 
-    if ($buyer == "Null") {
+    if ($buyer == "null") {
       $seller = $row['email'];
       $ProductName = $row['p_name'];
 
@@ -176,12 +175,15 @@ while ($row = mysqli_fetch_array($result)) {
               echo $row['p_name'];
               echo "</b>";
               echo "</h4>";
-
-              // echo $row['Description'];
               echo "<br>";
+              echo "Price : ";
               echo "<b>";
-              echo "Price: ";
               echo $row['price_min'];
+              echo "</b>";
+              echo "<br>";
+              echo "Closing Time : ";
+              echo "<b>";
+              echo $edate;
               echo "</b>";
               echo "<br>";
 
@@ -203,7 +205,6 @@ while ($row = mysqli_fetch_array($result)) {
       <div class="Semisidebar clear">
         <h2>Sold Product</h2>
         <?php
-
         $query = "select * from auction_product where Status='Yes'";
         $Result = mysqli_query(connection(), $query);
         $break = 0;

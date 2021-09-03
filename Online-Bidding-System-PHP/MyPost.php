@@ -130,7 +130,7 @@ CloseCon($conn);
     echo '<th>ID</th>';
     echo '<th>Product Name</th>';
     echo '<th>Price</th>';
-    echo '<th>End Date</th>';
+    echo '<th>Closing Time</th>';
     echo '<th>Sold</th>';
     echo '</tr>';
     echo '</thead>';

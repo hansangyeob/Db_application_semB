@@ -56,7 +56,9 @@
 
     $postbuyer = $rw['buyer'];
     $productname = $rw['p_name'];
-
+    
+    echo $postbuyer;
+    echo $productname;
     $message = "Dear ".$postbuyer . ", Someone Bid heigher than your Bid price on product" . $productname . '! , You Can Bid Again This Product. ';
 
     $insert = "INSERT INTO notification(n_id,buyer,note,status) VALUES(0,'$postbuyer','$message','Yes')";
@@ -77,7 +79,8 @@
 
     $email = $_SESSION['email'];
     $id = $_GET['bid'];
-
+  //  echo $email;
+  
     $query = "SELECT * FROM auction_product WHERE p_id ='$id'";
 
     $Result = mysqli_query(connection(), $query);
@@ -97,9 +100,9 @@
       $row = mysqli_fetch_array($Result);
       $Price = $row['price_min'];
 
-      $price1 = $Price + 100;
-      $price2 = $Price + 200;
-      $price3 = $Price + 300;
+      $price1 = $Price + 50;
+      $price2 = $Price + 100;
+      $price3 = $Price + 200;
       $query = "SELECT * FROM auction_product WHERE p_id='$id'";
       $Result = mysqli_query(connection(), $query);
       $break = 0;
