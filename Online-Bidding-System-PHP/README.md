@@ -1,3 +1,8 @@
 # Online-Bidding-System-PHP
-An Online Auction, where users can sell or bid for products through the internet. 
-Tools and Technology: PHP,MYSQL,JAVASCRIPT,BOOTSTRAP,HTML,CSS
+
+How to use
+
+1.Upload the `databases.spl` to your local host.
+
+2.Change `DatabaseConnection.php` to your setting.
+
