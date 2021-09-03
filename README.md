@@ -6,6 +6,6 @@ How to use
 
 2.Change `DatabaseConnection.php` to your setting.
 
-3. For admin,
- ID: admin@admin.com
- PASSWORD: 1234
+3. For admin login,
+- ID: admin@admin.com
+- PASSWORD: 1234
