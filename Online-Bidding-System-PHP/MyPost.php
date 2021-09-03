@@ -117,7 +117,6 @@ CloseCon($conn);
 
 
   <?php
-
   $seller = $_SESSION['email'];
 
   $query = "SELECT * FROM auction_product WHERE seller='$seller'";
@@ -127,6 +126,7 @@ CloseCon($conn);
     echo '<table class="data-table">';
     echo '<thead>';
     echo '<tr>';
+    echo '<th>Picture</th>';
     echo '<th>ID</th>';
     echo '<th>Product Name</th>';
     echo '<th>Price</th>';
@@ -138,29 +138,32 @@ CloseCon($conn);
     echo '<tbody>';
 
     while ($row = mysqli_fetch_array($Rows)) {
-
-      echo '<tr>
-            <td>' . $row['p_id'] . '</td>
-            <td>' . $row['p_name'] . '</td>
-            <td>' . $row['price_min'] . '</td>
-            <td>' . $row['closing_time'] . '</td>
-            <td>' . $row['status'] . '</td>
-                </tr>';
-    }
-  } else {
-    echo "<script> window.alert('You Have Not Any Post Yet');</script>";
-  }
-  echo '</tbody>';
-
   ?>
+      <tr>
+        <td> <img src="<?php echo $row['picture']; ?>" width="100" height="100"></td>
+        <td> <?php echo $row['p_id']; ?></td>
+        <td> <?php echo $row['p_name']; ?></td>
+        <td> <?php echo $row['price_min']; ?> </td>
+        <td> <?php echo $row['closing_time']; ?></td>
+        <td> <?php echo $row['status']; ?> </td>
+      </tr>
+  <?php
+      // }else {
+
+      // <script> window.alert('You Have Not Any Post Yet');</script>
+      // }
+    }
+  }
+  ?>
+
+  </tbody>
+
+
   <?php
   require("Header.php");
   ?>
 
   <p id="heading">Your Post</p>
-  <center>
-
-  </center>
 
 
 

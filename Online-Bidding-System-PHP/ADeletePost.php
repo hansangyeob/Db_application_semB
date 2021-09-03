@@ -116,7 +116,7 @@ CloseCon($conn);
     <table class="data-table">
       <thead>
         <tr>
-          <!-- <th>Photo</th> -->
+          <th>Product</th>
           <th>ID</th>
           <th>Name</th>
           <th>Price</th>
@@ -136,9 +136,9 @@ CloseCon($conn);
         $Result = mysqli_query(connection(), $query);
         while ($row = mysqli_fetch_array($Result)) {
           echo "<tr>";
-          // echo "<td>";
-          // // echo "<img style='width:100px;height:100px' src='" . $row['Image'] . "'>";
-          // echo "</td>";
+          echo "<td>";
+          echo "<img style='width:100px;height:100px' src='" . $row['picture'] . "'>";
+          echo "</td>";
           echo "<td>";
           echo $row['p_id'];
           echo "</td>";

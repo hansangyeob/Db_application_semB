@@ -163,12 +163,10 @@ while ($row = mysqli_fetch_array($result)) {
 
             $edate = $row['closing_time'];
             if ($edate >= $datenow) {
-              // echo '<td>';
-              // echo "<img src='" . $row['Image'] . "' width='170px' height='220px'><br>";
-              // echo '</td>';
               echo '<td>';
-              // echo "<h2> Description</h2>";
-
+              echo "<img src='" . $row['picture'] . "' width='170px' height='200px'><br>";
+              echo '</td>';
+              echo '<td>';
               echo "<h4>";
               echo "<b>";
               $name = $row['p_id'];

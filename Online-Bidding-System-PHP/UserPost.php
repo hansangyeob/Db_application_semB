@@ -60,7 +60,7 @@ CloseCon($conn);
       var name = BidForm.name;
       var price = BidForm.price;
       var edate = BidForm.edate;
-      $closing_time =$_POST['closing_time'];
+      $closing_time = $_POST['closing_time'];
       if (name.value == "") {
         window.alert("Please Enter Product Name.");
         name.focus();
@@ -98,12 +98,22 @@ CloseCon($conn);
     $closing_time = $_POST['edate'];
     $seller = $_SESSION['email'];
 
-    // $destination = "ProductPhoto/" . $_FILES['Cpicture']['name'];
-    // $filename    = $_FILES['Cpicture']['tmp_name'];
-    // move_uploaded_file($filename, $destination);
+    // $filename = $_FILES["uploadfile"]["name"];
+    // $tempname = $_FILES["uploadfile"]["tmp_name"];
+    // $folder = "image/" . basename($filename);
+    
+    // if (move_uploaded_file($tempname, $folder)) {
+    //   $msg = "Image uploaded successfully";
+    // } else {
+    //   $msg = "Failed to upload image";
+    // }
+    // echo $msg;
+    $destination = "ProductPhoto/" . $_FILES['Cpicture']['name'];
+    $filename    = $_FILES['Cpicture']['tmp_name'];
+    move_uploaded_file($filename, $destination);
 
-    $query = "INSERT INTO auction_product(p_id,p_name,price_min,closing_time,seller,buyer,status)
-    VALUES('0','$name','$price','$closing_time','$seller','null','No')";
+    $query = "INSERT INTO auction_product(p_id,p_name,price_min,closing_time,seller,buyer,status,picture)
+    VALUES('0','$name','$price','$closing_time','$seller','null','No','$destination')";
 
     $exe = mysqli_query(connection(), $query);
     if (!$exe) {
@@ -147,10 +157,10 @@ CloseCon($conn);
               <label class="control-label">Closing Time</label>
               <input type="datetime-local" name="edate" maxlength="50" class="form-control" required>
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
               <label class="control-label">Product Picture</label>
               <input type="file" name="Cpicture">
-            </div> -->
+            </div>
 
             <div class="form-group">
 
