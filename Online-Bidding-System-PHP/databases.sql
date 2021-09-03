@@ -32,6 +32,7 @@ create table auction_product(
     seller varchar(255),
     buyer varchar(255),
     status varchar(255),
+    picture BLOB,
     primary key (p_id)
 );
 create table admin(
@@ -106,7 +107,6 @@ VALUES (
         null,
         '200'
     );
--- INSERT INTO `auction_product`(`p_id`, `p_name`, `price_min`, `closing_time`,`seller`,`buyer`,`status`) VALUES (null,'iPhone11',50,now());
--- INSERT INTO `auction_product`(`p_id`, `p_name`, `price_min`, `closing_time`,`seller`,`buyer`,`status`) VALUES (null,'iPhone13',100,now());
+
 INSERT INTO `admin`(`a_email`, `a_password`)
 VALUES ('admin@admin.com', '1234');
