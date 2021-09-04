@@ -32,6 +32,7 @@ create table auction_product(
     seller varchar(255),
     buyer varchar(255),
     status varchar(255),
+    picture BLOB,
     primary key (p_id)
 );
 create table admin(
