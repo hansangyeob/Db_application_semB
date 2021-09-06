@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bbc74f9d-da0d-42e1-9d37-decd30098b3b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Data/db-test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/db-test.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1xlExTKOj8Z4C88dJRFf0dXbtmM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlserver&#10;mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager" selected="Database Script.db-test.sql">
+    <configuration type="DatabaseScript" editBeforeRun="true" singleton="false" temporary="true">
+      <script-file value="$PROJECT_DIR$/Data/db-test.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+    <configuration name="db-test.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/Data/db-test.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.db-test.sql" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bbc74f9d-da0d-42e1-9d37-decd30098b3b" name="Default Changelist" comment="" />
+      <created>1630921520018</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630921520018</updated>
+      <workItem from="1630921522366" duration="183000" />
+      <workItem from="1630922840936" duration="1051000" />
+      <workItem from="1630924932039" duration="2695000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="293" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1630928722219">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state x="293" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.1536.834@0.30.1536.834" timestamp="1630928722219" />
+    <state x="484" y="96" key="#db-test.sql" timestamp="1630925192022">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state x="484" y="96" key="#db-test.sql/0.30.1536.834@0.30.1536.834" timestamp="1630925192022" />
+    <state x="484" y="96" key="#ga02002" timestamp="1630921654572">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state x="484" y="96" key="#ga02002/0.30.1536.834@0.30.1536.834" timestamp="1630921654572" />
+    <state x="484" y="96" key="#joo" timestamp="1630921604578">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state x="484" y="96" key="#joo/0.30.1536.834@0.30.1536.834" timestamp="1630921604578" />
+    <state width="1024" height="214" key="GridCell.Tab.0.bottom" timestamp="1630938620713">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state width="1024" height="214" key="GridCell.Tab.0.bottom/0.30.1536.834@0.30.1536.834" timestamp="1630938620713" />
+    <state width="1024" height="214" key="GridCell.Tab.0.center" timestamp="1630938620711">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state width="1024" height="214" key="GridCell.Tab.0.center/0.30.1536.834@0.30.1536.834" timestamp="1630938620711" />
+    <state width="1024" height="214" key="GridCell.Tab.0.left" timestamp="1630938620707">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state width="1024" height="214" key="GridCell.Tab.0.left/0.30.1536.834@0.30.1536.834" timestamp="1630938620707" />
+    <state width="1024" height="214" key="GridCell.Tab.0.right" timestamp="1630938620712">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state width="1024" height="214" key="GridCell.Tab.0.right/0.30.1536.834@0.30.1536.834" timestamp="1630938620712" />
+    <state width="265" height="457" key="HiddenNamespacesPopup" timestamp="1630925550754">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state width="265" height="457" key="HiddenNamespacesPopup/0.30.1536.834@0.30.1536.834" timestamp="1630925550754" />
+    <state x="607" y="282" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1630925429414">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state x="607" y="282" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.30.1536.834@0.30.1536.834" timestamp="1630925429414" />
+    <state x="477" y="180" width="581" height="534" key="find.popup" timestamp="1630938765629">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state x="477" y="180" width="581" height="534" key="find.popup/0.30.1536.834@0.30.1536.834" timestamp="1630938765629" />
+  </component>
+</project>
