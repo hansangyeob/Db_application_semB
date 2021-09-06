@@ -25,7 +25,6 @@ create table customer_account (
     unique (email, phone, i_num)
 );
 
-drop table auction_product;
 CREATE TABLE auction_product (
   p_id mediumint(8) unsigned NOT NULL auto_increment,
   p_name varchar(255) NOT NULL,
@@ -52,7 +51,6 @@ create table notification(
     primary key(n_id)
 );
 
-drop table bids;
 create table bids(
     b_id int(8) not null auto_increment,
     bidder varchar(255),
