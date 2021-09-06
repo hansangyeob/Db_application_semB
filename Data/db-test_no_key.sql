@@ -136,29 +136,3 @@ INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VAL
 INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (8,'Karmen',3,8.38,'2020-09-26 02:08:38');
 INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (9,'Hube',5,9.32,'2022-03-14 02:54:21');
 INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (10,'Lottie',10,1.42,'2022-09-06 01:48:48');
-
--- INDEX
-# CREATE INDEX
-
--- PARTITIONING
-CREATE TABLE CUSTOMER_ACCOUNT(
-    i_num INT not null,
-	first_name VARCHAR(50) not null,
-	last_name VARCHAR(50) not null,
-	email VARCHAR(50) not null,
-	phone VARCHAR(50) not null,
-	password VARCHAR(50) not null,
-	address VARCHAR(50),
-	city VARCHAR(50),
-	country VARCHAR(50),
-	profile_pic blob,
-	balance DECIMAL(8,2)  not null,
-    primary key (i_num),
-    unique (email, phone, i_num)
-)PARTITION BY RANGE (balance)(
-    PARTITION P0 VALUES LESS THAN (201),
-    PARTITION P1 VALUES LESS THAN (401),
-    PARTITION P2 VALUES LESS THAN (601),
-    PARTITION P3 VALUES LESS THAN (801),
-    PARTITION P4 VALUES LESS THAN (MAXVALUE)
-    )
