@@ -42,9 +42,9 @@ CREATE TABLE `branch` (
   `b_name` varchar(50),
   `address` varchar(255) default NULL,
   `hotline_num` varchar(100) default NULL,
-  PRIMARY KEY (`b_code`),
-  unique (b_code, b_name)
+  PRIMARY KEY (`b_code`)
 ) engine = innoDB;
+
 
 create table customer_account (
 	i_num INT not null,
@@ -58,10 +58,8 @@ create table customer_account (
 	country VARCHAR(50),
 	profile_pic blob,
 	balance DECIMAL(8,2)  not null,
-	registered_branch mediumint(8),
-    primary key (i_num),
-    unique (email, phone, i_num),
-    index (b_code),
+	registered_branch mediumint(8) not null,
+	primary key (i_num),
     foreign key (registered_branch) references branch(b_code)
 )    Engine = InnoDB;
 
