@@ -69,6 +69,7 @@ create table customer_account (
     foreign key (registered_branch) references branch(b_code)
 )    Engine = InnoDB;
 
+CREATE INDEX idx_balance ON customer_account(balance ASC);
 
 CREATE TABLE auction_product (
   `p_id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -83,6 +84,8 @@ CREATE TABLE auction_product (
 ,foreign key (seller) references customer_account(i_num),
 foreign key (buyer) references customer_account(i_num)
 ) AUTO_INCREMENT=1;
+
+CREATE INDEX idx_price_min ON auction_product(price_min ASC);
 
 create table admin(
     a_email varchar(255),
