@@ -125,13 +125,14 @@ create table bids(
   primary key (b_id)
 );
 
-INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (1,'Nero',3,6.22,'2020-11-17 16:55:15');
-INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (2,'Zane',7,5.83,'2022-01-06 14:00:19');
-INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (3,'Jasmine',7,5.64,'2021-03-05 19:59:08');
-INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (4,'Octavia',9,5.40,'2021-07-24 23:54:39');
-INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (5,'Noelle',2,2.38,'2022-01-26 19:21:50');
-INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (6,'Alfonso',7,5.01,'2022-07-10 08:41:28');
-INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (7,'Gregory',6,4.75,'2021-10-21 16:53:50');
-INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (8,'Kylan',3,8.38,'2020-09-26 02:08:38');
-INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (9,'Hayden',5,9.32,'2022-03-14 02:54:21');
-INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (10,'Whoopi',10,1.42,'2022-09-06 01:48:48');
+
+INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (1,'Demetria',3,6.22,'2020-11-17 16:55:15');
+INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (2,'Blaire',7,5.83,'2022-01-06 14:00:19');
+INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (3,'Roberto',7,5.64,'2021-03-05 19:59:08');
+INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (4,'Rolando',9,5.40,'2021-07-24 23:54:39');
+INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (5,'Issi',2,2.38,'2022-01-26 19:21:50');
+INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (6,'Denny',7,5.01,'2022-07-10 08:41:28');
+INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (7,'Chaddy',6,4.75,'2021-10-21 16:53:50');
+INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (8,'Karmen',3,8.38,'2020-09-26 02:08:38');
+INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (9,'Hube',5,9.32,'2022-03-14 02:54:21');
+INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (10,'Lottie',10,1.42,'2022-09-06 01:48:48');
