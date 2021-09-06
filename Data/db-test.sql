@@ -37,7 +37,13 @@
 create database test_no_key;
 use test;
 
-CREATE TABLE `branch` (
+drop table branch;
+drop table customer_account;
+drop table auction_product;
+drop table notification;
+drop table bids;
+
+CREATE TABLE branch (
   `b_code` mediumint(8) unsigned NOT NULL auto_increment,
   `b_name` varchar(50),
   `address` varchar(255) default NULL,
@@ -47,7 +53,7 @@ CREATE TABLE `branch` (
 
 
 create table customer_account (
-	i_num INT not null,
+	i_num VARCHAR(255) not null,
 	first_name VARCHAR(50) not null,
 	last_name VARCHAR(50) not null,
 	email VARCHAR(50) not null,
@@ -58,7 +64,7 @@ create table customer_account (
 	country VARCHAR(50),
 	profile_pic blob,
 	balance DECIMAL(8,2)  not null,
-	registered_branch mediumint(8) not null,
+	registered_branch mediumint(8) unsigned not null auto_increment,
 	primary key (i_num),
     foreign key (registered_branch) references branch(b_code)
 )    Engine = InnoDB;
@@ -66,7 +72,7 @@ create table customer_account (
 
 CREATE TABLE auction_product (
   `p_id` mediumint(8) unsigned NOT NULL auto_increment,
-  `p_name` varchar(255) NOT NULL,
+  `p_name` varchar(255) NOT NULL, #primary key,,,여야 foreign key 묶을 수 있ㄷㅏ..
   `price_min` decimal NOT NULL,
   `closing_time` datetime,
   `seller` varchar(255),
@@ -78,27 +84,27 @@ CREATE TABLE auction_product (
 foreign key (buyer) references customer_account(i_num)
 ) AUTO_INCREMENT=1;
 
-
 create table admin(
     a_email varchar(255),
     a_password varchar(255)
 );
 
+
 create table notification(
     n_id int(8) AUTO_INCREMENT,
     buyer varchar(255),
     note varchar(255),
-    status varchar(255),
+    status varchar(4),
     primary key(n_id)
-    ,foreign key (buyeR) references customer_account(i_num)
+    ,foreign key (buyer) references customer_account(i_num)
 );
 
 
-drop table bids;
+
 create table bids(
-    b_id int(8) not null auto_increment,
-    bidder varchar(255),
-    product_id mediumint(8),
+    b_id int(8) not null,
+    bidder varchar(255) NOT NULL,
+    product_id mediumint(8) unsigned NOT NULL auto_increment,
     offer_price decimal(8,2),
     offer_time datetime,
   primary key (b_id)
@@ -119,7 +125,8 @@ INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (9,'Gala
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (10,'Méru','Ap #560-2240 Gravida St.','3131096876');
 
 
-
+drop table branch;
+drop table customer_account;
 -- INSERT DATA INTO 'CUSTOMER_ACCOUNT' TABLE
 insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (1, 'Demetria', 'Orniz', 'dorniz0@forbes.com', '7788169754', '2MTnEm5IJ', '8121 Arrowood Place', 'Izmaylovo', 'Russia', 'http://dummyimage.com/237x100.png/ff4444/ffffff', 91.8);
 insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (2, 'Blaire', 'Peirazzi', 'bpeirazzi1@pinterest.com', '4803845551', 'gaUjLyl3BLU', '4 Memorial Lane', 'Baishan', 'China', 'http://dummyimage.com/179x100.png/5fa2dd/ffffff', 804.14);

@@ -1,4 +1,4 @@
-
+drop table branch;
 CREATE TABLE branch (
   b_code mediumint(8) unsigned NOT NULL auto_increment,
   b_name varchar(50),
@@ -7,7 +7,7 @@ CREATE TABLE branch (
   PRIMARY KEY (b_code),
   unique (b_code, b_name)
 ) AUTO_INCREMENT=1;
-
+drop table customer_account;
 create table customer_account (
 	i_num INT not null,
 	first_name VARCHAR(50) not null,
