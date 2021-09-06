@@ -60,6 +60,7 @@ create table customer_account (
 	balance DECIMAL(8,2)  not null,
     primary key (i_num),
     unique (email, phone, i_num),
+    foreign key (city) references branch(b_name)
 );
 
 CREATE TABLE auction_product (
@@ -70,7 +71,8 @@ CREATE TABLE auction_product (
   `seller` varchar(255),
   `buyer` varchar(255),
   `status` boolean,
-  PRIMARY KEY (`p_id`)
+  PRIMARY KEY (`p_id`),
+  foreign key (seller) references customer_account(first_name)
 ) AUTO_INCREMENT=1;
 -- no 'picture' in the table
 
@@ -84,8 +86,19 @@ create table notification(
     buyer varchar(255),
     note varchar(255),
     status varchar(255),
-    primary key(n_id)
+    primary key(n_id),
+    foreign key (buyer) references auction_product(buyer)
 );
+
+create table bids(
+    b_id int(8) auto_increment,
+    ㅠㅑㅇㅇ varchar(255),
+    p_id mediumint(8),
+    offer_price varchar(100),
+
+
+
+)
 
 -- INSERT DATA INTO 'BRANCH' TABLE
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (1,'Orlando','P.O. Box 637, 6345 Lacus. Ave','6326365471');
