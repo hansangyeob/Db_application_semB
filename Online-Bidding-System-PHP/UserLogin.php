@@ -87,20 +87,12 @@ CloseCon($conn);
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // $Server = "localhost";
-    // $username = "admin";
-    // $dbname = "db_a2";
-    // $psrd = "";
-    // $connection = mysqli_connect($Server, $username, $psrd, $dbname);
-
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     $query = "SELECT * FROM customer_account WHERE email='$email' and password='$password'";
 
-
     $Complete = mysqli_query(connection(), $query) or die("unable to connect");
-
 
     $Rows = mysqli_fetch_array($Complete);
 

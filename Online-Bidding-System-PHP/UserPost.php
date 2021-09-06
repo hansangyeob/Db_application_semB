@@ -101,16 +101,19 @@ CloseCon($conn);
     // $filename = $_FILES["uploadfile"]["name"];
     // $tempname = $_FILES["uploadfile"]["tmp_name"];
     // $folder = "image/" . basename($filename);
-    
-    // if (move_uploaded_file($tempname, $folder)) {
-    //   $msg = "Image uploaded successfully";
-    // } else {
-    //   $msg = "Failed to upload image";
-    // }
-    // echo $msg;
-    $destination = "ProductPhoto/" . $_FILES['Cpicture']['name'];
+
+
+
+    $destination = "pic/" . $_FILES['Cpicture']['name'];
     $filename    = $_FILES['Cpicture']['tmp_name'];
     move_uploaded_file($filename, $destination);
+
+    if (move_uploaded_file($filename, $destination)) {
+      $msg = "Image uploaded successfully";
+    } else {
+      $msg = "Failed to upload image";
+    }
+    echo $msg;
 
     $query = "INSERT INTO auction_product(p_id,p_name,price_min,closing_time,seller,buyer,status,picture)
     VALUES('0','$name','$price','$closing_time','$seller','null','No','$destination')";
