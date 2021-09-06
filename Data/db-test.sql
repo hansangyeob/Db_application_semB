@@ -34,9 +34,8 @@
 --     picture BLOB,
 --     primary key (p_id)
 -- );
-drop database test;
-create database test;
-use test;
+create database test_no_key;
+use test_no_key;
 
 CREATE TABLE `branch` (
   `b_code` mediumint(8) unsigned NOT NULL auto_increment,
@@ -47,6 +46,7 @@ CREATE TABLE `branch` (
   unique (b_code, b_name)
 ) AUTO_INCREMENT=1;
 
+
 create table customer_account (
 	i_num INT not null,
 	first_name VARCHAR(50) not null,
@@ -54,6 +54,7 @@ create table customer_account (
 	email VARCHAR(50) not null,
 	phone VARCHAR(50) not null,
 	password VARCHAR(50) not null,
+	branch mediumint,
 	address VARCHAR(50),
 	city VARCHAR(50),
 	country VARCHAR(50),
@@ -61,7 +62,7 @@ create table customer_account (
 	balance DECIMAL(8,2)  not null,
     primary key (i_num),
     unique (email, phone, i_num)
-#     ,foreign key (city) references branch(b_name)
+    ,foreign key (branch) references branch(b_code)
 );
 
 CREATE TABLE auction_product (
@@ -74,7 +75,7 @@ CREATE TABLE auction_product (
   picture BLOB,
   `status` boolean,
   PRIMARY KEY (`p_id`)
-#   ,foreign key (seller) references customer_account(i_num)
+  ,foreign key (seller) references customer_account(i_num)
 ) AUTO_INCREMENT=1;
 
 create table admin(
@@ -84,23 +85,24 @@ create table admin(
 
 create table notification(
     n_id int(8) AUTO_INCREMENT,
-    buyer varchar(255),
+    buyer_id varchar(255),
     note varchar(255),
     status varchar(255),
     primary key(n_id)
-#     ,foreign key (buyer) references auction_product(buyer)
+    ,foreign key (buyer_id) references customer_account(i_num)
 );
 
 create table bids(
     b_id int(8) auto_increment,
     bidder varchar(255),
-    p_id mediumint(8),
+    product_id mediumint(8),
     offer_price varchar(100),
     offer_time datetime,
     primary key (b_id)
-#     ,foreign key (bidder) references auction_product(buyer),
-#     foreign key (b_id) references auction_product(p_id)
+    ,foreign key (bidder) references customer_account(i_num),
+    foreign key (product_id) references auction_product(p_id)
 );
+
 
 -- INSERT DATA INTO 'BRANCH' TABLE
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (1,'Orlando','P.O. Box 637, 6345 Lacus. Ave','6326365471');
@@ -113,6 +115,45 @@ INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (7,'Buda
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (8,'putrajaya','2871 Lectus Street','8174589596');
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (9,'Galapa','P.O. Box 618, 6603 Vivamus Road','9146735117');
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (10,'Méru','Ap #560-2240 Gravida St.','3131096876');
+-- write the queries refers to [b_name -> customer_account (city)]
+
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (1, 'Demetria', 'Orniz', 'dorniz0@forbes.com', '7788169754', '2MTnEm5IJ', '8121 Arrowood Place', 'Izmaylovo', 'Russia', 'http://dummyimage.com/237x100.png/ff4444/ffffff', 91.8);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (2, 'Blaire', 'Peirazzi', 'bpeirazzi1@pinterest.com', '4803845551', 'gaUjLyl3BLU', '4 Memorial Lane', 'Baishan', 'China', 'http://dummyimage.com/179x100.png/5fa2dd/ffffff', 804.14);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (3, 'Marquita', 'Skinner', 'mskinner2@t.co', '4076594684', 'a44i1GOM', '48404 Atwood Street', 'Orlando', 'United States', 'http://dummyimage.com/137x100.png/5fa2dd/ffffff', 887.42);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (4, 'Berke', 'Gable', 'bgable3@freewebs.com', '7899825450', '0T6nBEQM', '63613 Moose Terrace', 'Néa Ionía', 'Greece', 'http://dummyimage.com/159x100.png/dddddd/000000', 860.61);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (5, 'Roberto', 'Kovalski', 'rkovalski4@google.com.au', '6951852041', 'baBP9omQQ6', '69760 Hansons Hill', 'Río de Oro', 'Colombia', 'http://dummyimage.com/135x100.png/dddddd/000000', 871.27);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (6, 'Shawnee', 'Masurel', 'smasurel5@wired.com', '6886452552', 'SvqSSw', '270 Sunfield Hill', 'Lukou', 'China', 'http://dummyimage.com/150x100.png/ff4444/ffffff', 725.72);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (7, 'Guss', 'Bartlet', 'gbartlet6@addthis.com', '9805219964', '8LC6GVarhZq', '19862 Springview Crossing', 'Jingyu', 'China', 'http://dummyimage.com/213x100.png/5fa2dd/ffffff', 453.96);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (8, 'Rolando', 'Dacca', 'rdacca7@census.gov', '4816331206', '6HpCYOf', '36399 Autumn Leaf Pass', 'Fuzhai', 'China', 'http://dummyimage.com/207x100.png/ff4444/ffffff', 585.19);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (9, 'Issi', 'Exposito', 'iexposito8@geocities.com', '8424541241', 'GAzlJVRMUB', '14 Calypso Hill', 'Hwaseong-si', 'South Korea', 'http://dummyimage.com/127x100.png/5fa2dd/ffffff', 964.5);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (10, 'Denny', 'MacCorley', 'dmaccorley9@jiathis.com', '4802078830', 'GNHlc32gZjF', '247 Lake View Lane', 'Mesa', 'United States', 'http://dummyimage.com/219x100.png/dddddd/000000', 283.44);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (11, 'Laurent', 'Tilzey', 'ltilzeya@github.com', '5071839114', 'yYSlGd', '6077 Vahlen Hill', 'Osby', 'Sweden', 'http://dummyimage.com/106x100.png/cc0000/ffffff', 250.29);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (12, 'Chaddy', 'Keasy', 'ckeasyb@uol.com.br', '1733761136', 'ABgX8armqEH', '82 Mccormick Point', 'Pitai', 'Indonesia', 'http://dummyimage.com/120x100.png/cc0000/ffffff', 294.38);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (13, 'Malinda', 'Tabour', 'mtabourc@blinklist.com', '4281820296', 'ar8nUOV', '3157 Park Meadow Road', 'Calvão', 'Portugal', 'http://dummyimage.com/177x100.png/ff4444/ffffff', 337.84);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (14, 'Chance', 'Kidney', 'ckidneyd@reference.com', '9724774908', 'tk4vlJl', '5305 Crowley Hill', 'Hucheng', 'China', 'http://dummyimage.com/138x100.png/dddddd/000000', 346.38);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (15, 'Karmen', 'Messum', 'kmessume@craigslist.org', '6861300324', 'nLJGcCbtZ7J', '9056 Londonderry Junction', 'Kanie', 'Japan', 'http://dummyimage.com/149x100.png/ff4444/ffffff', 893.11);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (16, 'Claudio', 'Carvil', 'ccarvilf@nhs.uk', '5815471246', 'V6acEuPQNvh', '123 Morning Crossing', 'Ar Rumaythah', 'Iraq', 'http://dummyimage.com/196x100.png/ff4444/ffffff', 647.99);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (17, 'Chandal', 'Wiltshire', 'cwiltshireg@wikimedia.org', '7314661428', 'Xe7yvIgULu', '08534 Mendota Circle', 'Perniö', 'Finland', 'http://dummyimage.com/183x100.png/dddddd/000000', 699.32);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (18, 'Hube', 'Huncoot', 'hhuncooth@nps.gov', '2916540633', 'MD8jF6p', '43246 Nancy Court', 'Shijie', 'China', 'http://dummyimage.com/107x100.png/dddddd/000000', 606.75);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (19, 'Gaylord', 'Twatt', 'gtwatti@netvibes.com', '3121243341', '07NJz5zeiqs', '45952 Ramsey Crossing', 'Denton', 'United Kingdom', 'http://dummyimage.com/249x100.png/cc0000/ffffff', 358.0);
+insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (20, 'Lottie', 'Fallon', 'lfallonj@thetimes.co.uk', '5655279583', '0erWD32r8hd', '25 Erie Pass', 'Angao', 'China', 'http://dummyimage.com/224x100.png/dddddd/000000', 815.84);
+
+-- INSERT DATA INTO 'AUCTION_PRODUCT' TABLE
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (1,'Dejesus','9.94','2025-09-19 12:11:17','Harlan','Geoffrey','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (2,'Leblanc','0.22','2024-06-17 22:09:42','Barry','Chloe','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (3,'Santiago','5.04','2022-06-17 03:46:02','Bruno','Haviva','Yes');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (4,'Bond','4.10','2026-02-12 02:02:51','Barrett','Ariel','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (5,'Parrish','5.32','2027-10-16 12:26:28','Giacomo','Florence','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (6,'Bruce','8.89','2027-10-13 05:55:27','Lucy','Cally','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (7,'Richards','1.99','2022-02-16 08:17:18','Velma','Lance','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (8,'Vaughan','6.36','2023-06-24 05:32:59','Christen','Ulla','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (9,'Weiss','9.53','2033-10-02 12:59:04','Avye','Quinlan','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (10,'Gibson','9.83','2021-07-15 06:53:39','Danielle','Brandon','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (11,'Warren','1.05','2033-05-16 08:48:15','Jescie','Orlando','Yes');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (12,'Alexander','4.80','2023-07-15 05:50:27','Carlos','Griffith','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (13,'Delaney','9.12','2023-06-06 01:03:17','Bruce','Kato','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (14,'Cooper','3.30','2022-01-25 04:06:07','Unity','Griffin','No');
+INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (15,'Finley','8.85','2033-09-19 16:21:15','Meghan','Destiny','No');
 
 insert into admin (a_email, a_password) values ('jsawnwy0@tuttocitta.it', 'gPKc9Tz');
 insert into admin (a_email, a_password) values ('pklais1@vistaprint.com', 'xCdpnDycKcy');
@@ -120,103 +161,29 @@ insert into admin (a_email, a_password) values ('fpaulitschke2@opensource.org', 
 insert into admin (a_email, a_password) values ('bswidenbank3@ehow.com', 'J64ZiV');
 insert into admin (a_email, a_password) values ('awight4@nsw.gov.au', 'hq44Lz8y2khN');
 
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (1,'Inez','tortor nibh sit amet orci.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (2,'Cheyenne','Vestibulum ante ipsum primis in faucibus orci luctus et ultrices','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (3,'Sarah','dignissim lacus. Aliquam rutrum lorem ac risus.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (4,'Leila','est. Nunc ullamcorper, velit in','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (5,'Alvin','Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (6,'Dora','vitae','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (7,'Gisela','porttitor scelerisque neque. Nullam nisl. Maecenas','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (8,'Zeph','tincidunt, neque vitae semper egestas, urna justo faucibus','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (9,'Felix','porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (10,'Ina','vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (11,'Kadeem','at augue id ante','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (12,'Hayfa','in felis. Nulla tempor','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (13,'John','dolor. Fusce feugiat.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (14,'Candice','nisi sem semper erat, in consectetuer ipsum nunc id enim.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (15,'Donna','rhoncus. Nullam velit dui, semper et,','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (16,'Maryam','placerat.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (17,'Jocelyn','Integer id magna et','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (18,'Hedwig','pede blandit congue. In scelerisque scelerisque dui. Suspendisse ac','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (19,'Conan','molestie tortor nibh sit amet orci.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (20,'Shannon','sit amet, risus. Donec nibh enim, gravida sit amet,','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (21,'Leigh','malesuada vel, convallis in,','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (22,'Yvonne','sagittis augue, eu','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (23,'Craig','Praesent interdum ligula eu enim. Etiam imperdiet dictum magna.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (24,'Wang','auctor, nunc nulla vulputate dui, nec','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (25,'Bianca','a tortor. Nunc commodo auctor velit. Aliquam nisl.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (26,'Jayme','dictum cursus. Nunc mauris elit, dictum eu,','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (27,'Larissa','fringilla mi lacinia mattis. Integer eu lacus. Quisque imperdiet,','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (28,'Laurel','vel pede blandit congue. In scelerisque scelerisque dui. Suspendisse ac','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (29,'Hoyt','Suspendisse eleifend.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (30,'Irene','purus mauris a nunc.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (31,'Brendan','purus gravida sagittis. Duis gravida. Praesent eu','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (32,'Astra','consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem,','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (33,'Basil','Nam porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (34,'Indigo','congue. In scelerisque','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (35,'Ocean','malesuada vel, venenatis vel, faucibus id, libero. Donec consectetuer','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (36,'Irma','sed, facilisis vitae, orci.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (37,'Quinn','eleifend.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (38,'Casey','Proin sed turpis nec mauris blandit','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (39,'Caleb','magna sed dui. Fusce aliquam, enim nec tempus','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (40,'Bradley','magna.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (41,'Megan','pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (42,'Teagan','elementum, lorem ut aliquam iaculis, lacus pede','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (43,'Emerson','egestas rhoncus. Proin nisl sem,','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (44,'Kaye','sit amet, risus. Donec nibh enim, gravida sit amet, dapibus','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (45,'Aladdin','ipsum dolor sit amet,','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (46,'Willow','vel, convallis in,','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (47,'Blair','velit egestas lacinia.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (48,'Kalia','tellus. Aenean egestas hendrerit','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (49,'Sawyer','ac mattis ornare, lectus','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (50,'Damon','facilisis facilisis, magna tellus','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (51,'Cain','arcu. Vestibulum ut eros non enim commodo hendrerit. Donec porttitor','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (52,'Uta','cursus purus. Nullam scelerisque neque sed sem egestas blandit.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (53,'Quincy','eros. Proin ultrices. Duis volutpat nunc','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (54,'Amity','risus. Donec','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (55,'Philip','nec metus','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (56,'Ray','fringilla ornare placerat, orci lacus vestibulum lorem, sit','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (57,'Lila','nonummy','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (58,'Axel','mauris, aliquam eu, accumsan sed, facilisis vitae,','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (59,'Aurora','vitae','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (60,'India','Integer urna. Vivamus molestie dapibus ligula. Aliquam erat','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (61,'Aaron','cursus purus. Nullam','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (62,'Amos','lacinia vitae, sodales at, velit.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (63,'Lane','purus ac tellus. Suspendisse sed dolor.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (64,'Galena','convallis convallis dolor. Quisque tincidunt pede ac urna.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (65,'Serena','interdum. Curabitur dictum. Phasellus in','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (66,'Aubrey','leo elementum sem, vitae aliquam eros turpis non enim. Mauris','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (67,'Blake','nonummy','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (68,'Camille','dui lectus rutrum urna, nec','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (69,'Demetrius','est.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (70,'Mara','ullamcorper, nisl arcu iaculis enim, sit','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (71,'Orson','nonummy ipsum non arcu. Vivamus sit amet risus.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (72,'Cassidy','dui, nec','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (73,'Sybill','elit. Nulla facilisi. Sed neque. Sed','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (74,'Sean','Vestibulum ante ipsum','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (75,'Kasper','adipiscing lobortis risus. In','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (76,'Jana','porttitor tellus non magna. Nam ligula','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (77,'Honorato','cursus purus. Nullam scelerisque neque sed sem egestas','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (78,'Aiko','luctus, ipsum leo elementum','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (79,'Alea','tincidunt','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (80,'Demetrius','nec tempus','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (81,'Maxwell','molestie tortor','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (82,'Quinlan','tempus mauris erat eget ipsum. Suspendisse','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (83,'Salvador','vel nisl. Quisque fringilla euismod enim.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (84,'Lev','sed dolor. Fusce mi lorem,','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (85,'Juliet','nec','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (86,'Beck','aliquet','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (87,'Tobias','in lobortis tellus justo sit amet nulla. Donec','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (88,'Armand','Vivamus nibh dolor, nonummy ac,','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (89,'Steel','sit amet risus. Donec egestas. Aliquam nec','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (90,'Malachi','magna. Suspendisse tristique neque venenatis lacus.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (91,'Caldwell','turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut lacus.','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (92,'Seth','libero est,','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (93,'Amir','dapibus ligula. Aliquam erat volutpat.','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (94,'September','pede. Nunc sed orci','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (95,'Wendy','Duis risus odio, auctor vitae, aliquet nec, imperdiet nec,','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (96,'Sydney','Etiam gravida molestie arcu. Sed','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (97,'Thomas','sed, hendrerit a,','Yes');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (98,'Claudia','ipsum. Suspendisse non leo. Vivamus nibh','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (99,'Octavia','cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam','No');
-INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (100,'Cameron','aliquet. Phasellus fermentum convallis ligula. Donec luctus','Yes');
+INSERT INTO `notification` (`n_id`,`buyer_id`,`note`,`status`) VALUES (1,'Inez','tortor nibh sit amet orci.','No');
+INSERT INTO `notification` (`n_id`,`buyer_id`,`note`,`status`) VALUES (2,'Cheyenne','Vestibulum ante ipsum primis in faucibus orci luctus et ultrices','Yes');
+INSERT INTO `notification` (`n_id`,`buyer_id`,`note`,`status`) VALUES (3,'Sarah','dignissim lacus. Aliquam rutrum lorem ac risus.','Yes');
+INSERT INTO `notification` (`n_id`,`buyer_ID`,`note`,`status`) VALUES (4,'Leila','est. Nunc ullamcorper, velit in','Yes');
+INSERT INTO `notification` (`n_id`,`buyer_ID`,`note`,`status`) VALUES (5,'Alvin','Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet','No');
+INSERT INTO `notification` (`n_id`,`buyer_ID`,`note`,`status`) VALUES (6,'Dora','vitae','No');
+INSERT INTO `notification` (`n_id`,`buyer_id`,`note`,`status`) VALUES (7,'Gisela','porttitor scelerisque neque. Nullam nisl. Maecenas','Yes');
+INSERT INTO `notification` (`n_id`,`buyer_ID`,`note`,`status`) VALUES (8,'Zeph','tincidunt, neque vitae semper egestas, urna justo faucibus','Yes');
+INSERT INTO `notification` (`n_id`,`buyer_id`,`note`,`status`) VALUES (9,'Felix','porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris','Yes');
+INSERT INTO `notification` (`n_id`,`buyer_id`,`note`,`status`) VALUES (10,'Ina','vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non','Yes');
+
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (1,'1 339','2022-03-16 09:15:30');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (2,'6 752','2019-09-26 07:42:59');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (3,'5 452','2020-12-05 21:33:12');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (4,'1 054','2019-12-20 03:28:20');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (5,'6 709','2020-05-08 20:09:35');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (6,'0 524','2020-04-16 23:55:04');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (7,'8 147','2022-08-11 20:52:18');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (8,'8 637','2020-09-15 15:56:39');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (9,'5 386','2020-03-24 07:18:47');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (10,'4 377','2021-06-17 06:20:17');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (11,'8 636','2020-08-02 10:53:50');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (12,'1 213','2020-05-17 23:38:57');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (13,'2 680','2020-02-18 11:13:34');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (14,'2 829','2021-03-07 02:54:03');
+INSERT INTO 'bids' (`b_id`,`offer_price`,`offer_time`) VALUES (15,'5 782','2020-04-18 18:03:13');
