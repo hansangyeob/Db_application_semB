@@ -93,8 +93,7 @@ create table notification(
     ,foreign key (buyeR) references customer_account(i_num)
 );
 
-<<<<<<< HEAD
-=======
+
 drop table bids;
 create table bids(
     b_id int(8) not null auto_increment,
@@ -118,6 +117,8 @@ INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (7,'Buda
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (8,'putrajaya','2871 Lectus Street','8174589596');
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (9,'Galapa','P.O. Box 618, 6603 Vivamus Road','9146735117');
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (10,'Méru','Ap #560-2240 Gravida St.','3131096876');
+
+
 
 -- INSERT DATA INTO 'CUSTOMER_ACCOUNT' TABLE
 insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance) values (1, 'Demetria', 'Orniz', 'dorniz0@forbes.com', '7788169754', '2MTnEm5IJ', '8121 Arrowood Place', 'Izmaylovo', 'Russia', 'http://dummyimage.com/237x100.png/ff4444/ffffff', 91.8);
@@ -163,7 +164,6 @@ INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,pic
 INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (19,'Davis','7.87','2022-05-26 16:15:23',7,19,'19.png','No');
 INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (20,'Bright','9.87','2020-09-25 21:56:58',17,17,'20.png','No');
 
-
 -- INSERT DATA INTO 'ADMIN' TABLE
 insert into admin (a_email, a_password) values ('jsawnwy0@tuttocitta.it', 'gPKc9Tz');
 insert into admin (a_email, a_password) values ('pklais1@vistaprint.com', 'xCdpnDycKcy');
@@ -182,7 +182,6 @@ INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (07,'Gisela',
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (08,'Zeph','tincidunt, neque vitae semper egestas, urna justo faucibus','Yes');
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (09,'Felix','porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris','Yes');
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (10,'Ina','vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non','Yes');
-<<<<<<< HEAD
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (11,'Kadeem','at augue id ante','Yes');
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (12,'Hayfa','in felis. Nulla tempor','Yes');
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (13,'John','dolor. Fusce feugiat.','No');
@@ -879,11 +878,6 @@ INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`
 INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (299,'Wolfe','0.66','2026-12-07 15:56:09','Alexander','Nadine','No');
 INSERT INTO auction_product (`p_id`,`p_name`,`price_min`,`closing_time`,`seller`,`buyer`,`status`) VALUES (300,'Fowler','5.27','2033-11-30 15:42:15','Seth','Kameko','No');
 
->>>>>>> taehyeon
-
-
-
-=======
 
 -- INSERT DATA INTO 'BIDS' TABLE
 INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (1,'Demetria',3,6.22,'2020-11-17 16:55:15');
@@ -896,4 +890,3 @@ INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VAL
 INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (8,'Karmen',3,8.38,'2020-09-26 02:08:38');
 INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (9,'Hube',5,9.32,'2022-03-14 02:54:21');
 INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (10,'Lottie',10,1.42,'2022-09-06 01:48:48');
->>>>>>> 99353e325f6e454d886afbddc87973f0002d9f36
