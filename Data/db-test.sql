@@ -34,7 +34,9 @@
 --     picture BLOB,
 --     primary key (p_id)
 -- );
-
+create database test;
+use test;
+drop table branch;
 CREATE TABLE `branch` (
   `b_code` mediumint(8) unsigned NOT NULL auto_increment,
   `b_name` varchar(50),
@@ -58,7 +60,6 @@ create table customer_account (
 	balance DECIMAL(8,2)  not null,
     primary key (i_num),
     unique (email, phone, i_num),
-    foreign key (city) references branch(b_name)
 );
 
 CREATE TABLE auction_product (
