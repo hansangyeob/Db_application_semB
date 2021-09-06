@@ -44,7 +44,7 @@ CREATE TABLE `branch` (
   `hotline_num` varchar(100) default NULL,
   PRIMARY KEY (`b_code`),
   unique (b_code, b_name)
-) AUTO_INCREMENT=1;
+) engine = innoDB;
 
 create table customer_account (
 	i_num INT not null,
@@ -58,9 +58,13 @@ create table customer_account (
 	country VARCHAR(50),
 	profile_pic blob,
 	balance DECIMAL(8,2)  not null,
+	registered_branch mediumint(8),
     primary key (i_num),
-    unique (email, phone, i_num)
-);
+    unique (email, phone, i_num),
+    index (b_code),
+    foreign key (registered_branch) references branch(b_code)
+)    Engine = InnoDB;
+
 
 CREATE TABLE auction_product (
   `p_id` mediumint(8) unsigned NOT NULL auto_increment,
@@ -178,7 +182,6 @@ INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (07,'Gisela',
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (08,'Zeph','tincidunt, neque vitae semper egestas, urna justo faucibus','Yes');
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (09,'Felix','porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris','Yes');
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (10,'Ina','vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non','Yes');
-
 
 -- INSERT DATA INTO 'BIDS' TABLE
 INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (1,'Demetria',3,6.22,'2020-11-17 16:55:15');
