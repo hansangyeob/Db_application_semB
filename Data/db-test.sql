@@ -34,9 +34,10 @@
 --     picture BLOB,
 --     primary key (p_id)
 -- );
+drop database test;
 create database test;
 use test;
-drop table branch;
+
 CREATE TABLE `branch` (
   `b_code` mediumint(8) unsigned NOT NULL auto_increment,
   `b_name` varchar(50),
@@ -59,8 +60,8 @@ create table customer_account (
 	profile_pic BLOB,
 	balance DECIMAL(8,2)  not null,
     primary key (i_num),
-    unique (email, phone, i_num),
-    foreign key (city) references branch(b_name)
+    unique (email, phone, i_num)
+#     ,foreign key (city) references branch(b_name)
 );
 
 CREATE TABLE auction_product (
@@ -68,14 +69,13 @@ CREATE TABLE auction_product (
   `p_name` varchar(255) NOT NULL,
   `price_min` varchar(100) NOT NULL,
   `closing_time` varchar(255),
-  `seller` varchar(255),
+  `seller` int,
   `buyer` varchar(255),
   picture BLOB,
   `status` boolean,
-  PRIMARY KEY (`p_id`),
-  foreign key (seller) references customer_account(first_name)
+  PRIMARY KEY (`p_id`)
+#   ,foreign key (seller) references customer_account(i_num)
 ) AUTO_INCREMENT=1;
--- no 'picture' in the table
 
 create table admin(
     a_email varchar(255),
@@ -87,8 +87,8 @@ create table notification(
     buyer varchar(255),
     note varchar(255),
     status varchar(255),
-    primary key(n_id),
-    foreign key (buyer) references auction_product(buyer)
+    primary key(n_id)
+#     ,foreign key (buyer) references auction_product(buyer)
 );
 
 create table bids(
@@ -97,9 +97,9 @@ create table bids(
     p_id mediumint(8),
     offer_price varchar(100),
     offer_time datetime,
-    primary key (b_id),
-    foreign key (bidder) references auction_product(buyer),
-    foreign key (p_id) references auction_product(p_id)
+    primary key (b_id)
+#     ,foreign key (bidder) references auction_product(buyer),
+#     foreign key (b_id) references auction_product(p_id)
 );
 
 -- INSERT DATA INTO 'BRANCH' TABLE
@@ -113,15 +113,12 @@ INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (7,'Buda
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (8,'putrajaya','2871 Lectus Street','8174589596');
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (9,'Galapa','P.O. Box 618, 6603 Vivamus Road','9146735117');
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (10,'Méru','Ap #560-2240 Gravida St.','3131096876');
--- write the queries refers to [b_name -> customer_account (city)]
-
 
 insert into admin (a_email, a_password) values ('jsawnwy0@tuttocitta.it', 'gPKc9Tz');
 insert into admin (a_email, a_password) values ('pklais1@vistaprint.com', 'xCdpnDycKcy');
 insert into admin (a_email, a_password) values ('fpaulitschke2@opensource.org', 'N0naYnbkp');
 insert into admin (a_email, a_password) values ('bswidenbank3@ehow.com', 'J64ZiV');
 insert into admin (a_email, a_password) values ('awight4@nsw.gov.au', 'hq44Lz8y2khN');
-
 
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (1,'Inez','tortor nibh sit amet orci.','No');
 INSERT INTO `notification` (`n_id`,`buyer`,`note`,`status`) VALUES (2,'Cheyenne','Vestibulum ante ipsum primis in faucibus orci luctus et ultrices','Yes');
