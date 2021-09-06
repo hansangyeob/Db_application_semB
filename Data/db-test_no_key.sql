@@ -138,10 +138,9 @@ INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VAL
 INSERT INTO `bids` (`b_id`,`bidder`,`product_id`,`offer_price`,`offer_time`) VALUES (10,'Lottie',10,1.42,'2022-09-06 01:48:48');
 
 -- INDEX
-CREATE INDEX
+# CREATE INDEX
 
 -- PARTITIONING
-DROP TABLE customer_account;
 CREATE TABLE CUSTOMER_ACCOUNT(
     i_num INT not null,
 	first_name VARCHAR(50) not null,
