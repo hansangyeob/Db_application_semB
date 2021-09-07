@@ -1,5 +1,6 @@
 use test;
 
+drop table branch;
 drop table customer_account;
 drop table auction_product;
 drop table admin;
@@ -63,14 +64,14 @@ create table notification(
 );
 
 create table bids(
-    b_id mediumint(8) unsigned NOT NULL auto_increment,
+    b_id mediumint(8),
     bidder varchar(255) NOT NULL,
-    product_id int(8) not null,
+    product_id mediumint(8) unsigned NOT NULL auto_increment,
     offer_price decimal(8,2),
     offer_time datetime,
     primary key (b_id)
     ,foreign key (bidder) references customer_account(i_num),
-    foreign key (b_id) references auction_product(p_id)
+    foreign key (product_id) references auction_product(p_id)
 );
 
 -- INSERT DATA INTO 'BRANCH' TABLE
@@ -159,13 +160,14 @@ INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (8,12,4,
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (9,1,5,9.32,'2022-03-14 02:54:21');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,8,10,1.42,'2022-09-06 01:48:48');
 
+
 -- Create index on [customer_account]
 CREATE INDEX idx_balance ON customer_account(balance ASC);
 
 -- Create index on [auction_product]
 CREATE INDEX idx_price_min ON auction_product(price_min ASC);
 
--- Check out whether the query is performed with index
+-- Check out whether the query is performed with index or not
 ALTER TABLE customer_account DROP INDEX idx_balance;
 SHOW INDEX FROM customer_account;
 EXPLAIN
