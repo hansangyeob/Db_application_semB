@@ -12,8 +12,7 @@ CREATE TABLE CUSTOMER_ACCOUNT(
 	country VARCHAR(50),
 	profile_pic blob,
 	balance DECIMAL(8,2)  not null,
-    primary key (i_num),
-    unique (email, phone, i_num)
+    primary key (i_num)
 )PARTITION BY RANGE (balance)(
     PARTITION P0 VALUES LESS THAN (201),
     PARTITION P1 VALUES LESS THAN (401),
@@ -23,11 +22,22 @@ CREATE TABLE CUSTOMER_ACCOUNT(
     );
 
 
+# check the customer place bids for only one product
+
+# check the customer_account.balance >= bids.offer_price,
+# to check the 'bids.offer_price >= auction_product.price_min' and to check 'customer_account.balance > bids.offer_price'
+
+# check the offer_price > maximum existing offer_price
+# after update the offer_price (maximum)
+# check the updated product price >
+
+# cannot delete or withdraw once the customer bid for a product
+
+
 -- STORED PROCEDURE / FUNCTION
--- check the balance and offer price
--- check the balance exceeds the offer price
 DELIMITER $$
-CREATE PROCEDURE sp_buyer_balance()
+CREATE PROCEDURE sp_highest_offer_price(bid_price decimal(8,2))
+RETURN
 BEGIN
     SELECT balance, offer_price
     FROM customer_account join bids
