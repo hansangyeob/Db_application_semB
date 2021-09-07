@@ -36,7 +36,6 @@ CREATE TABLE auction_product (
   PRIMARY KEY (p_id)
 ) AUTO_INCREMENT=1;
 
-
 create table admin(
     a_email varchar(255),
     a_password varchar(255)
@@ -136,10 +135,10 @@ INSERT INTO notification (n_id,buyer,note,status) VALUES (10,19,'vulputate,  auc
 -- INSERT DATA INTO 'BIDS' TABLE
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (1,4,3,6.22,'2020-11-17 16:55:15');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (2,5,7,5.83,'2022-01-06 14:00:19');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (3,9,8,5.64,'2021-03-05 19:59:08');
+INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (4,9,1,5.64,'2021-03-05 19:59:08');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (4,11,9,5.40,'2021-07-24 23:54:39');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (5,17,2,2.38,'2022-01-26 19:21:50');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (6,19,1,5.01,'2022-07-10 08:41:28');
+INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (6,19,8,5.01,'2022-07-10 08:41:28');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (7,3,6,4.75,'2021-10-21 16:53:50');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (8,12,4,8.38,'2020-09-26 02:08:38');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (9,1,5,9.32,'2022-03-14 02:54:21');

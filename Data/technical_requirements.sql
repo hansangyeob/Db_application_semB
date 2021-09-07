@@ -24,40 +24,57 @@ CREATE TABLE CUSTOMER_ACCOUNT(
 
 # check the customer place bids for only one product
 
-# check the customer_account.balance >= bids.offer_price,
-# to check the 'bids.offer_price >= auction_product.price_min' and to check 'customer_account.balance > bids.offer_price'
+# to check the 'bids.offer_price >= auction_product.price_min'
 
-# check the offer_price > maximum existing offer_price
-# after update the offer_price (maximum)
+
 # check the updated product price >
-
-# cannot delete or withdraw once the customer bid for a product
 
 
 -- STORED PROCEDURE / FUNCTION
 
-# accepts bid offer price and return the i_num of the bidder who offer the highest number among the offer price
+#i_num, balance, offer_price of the customer who bids for the product
+delimiter $$
+create procedure sp_cus_balance()
+begin
+    select i_num, balance, offer_price
+    from customer_account join bids
+    on i_num = bidder;
+end $$
+delimiter ;
+
+# accepts bid.offer_price and return the i_num of the bidder who offer the highest number among the offer price
 DELIMITER $$
-CREATE PROCEDURE sp_highest_offer_price(bid_price decimal(8,2))
-RETURN varchar(225) not deterministic
-    DECLARE
+CREATE function sp_highest_offer_price(bid_price decimal(8,2))
+RETURNS varchar(225) not deterministic
 BEGIN
-#     SELECT c1.balance, c2.balance, offer_price
-#     FROM customer_account c1, customer_account c2 join bids
-#     WHERE bidder = c1.i_num and bidder = c2.i_num;
-    select balance
-    from customer_account
-    where i_num in (select i_num, ma)
+declare i_num varchar(255);
+    select bids.bidder into i_num
+    from customer_account join bids
+    where offer_price = (SELECT *
+                       from bids
+                       where offer_price = (select max(offer_price) from bids));
+    return i_num;
 end $$
 DELIMITER ;
 
+#
+delimiter $$
+create function getBalance(inum varchar(255))
+returns decimal (8,2)
+begin
+    select balance
+    from customer_account
+    where inum = i_num;
+end $$
+delimiter ;
+
 
 -- TRIGGER
+##
 DELIMITER $$
-
-CREATE TRIGGER check_bidding_price
+CREATE TRIGGER prevent_update_price
     BEFORE UPDATE
-    ON CUSTOMER_ACCOUNT,
+    ON CUSTOMER_ACCOUNT
     FOR EACH ROW
     OK: BEGIN
         -- Check if no balance changed
@@ -66,8 +83,41 @@ CREATE TRIGGER check_bidding_price
         end if ;
 
         -- Check if the offer price is higher than balance
-               > balance
+        if new.offer_price       > balance
             signal sqlstate '45000' set message_text = 'cannot bid for the new product';
         end if $$
+
     end $$
 DELIMITER ;
+
+# check the offer_price > maximum existing offer_price
+
+# check the customer_account.balance >= bids.offer_price,
+# (cannot insert higher bid price than balance)
+delimiter $$
+create trigger check_balance
+    before insert on bids
+    for each row
+    begin
+        declare current_max_price decimal;
+
+        select
+        if  <= new.offer_price then
+            signal sqlstate '45000' set message_text = 'cannot bid the product. check you offer price';
+        end if $$
+
+        if new.offer_price > getBalance(new.bidder) then
+            signal sqlstate '45000' set message_text = 'check your balance';
+        end if ;
+    end $$
+DELIMITER ;
+
+# cannot delete or withdraw once the customer bid for a product
+Delimiter $$
+create trigger prevent_bid_deletion
+    before delete on bids
+    for each row
+    begin
+        signal sqlstate '45000' set message_text = 'cannot withdraw the bid';
+    end $$
+delimiter ;
