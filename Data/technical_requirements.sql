@@ -76,10 +76,8 @@ create trigger only_one_bid
     before insert on bids
     for each row
     begin
-        declare bid_count mediumint(8);
 
-        select count(b_id) into bid_count from bids;
-        if bid_count > 1 then
+        if  then
             signal sqlstate '45000' set message_text = 'you can bid for only one product';
         end if ;
     end $$

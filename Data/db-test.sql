@@ -60,14 +60,14 @@ create table notification(
 );
 
 create table bids(
-    b_id mediumint(8) unsigned NOT NULL auto_increment,
+    b_id mediumint(8),
     bidder varchar(255) NOT NULL,
-    product_id int(8) not null,
+    product_id mediumint(8) unsigned NOT NULL auto_increment,
     offer_price decimal(8,2),
     offer_time datetime,
     primary key (b_id)
     ,foreign key (bidder) references customer_account(i_num),
-    foreign key (b_id) references auction_product(p_id)
+    foreign key (product_id) references auction_product(p_id)
 );
 
 -- INSERT DATA INTO 'BRANCH' TABLE
