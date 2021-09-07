@@ -42,9 +42,12 @@ CREATE PROCEDURE sp_highest_offer_price(bid_price decimal(8,2))
 RETURN varchar(225) not deterministic
     DECLARE
 BEGIN
-    SELECT c1.balance, c2.balance, offer_price
-    FROM customer_account c1, customer_account c2 join bids
-    WHERE bidder = c1.i_num and bidder = c2.i_num;
+#     SELECT c1.balance, c2.balance, offer_price
+#     FROM customer_account c1, customer_account c2 join bids
+#     WHERE bidder = c1.i_num and bidder = c2.i_num;
+    select balance
+    from customer_account
+    where i_num in (select i_num, ma)
 end $$
 DELIMITER ;
 
