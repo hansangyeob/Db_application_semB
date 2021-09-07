@@ -7,6 +7,7 @@ CREATE TABLE branch (
   PRIMARY KEY (`b_code`)
 ) engine = innoDB;
 
+
 create table customer_account (
 	i_num VARCHAR(255) not null,
 	first_name VARCHAR(50) not null,
