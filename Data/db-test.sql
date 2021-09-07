@@ -159,6 +159,9 @@ INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (7,3,6,4
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (8,12,4,8.38,'2020-09-26 02:08:38');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (9,1,5,9.32,'2022-03-14 02:54:21');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,8,10,1.42,'2022-09-06 01:48:48');
+INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,13,11,5.42,'2021-04-27 12:14:57');
+INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (7,10,12,100,'2021-10-21 16:53:50');
+
 
 
 -- Create index on [customer_account]
@@ -184,5 +187,11 @@ ORDER BY A.closing_time ASC;
 SELECT B.b_id,A.p_name,B.offer_price
 FROM bids B, auction_product A
 WHERE B.product_id=A.p_id
-ORDER BY B.offer_price DESC;
+ORDER BY B.offer_price DESC ;
+
+-- Show maximum bid price sorting same product_id ordered by DESC
+SELECT B.b_id,A.p_name,B.offer_price
+FROM bids B, auction_product A
+WHERE B.product_id=A.p_id
+ORDER BY B.product_id,B.offer_price DESC ;
 
