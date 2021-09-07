@@ -66,7 +66,7 @@ CREATE INDEX idx_balance ON customer_account(balance ASC);
 
 CREATE TABLE auction_product (
   `p_id` mediumint(8) unsigned NOT NULL auto_increment,
-  `p_name` varchar(255) NOT NULL, #primary key,,,여야 foreign key 묶을 수 있ㄷㅏ..
+  `p_name` varchar(255) NOT NULL,
   `price_min` decimal NOT NULL,
   `closing_time` datetime,
   `seller` varchar(255),
