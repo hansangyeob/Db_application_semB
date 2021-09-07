@@ -77,7 +77,7 @@ create trigger only_one_bid
     end $$
 delimiter ;
 
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (11,8,12,500.38,'2022-01-26 19:21:50');
+# INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (11,8,12,500.38,'2022-01-26 19:21:50');
 
 
 # 2. check the updated product price > maximum existing price
