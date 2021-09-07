@@ -57,7 +57,7 @@ declare i_num varchar(255);
 end $$
 DELIMITER ;
 
-#
+# insert i_num and get the balance
 delimiter $$
 create function getBalance(inum varchar(255))
 returns decimal (8,2)
