@@ -31,7 +31,7 @@ CREATE INDEX idx_balance ON customer_account(balance ASC);
 CREATE TABLE auction_product (
   `p_id` mediumint(8) unsigned NOT NULL auto_increment,
   `p_name` varchar(255) NOT NULL,
-  `price_min` decimal NOT NULL,
+  `price_min` decimal(8,2) NOT NULL,
   `current_price` decimal,
   `closing_time` datetime,
   `seller` varchar(255),
@@ -132,6 +132,7 @@ insert into admin (a_email, a_password) values ('fpaulitschke2@opensource.org', 
 insert into admin (a_email, a_password) values ('bswidenbank3@ehow.com', 'J64ZiV');
 insert into admin (a_email, a_password) values ('awight4@nsw.gov.au', 'hq44Lz8y2khN');
 
+
 -- INSERT DATA INTO 'NOTIFICATION' TABLE
 INSERT INTO notification (n_id,buyer,note,status) VALUES (1,1,'tortor nibh sit amet orci.','No');
 INSERT INTO notification (n_id,buyer,note,status) VALUES (2,11,'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices','Yes');
@@ -156,4 +157,3 @@ INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (7,3,6,4
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (8,12,4,85.38,'2020-09-26 02:08:38');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (9,1,5,98.32,'2022-03-14 02:54:21');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,8,10,14.42,'2022-09-06 01:48:48');
-

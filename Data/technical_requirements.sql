@@ -59,6 +59,21 @@ end $$
 delimiter ;
 
 # insert p_id and get the minimum price
+# delimiter $$
+# create function get_Min_Price(in pid mediumint(8))
+# returns integer(8,2)
+# begin
+#     declare minPrice integer;
+#     set minPrice = null;
+#
+#     select price_min into minPrice
+#     from auction_product
+#     where pid = p_id;
+#     return minPrice;
+# end $$
+# delimiter ;
+
+# insert p_id and get the minimum price
 delimiter $$
 create procedure get_Min_Price(in pid mediumint(8))
 begin
@@ -68,22 +83,27 @@ begin
 end $$
 delimiter ;
 
-
 -- TRIGGER
-# check the customer place bids for only one product
+# 1. check the customer place bids for only one product
 delimiter $$
 create trigger only_one_bid
     before insert on bids
     for each row
     begin
 
+
         if  then
+
             signal sqlstate '45000' set message_text = 'you can bid for only one product';
         end if ;
     end $$
 delimiter ;
 
-# check the updated product price > maximum existing price
+INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (11,17,12,25.38,'2022-01-26 19:21:50');
+
+
+
+# 2. check the updated product price > maximum existing price
 delimiter $$
 create trigger check_updated_price
     before update on auction_product
@@ -94,9 +114,8 @@ create trigger check_updated_price
         end if ;
     end $$
 delimiter ;
-# update auction_product set current_price = 3 where p_id =1;
 
-
+# 3
 delimiter $$
 create trigger check_balance
     before insert on bids
@@ -126,12 +145,13 @@ create trigger check_balance
     end $$
 DELIMITER ;
 
-# cannot delete or withdraw once the customer bid for a product
+# 4. cannot delete or withdraw once the customer bid for a product
 Delimiter $$
 create trigger prevent_bid_deletion
     before delete on bids
     for each row
     begin
-        signal sqlstate '45000' set message_text = 'cannot withdraw the bid';
+        call do_not_delete();
     end $$
 delimiter ;
+
