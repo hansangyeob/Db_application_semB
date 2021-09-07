@@ -1,4 +1,6 @@
-
+drop database test;
+create database test;
+use test;
 CREATE TABLE branch (
   `b_code` mediumint(8) unsigned NOT NULL auto_increment,
   `b_name` varchar(50),
@@ -102,7 +104,7 @@ insert into customer_account (i_num, first_name, last_name, email, phone, passwo
 insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance, registered_branch) values (19, 'Gaylord', 'Twatt', 'gtwatti@netvibes.com', '3121243341', '07NJz5zeiqs', '45952 Ramsey Crossing', 'Denton', 'United Kingdom', 'http://dummyimage.com/249x100.png/cc0000/ffffff', 358.0,2);
 
  -- INSERT DATA INTO 'AUCTION_PRODUCT' TABLE
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,buyer,picture,status) VALUES (1,'Dejesus','99.94',null,'2025-09-19 12:11:17',9,1,'1.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,buyer,picture,status) VALUES (1,'Dejesus','99.94',3,'2025-09-19 12:11:17',9,1,'1.png','No');
 INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,buyer,picture,status) VALUES (2,'Leblanc','10.22',null,'2024-06-17 22:09:42',2,4,'2.png','No');
 INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,buyer,picture,status) VALUES (3,'Santiago','50.04',null,'2022-06-17 03:46:02',3,5,'3.png','Yes');
 INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,buyer,picture,status) VALUES (4,'Bond','423.10',null,'2026-02-12 02:02:51',4,6,'4.png','No');
@@ -154,3 +156,4 @@ INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (7,3,6,4
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (8,12,4,85.38,'2020-09-26 02:08:38');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (9,1,5,98.32,'2022-03-14 02:54:21');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,8,10,14.42,'2022-09-06 01:48:48');
+
