@@ -195,3 +195,9 @@ FROM bids B, auction_product A
 WHERE B.product_id=A.p_id
 ORDER BY B.product_id,B.offer_price DESC ;
 
+-- Count the number of bids placed.
+SELECT p_name, count(B.product_id) as Number_of_bids
+FROM auction_product A, bids B
+WHERE A.p_id = B.product_id
+GROUP BY B.product_id;
+
