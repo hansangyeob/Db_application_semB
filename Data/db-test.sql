@@ -101,26 +101,26 @@ insert into customer_account (i_num, first_name, last_name, email, phone, passwo
 insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance, registered_branch) values (19, 'Gaylord', 'Twatt', 'gtwatti@netvibes.com', '3121243341', '07NJz5zeiqs', '45952 Ramsey Crossing', 'Denton', 'United Kingdom', 'http://dummyimage.com/249x100.png/cc0000/ffffff', 358.0,2);
 
 # -- INSERT DATA INTO 'AUCTION_PRODUCT' TABLE
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (1,'Dejesus','9.94','2025-09-19 12:11:17',9,1,'1.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (2,'Leblanc','0.22','2024-06-17 22:09:42',2,4,'2.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (3,'Santiago','5.04','2022-06-17 03:46:02',3,5,'3.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (4,'Bond','4.10','2026-02-12 02:02:51',4,6,'4.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (5,'Parrish','5.32','2027-10-16 12:26:28',5,7,'5.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (6,'Bruce','8.89','2027-10-13 05:55:27',6,8,'6.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (7,'Richards','1.99','2022-02-16 08:17:18',7,9,'7.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (8,'Vaughan','6.36','2023-06-24 05:32:59',8,10,'8.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (9,'Weiss','9.53','2033-10-02 12:59:04',9,11,'9.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (10,'Gibson','9.83','2021-07-15 06:53:39',12,14,'10.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (11,'Wolf','7.62','2021-04-10 22:33:24',13,15,'11.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (12,'Vang','3.29','2021-12-23 23:43:06',14,16,'12.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (13,'Pickett','2.93','2021-12-13 02:57:28',15,17,'13.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (14,'Gibson','2.63','2021-09-16 06:57:40',16,18,'14.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (15,'Grimes','7.07','2022-03-25 07:58:03',17,19,'15.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (16,'Blankenship','4.50','2022-07-11 21:58:56',2,7,'16.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (17,'Knight','7.75','2021-12-04 22:26:32',1,13,'17.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (18,'Avila','9.33','2022-03-05 11:18:01',19,3,'18.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (19,'Davis','7.87','2022-05-26 16:15:23',7,12,'19.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (20,'Bright','9.87','2020-09-25 21:56:58',5,17,'20.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (1,'Dejesus','999.94','2025-09-19 12:11:17',9,1,'1.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (2,'Leblanc','10.22','2024-06-17 22:09:42',2,4,'2.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (3,'Santiago','50.04','2022-06-17 03:46:02',3,5,'3.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (4,'Bond','423.10','2026-02-12 02:02:51',4,6,'4.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (5,'Parrish','542.32','2027-10-16 12:26:28',5,7,'5.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (6,'Bruce','83.89','2027-10-13 05:55:27',6,8,'6.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (7,'Richards','211.99','2022-02-16 08:17:18',7,9,'7.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (8,'Vaughan','699.36','2023-06-24 05:32:59',8,10,'8.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (9,'Weiss','292.53','2033-10-02 12:59:04',9,11,'9.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (10,'Gibson','449.83','2021-07-15 06:53:39',12,14,'10.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (11,'Wolf','117.62','2021-04-10 22:33:24',13,15,'11.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (12,'Vang','323.29','2021-12-23 23:43:06',14,16,'12.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (13,'Pickett','275.93','2021-12-13 02:57:28',15,17,'13.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (14,'Gibson','232.63','2021-09-16 06:57:40',16,18,'14.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (15,'Grimes','70.07','2022-03-25 07:58:03',17,19,'15.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (16,'Blankenship','14.50','2022-07-11 21:58:56',2,7,'16.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (17,'Knight','242.75','2021-12-04 22:26:32',1,13,'17.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (18,'Avila','90.33','2022-03-05 11:18:01',19,3,'18.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (19,'Davis','777.87','2022-05-26 16:15:23',7,12,'19.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (20,'Bright','500.87','2020-09-25 21:56:58',5,17,'20.png','No');
 
 -- INSERT DATA INTO 'ADMIN' TABLE
 insert into admin (a_email, a_password) values ('jsawnwy0@tuttocitta.it', 'gPKc9Tz');
