@@ -35,13 +35,16 @@ CREATE TABLE CUSTOMER_ACCOUNT(
 
 
 -- STORED PROCEDURE / FUNCTION
+
+# accepts bid offer price and return the i_num of the bidder who offer the highest number among the offer price
 DELIMITER $$
 CREATE PROCEDURE sp_highest_offer_price(bid_price decimal(8,2))
-RETURN
+RETURN varchar(225) not deterministic
+    DECLARE
 BEGIN
-    SELECT balance, offer_price
-    FROM customer_account join bids
-    WHERE bidder = i_num;
+    SELECT c1.balance, c2.balance, offer_price
+    FROM customer_account c1, customer_account c2 join bids
+    WHERE bidder = c1.i_num and bidder = c2.i_num;
 end $$
 DELIMITER ;
 
