@@ -56,7 +56,7 @@ create table notification(
 create table bids(
     b_id mediumint(8),
     bidder varchar(255) NOT NULL,
-    product_id mediumint(8) unsigned NOT NULL auto_increment,
+    product_id int(8) unsigned NOT NULL auto_increment,
     offer_price decimal(8,2),
     offer_time datetime,
     primary key (b_id)
