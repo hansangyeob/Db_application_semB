@@ -1,6 +1,6 @@
 
 CREATE TABLE branch (
-  `b_code` mediumint(8) unsigned NOT NULL auto_increment,
+  `b_code` int(8) unsigned NOT NULL auto_increment,
   `b_name` varchar(50),
   `address` varchar(255) default NULL,
   `hotline_num` varchar(100) default NULL,
@@ -24,10 +24,8 @@ create table customer_account (
     foreign key (registered_branch) references branch(b_code)
 )    Engine = InnoDB;
 
-CREATE INDEX idx_balance ON customer_account(balance ASC);
-
 CREATE TABLE auction_product (
-  `p_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `p_id` int(8) unsigned NOT NULL auto_increment,
   `p_name` varchar(255) NOT NULL,
   `price_min` decimal NOT NULL,
   `current_price` decimal,
@@ -39,14 +37,12 @@ CREATE TABLE auction_product (
   PRIMARY KEY (`p_id`),
   foreign key (seller) references customer_account(i_num),
   foreign key (buyer) references customer_account(i_num)
-) AUTO_INCREMENT=1;
-
-CREATE INDEX idx_price_min ON auction_product(price_min ASC);
+) AUTO_INCREMENT=1, engine = innoDB;
 
 create table admin(
     a_email varchar(255),
     a_password varchar(255)
-);
+) engine = innoDB;
 
 create table notification(
     n_id int(8) AUTO_INCREMENT,
@@ -55,7 +51,7 @@ create table notification(
     status varchar(4),
     primary key(n_id)
     ,foreign key (buyer) references customer_account(i_num)
-);
+)engine = innoDB;
 
 create table bids(
     b_id mediumint(8),
@@ -66,7 +62,7 @@ create table bids(
     primary key (b_id)
     ,foreign key (bidder) references customer_account(i_num),
     foreign key (product_id) references auction_product(p_id)
-);
+)engine = innoDB;
 
 -- INSERT DATA INTO 'BRANCH' TABLE
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (1,'Orlando','P.O. Box 637, 6345 Lacus. Ave','6326365471');
