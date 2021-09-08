@@ -5,8 +5,8 @@
     {
         $DATABASE = "localhost";
         $username = "root";
-        $dbname = "db_a2";
-        $psrd = "";
+        $dbname = "test";
+        $psrd = "1234";
         $connection = mysqli_connect($DATABASE, $username, $psrd, $dbname);
 
         return $connection;
@@ -16,8 +16,8 @@
     {
         $dbhost = "localhost";
         $dbuser = "root";
-        $dbpass = "";
-        $db = "db_a2";
+        $dbpass = "1234";
+        $db = "test";
         $conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die("Connect failed: %s\n" . $conn->error);
 
         return $conn;
@@ -31,4 +31,4 @@
 
 
 
-    ?>
+    ?> 

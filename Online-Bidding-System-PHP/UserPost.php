@@ -56,10 +56,9 @@ CloseCon($conn);
 
   <script>
     function ValidateBidForm() {
-
       var name = BidForm.name;
       var price = BidForm.price;
-      var edate = BidForm.edate;
+      var closing_time = BidForm.closing_time;
       $closing_time = $_POST['closing_time'];
       if (name.value == "") {
         window.alert("Please Enter Product Name.");
@@ -71,7 +70,7 @@ CloseCon($conn);
         price.focus();
         return false;
       }
-      if (edate.value == "") {
+      if (closing_time.value == "") {
         window.alert("Please Enter End Date For product bid");
         Quantity.focus();
         return false;
@@ -79,7 +78,7 @@ CloseCon($conn);
       $datenow = strtotime(date("Y-m-d H:i:s"));
       if ($closing_time <= $datenow) {
         window.alert("wrong date format");
-        edate.focus();
+        closing_time.focus();
         return false;
       }
       return true;
@@ -95,40 +94,56 @@ CloseCon($conn);
 
     $name = $_POST['name'];
     $price = $_POST['price'];
-    $closing_time = $_POST['edate'];
+    $closing_time = $_POST['closing_time'];
     $seller = $_SESSION['email'];
-
+    echo 'session email:' . $seller . '<br>';
+    //get i_num from current account(seller)
+    $query_seller = "SELECT * FROM customer_account WHERE email = '$seller'";
+    $Result = mysqli_query(connection(), $query_seller);
+    $row = mysqli_fetch_array($Result);
+    $seller_inum = $row['i_num'];
+    echo 'session i_num:' . $seller_inum . '<br>';
     // $filename = $_FILES["uploadfile"]["name"];
     // $tempname = $_FILES["uploadfile"]["tmp_name"];
     // $folder = "image/" . basename($filename);
 
-
-
-    $destination = "pic/" . $_FILES['Cpicture']['name'];
+    // if (move_uploaded_file($tempname, $folder)) {
+    //   $msg = "Image uploaded successfully";
+    // } else {
+    //   $msg = "Failed to upload image";
+    // }
+    // echo $msg;
+    $destination = "ProductPhoto/" . $_FILES['Cpicture']['name'];
     $filename    = $_FILES['Cpicture']['tmp_name'];
     move_uploaded_file($filename, $destination);
 
-    if (move_uploaded_file($filename, $destination)) {
-      $msg = "Image uploaded successfully";
-    } else {
-      $msg = "Failed to upload image";
-    }
-    echo $msg;
+    $query = "INSERT INTO auction_product(p_id,p_name,price_min,current_price,closing_time,seller,buyer,picture,status)
+    VALUES ('0','$name','$price','$price','$closing_time','$seller','null','$destination','No')";
 
-    $query = "INSERT INTO auction_product(p_id,p_name,price_min,closing_time,seller,buyer,status,picture)
-    VALUES('0','$name','$price','$closing_time','$seller','null','No','$destination')";
-
-    $exe = mysqli_query(connection(), $query);
-    if (!$exe) {
-      echo '<script language="javascript">';
-      echo 'alert("insertion Problem")';
-      echo '</script>';
-      echo "Error creating database: " . mysqli_error(connection());
+    if (connection()->query($query) === TRUE) {
+      echo "New record created successfully";
     } else {
-      echo '<script language="javascript">';
-      echo 'alert("Your item has been successfully added.")';
-      echo '</script>';
+      echo "Error: " . $query . "##<br>" . connection()->error;
     }
+    
+    // $exe = mysqli_query(connection(), $query);
+    // $new_rows = mysqli_fetch_array($exe);
+    // $p_id = $new_rows['p_id'];
+    // echo $p_id;
+
+
+
+    // $conn->close();
+    // if (!$exe) {
+    //   echo '<script language="javascript">';
+    //   echo 'alert("insertion Problem")';
+    //   echo '</script>';
+    //   echo "Error creating database: " . mysqli_error(connection());
+    // } else {
+    //   echo '<script language="javascript">';
+    //   echo 'alert("Your item has been successfully added.")';
+    //   echo '</script>';
+    // }
   }
 
   ?>
@@ -158,7 +173,7 @@ CloseCon($conn);
 
             <div class="form-group">
               <label class="control-label">Closing Time</label>
-              <input type="datetime-local" name="edate" maxlength="50" class="form-control" required>
+              <input type="datetime-local" name="closing_time" maxlength="50" class="form-control" required>
             </div>
             <div class="form-group">
               <label class="control-label">Product Picture</label>

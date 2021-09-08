@@ -21,7 +21,7 @@ while ($row = mysqli_fetch_array($result)) {
   $prodid = $row['p_id'];
   if ($datenow >= $duedate) {
 
-    $buyer = $row['Buyer'];
+    $buyer = $row['buyer'];
 
     if ($buyer == "null") {
       $seller = $row['email'];
@@ -36,7 +36,7 @@ while ($row = mysqli_fetch_array($result)) {
       mysqli_query(connection(), $qry);
 
       $seller = $row['email'];
-      $buyer = $row['Buyer'];
+      $buyer = $row['buyer'];
       $ProductName = $row['p_name'];
 
       $qry1 = "select * from custoemr_account where email='$seller'";
@@ -111,7 +111,7 @@ while ($row = mysqli_fetch_array($result)) {
               <li><a href="AdminLogin.php"><b>Admin Login</b></a></li>
             </ul>
           </li>
-
+          
           <li><a href="Registration.php"><span class="glyphicon glyphicon-user"></span> <b>Sign Up</b></a></li>
 
         </ul>
@@ -203,7 +203,7 @@ while ($row = mysqli_fetch_array($result)) {
       <div class="Semisidebar clear">
         <h2>Sold Product</h2>
         <?php
-        $query = "SELECT * FROM auction_product WHERE Status='Yes'";
+        $query = "select * from auction_product where Status='Yes'";
         $Result = mysqli_query(connection(), $query);
         $break = 0;
         while ($row = mysqli_fetch_array($Result)) {

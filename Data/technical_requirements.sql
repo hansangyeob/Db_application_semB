@@ -1,26 +1,5 @@
-drop table CUSTOMER_ACCOUNT;
+drop table customer_account;
 -- PARTITIONING
-CREATE TABLE CUSTOMER_ACCOUNT(
-    i_num INT not null,
-	first_name VARCHAR(50) not null,
-	last_name VARCHAR(50) not null,
-	email VARCHAR(50) not null,
-	phone VARCHAR(50) not null,
-	password VARCHAR(50) not null,
-	address VARCHAR(50),
-	city VARCHAR(50),
-	country VARCHAR(50),
-	profile_pic blob,
-	balance DECIMAL(8,2) not null,
-	registered_branch mediumint(8) unsigned not null,
-	primary key (i_num)
-)PARTITION BY RANGE (i_num)(
-    PARTITION P0 VALUES LESS THAN (201),
-    PARTITION P1 VALUES LESS THAN (401),
-    PARTITION P2 VALUES LESS THAN (601),
-    PARTITION P3 VALUES LESS THAN (801),
-    PARTITION P4 VALUES LESS THAN (MAXVALUE)
-    );
 
 
 -- STORED PROCEDURE / FUNCTION
@@ -51,57 +30,54 @@ DELIMITER ;
 
 # insert i_num and get the balance
 delimiter $$
-create procedure getBalance(in inum varchar(255))
+create function getBalance(iNum varchar(255))
+returns decimal (8,2)
 begin
-    select balance
+    declare bal decimal (8,2);
+    set bal = null;
+
+    select balance into bal
     from customer_account
-    where i_num = inum;
+    where i_num = iNum ;
+
+    return bal;
 end $$
 delimiter ;
 
-# insert p_id and get the minimum price
-# delimiter $$
-# create function get_Min_Price(in pid mediumint(8))
-# returns integer(8,2)
-# begin
-#     declare minPrice integer;
-#     set minPrice = null;
-#
-#     select price_min into minPrice
-#     from auction_product
-#     where pid = p_id;
-#     return minPrice;
-# end $$
-# delimiter ;
 
 # insert p_id and get the minimum price
 delimiter $$
-create procedure get_Min_Price(in pid mediumint(8))
+create function get_Min_Price(pid mediumint(8))
+returns decimal
 begin
-    select price_min
+    declare min decimal;
+
+    select price_min into min
     from auction_product
     where pid = p_id;
+    return min;
 end $$
 delimiter ;
 
--- TRIGGER
+
+drop trigger only_one_bid;
+# -- TRIGGER
 # 1. check the customer place bids for only one product
 delimiter $$
 create trigger only_one_bid
     before insert on bids
     for each row
     begin
+        declare bidder_dup varchar(255);
 
-
-        if  then
-
+        select count(b_id) into bidder_dup from bids where bidder= new.bidder;
+        if bidder_dup > 0 then
             signal sqlstate '45000' set message_text = 'you can bid for only one product';
         end if ;
     end $$
 delimiter ;
 
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (11,17,12,25.38,'2022-01-26 19:21:50');
-
+# INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (11,8,12,500.38,'2022-01-26 19:21:50');
 
 
 # 2. check the updated product price > maximum existing price
@@ -116,6 +92,8 @@ create trigger check_updated_price
     end $$
 delimiter ;
 
+
+drop trigger check_balance;
 # 3
 delimiter $$
 create trigger check_balance
@@ -146,12 +124,19 @@ create trigger check_balance
     end $$
 DELIMITER ;
 
+# INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,19,11,50.42,'2022-09-06 01:48:48');
+# INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,19,11,500,'2022-09-06 01:48:48');
+
+
 # 4. cannot delete or withdraw once the customer bid for a product
 Delimiter $$
 create trigger prevent_bid_deletion
-    before delete on bids
+    before delete
+    on bids
     for each row
     begin
-        call do_not_delete();
+        IF OLD.b_id >= 1 THEN
+            signal sqlstate '45000' set message_text = 'cannot delete';
+        END IF;
     end $$
 delimiter ;

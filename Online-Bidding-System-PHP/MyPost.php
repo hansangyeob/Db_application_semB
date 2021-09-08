@@ -129,7 +129,8 @@ CloseCon($conn);
     echo '<th>Picture</th>';
     echo '<th>ID</th>';
     echo '<th>Product Name</th>';
-    echo '<th>Price</th>';
+    echo '<th>Price Started</th>';
+    echo '<th>Current Price</th>';
     echo '<th>Closing Time</th>';
     echo '<th>Sold</th>';
     echo '</tr>';
@@ -144,6 +145,7 @@ CloseCon($conn);
         <td> <?php echo $row['p_id']; ?></td>
         <td> <?php echo $row['p_name']; ?></td>
         <td> <?php echo $row['price_min']; ?> </td>
+        <td> <?php echo $row['current_price']; ?> </td>
         <td> <?php echo $row['closing_time']; ?></td>
         <td> <?php echo $row['status']; ?> </td>
       </tr>

@@ -1,4 +1,3 @@
-
 CREATE TABLE branch (
   b_code mediumint(8) unsigned NOT NULL auto_increment,
   b_name varchar(50),
@@ -36,7 +35,6 @@ CREATE TABLE auction_product (
   status varchar(4),
   PRIMARY KEY (p_id)
 ) AUTO_INCREMENT=1;
-
 
 create table admin(
     a_email varchar(255),
@@ -93,8 +91,7 @@ insert into customer_account (i_num, first_name, last_name, email, phone, passwo
 insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance, registered_branch) values (18, 'Hube', 'Huncoot', 'hhuncooth@nps.gov', '2916540633', 'MD8jF6p', '43246 Nancy Court', 'Shijie', 'China', 'http://dummyimage.com/107x100.png/dddddd/000000', 606.75,1);
 insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance, registered_branch) values (19, 'Gaylord', 'Twatt', 'gtwatti@netvibes.com', '3121243341', '07NJz5zeiqs', '45952 Ramsey Crossing', 'Denton', 'United Kingdom', 'http://dummyimage.com/249x100.png/cc0000/ffffff', 358.0,2);
 
-# -- INSERT DATA INTO 'AUCTION_PRODUCT' TABLE
-
+ -- INSERT DATA INTO 'AUCTION_PRODUCT' TABLE
 INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (1,'Dejesus','999.94','2025-09-19 12:11:17',9,1,'1.png','No');
 INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (2,'Leblanc','10.22','2024-06-17 22:09:42',2,4,'2.png','No');
 INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (3,'Santiago','50.04','2022-06-17 03:46:02',3,5,'3.png','Yes');
@@ -115,6 +112,7 @@ INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,pic
 INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (18,'Avila','90.33','2022-03-05 11:18:01',19,3,'18.png','Yes');
 INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (19,'Davis','777.87','2022-05-26 16:15:23',7,12,'19.png','No');
 INSERT INTO auction_product (p_id,p_name,price_min,closing_time,seller,buyer,picture,status) VALUES (20,'Bright','500.87','2020-09-25 21:56:58',5,17,'20.png','No');
+
 -- INSERT DATA INTO 'ADMIN' TABLE
 insert into admin (a_email, a_password) values ('jsawnwy0@tuttocitta.it', 'gPKc9Tz');
 insert into admin (a_email, a_password) values ('pklais1@vistaprint.com', 'xCdpnDycKcy');
@@ -137,10 +135,10 @@ INSERT INTO notification (n_id,buyer,note,status) VALUES (10,19,'vulputate,  auc
 -- INSERT DATA INTO 'BIDS' TABLE
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (1,4,3,6.22,'2020-11-17 16:55:15');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (2,5,7,5.83,'2022-01-06 14:00:19');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (3,9,8,5.64,'2021-03-05 19:59:08');
+INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (4,9,1,5.64,'2021-03-05 19:59:08');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (4,11,9,5.40,'2021-07-24 23:54:39');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (5,17,2,2.38,'2022-01-26 19:21:50');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (6,19,1,5.01,'2022-07-10 08:41:28');
+INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (6,19,8,5.01,'2022-07-10 08:41:28');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (7,3,6,4.75,'2021-10-21 16:53:50');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (8,12,4,8.38,'2020-09-26 02:08:38');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (9,1,5,9.32,'2022-03-14 02:54:21');

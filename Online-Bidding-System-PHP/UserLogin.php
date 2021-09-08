@@ -91,23 +91,41 @@ CloseCon($conn);
     $password = $_POST['password'];
 
     $query = "SELECT * FROM customer_account WHERE email='$email' and password='$password'";
-
-    $Complete = mysqli_query(connection(), $query) or die("unable to connect");
-
+    $Complete = mysqli_query(connection(), $query) or die("unable to connect.");
     $Rows = mysqli_fetch_array($Complete);
 
-    if ($Rows['email'] == $email && $Rows['password'] == $password) {
+    if (($Rows['email'] == $email && $Rows['password'] == $password)) {
       session_start();
       $_SESSION['email'] = $email;
       $_SESSION['Pass'] = $password;
       header("Location:UserProfile.php");
       exit();
     } else {
+      echo "<script>window.alert('Wrong User email Or phone Or Password Try Again');</script>";
+    }
+    mysqli_close(connection());
+  }
 
-      echo "<script>window.alert('Wrong User Name Or Password Try Again');</script>";
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $phone = $_POST['email'];
+    $password = $_POST['password'];
+
+    $query = "SELECT * FROM customer_account WHERE phone='$phone' and password='$password'";
+    $Complete = mysqli_query(connection(), $query) or die("unable to connect.");
+
+    $Rows = mysqli_fetch_array($Complete);
+    if (($Rows['phone'] == $phone && $Rows['password'] == $password)) {
+      session_start();
+      $email = $Rows['email'];
+      $_SESSION['email'] = $email;
+      $_SESSION['Pass'] = $password;
+      header("Location:UserProfile.php");
+      exit();
+    } else {
+      echo "<script>window.alert('Wrong User email Or phone Or Password Try Again');</script>";
     }
 
-    mysqli_close($connection);
+    mysqli_close(connection());
   }
 
 
@@ -138,7 +156,9 @@ CloseCon($conn);
     <div class="row">
       <div class="col-sm-6 col-md-4 col-md-offset-4">
         <h1 class="text-center login-title"><b>Sign in to continue</b></h1>
+        <p class="text-center login-title" style="font-size:small;">You can use your email or phone number to login</p>
         <div class="account-wall">
+
           <form class="form-signin" action="" method="POST" name="UserLogin" onsubmit="return ValidUser();">
             <input type="text" class="form-control" name="email" placeholder="Enter User Name">
             <input type="password" class="form-control" name="password" placeholder="Password">

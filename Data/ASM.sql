@@ -1,4 +1,3 @@
-use test;
 
 create table branch(
     b_code int(8) auto_increment,

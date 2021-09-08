@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $aname = $_POST['a_email'];
   $Pass = $_POST['a_password'];
 
-  $query = "SELECT * FROM Admin WHERE a_email='$aname' and a_password='$Pass'";
+  $query = "select * from admin where a_email='$aname' and a_password='$Pass'";
 
   $Complete = mysqli_query(connection(), $query) or die("unable to connect");
 
@@ -62,11 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location:AdminMagane.php");
     exit();
   } else {
-
-    echo "<script>window.alert('Wrong User Name Or Password Try Again');</script>";
+    echo "<script>alert('Wrong User Name Or Password Try Again');</script>";
   }
-
-  mysqli_close($connection);
+  mysqli_close(connection());
 }
 
 
