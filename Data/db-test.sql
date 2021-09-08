@@ -19,7 +19,7 @@ create table customer_account (
 	country VARCHAR(50),
 	profile_pic blob,
 	balance DECIMAL(8,2)  not null,
-	registered_branch mediumint(8) unsigned not null auto_increment,
+	registered_branch int(8) unsigned not null auto_increment,
 	primary key (i_num),
     foreign key (registered_branch) references branch(b_code)
 )    Engine = InnoDB;
