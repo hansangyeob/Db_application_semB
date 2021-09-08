@@ -2,7 +2,7 @@
 
 How to use
 
-1.Update the `databases.spl` to your local computer.
+1.Update the `Online-Bidding-System-PHP/databases.spl` to your local computer.
 
 2.Change `DatabaseConnection.php` to your setting.
 
