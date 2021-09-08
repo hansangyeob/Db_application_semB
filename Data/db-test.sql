@@ -8,8 +8,8 @@ drop table notification;
 drop table bids;
 
 CREATE TABLE branch (
-  `b_code` mediumint(8) unsigned NOT NULL auto_increment,
-  `b_name` varchar(50),
+  `b_code` int(8) NOT NULL ,
+  `b_name` varchar(255),
   `address` varchar(255) default NULL,
   `hotline_num` varchar(100) default NULL,
   PRIMARY KEY (`b_code`)
@@ -27,14 +27,14 @@ create table customer_account (
 	country VARCHAR(50),
 	profile_pic blob,
 	balance DECIMAL(8,2)  not null,
-	registered_branch mediumint(8) unsigned not null auto_increment,
+	registered_branch int(8) not null,
 	primary key (i_num),
     foreign key (registered_branch) references branch(b_code)
 )    Engine = InnoDB;
 
 
 CREATE TABLE auction_product (
-  `p_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `p_id` int(8) unsigned NOT NULL auto_increment,
   `p_name` varchar(255) NOT NULL,
   `price_min` decimal NOT NULL,
   `current_price` decimal,
@@ -63,9 +63,9 @@ create table notification(
 );
 
 create table bids(
-    b_id mediumint(8),
+    b_id int(8),
     bidder varchar(255) NOT NULL,
-    product_id mediumint(8) unsigned NOT NULL auto_increment,
+    product_id int(8) unsigned NOT NULL auto_increment,
     offer_price decimal(8,2),
     offer_time datetime,
     primary key (b_id)

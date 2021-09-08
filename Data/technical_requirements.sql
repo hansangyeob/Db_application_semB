@@ -1,4 +1,4 @@
-
+drop table CUSTOMER_ACCOUNT;
 -- PARTITIONING
 CREATE TABLE CUSTOMER_ACCOUNT(
     i_num INT not null,
@@ -11,9 +11,10 @@ CREATE TABLE CUSTOMER_ACCOUNT(
 	city VARCHAR(50),
 	country VARCHAR(50),
 	profile_pic blob,
-	balance DECIMAL(8,2)  not null,
-    primary key (i_num)
-)PARTITION BY RANGE (balance)(
+	balance DECIMAL(8,2) not null,
+	registered_branch mediumint(8) unsigned not null,
+	primary key (i_num)
+)PARTITION BY RANGE (i_num)(
     PARTITION P0 VALUES LESS THAN (201),
     PARTITION P1 VALUES LESS THAN (401),
     PARTITION P2 VALUES LESS THAN (601),
