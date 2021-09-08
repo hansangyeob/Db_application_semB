@@ -131,10 +131,9 @@ CloseCon($conn);
 
         $email    = $_POST['email'];
         $balance = $_POST['balance'];
-
+        
         $query = "UPDATE customer_account SET balance='$balance' where email='$email'";
         mysqli_query(connection(), $query);
-
         echo '<script language="javascript">';
         echo 'alert("Balance updated successfully")';
         echo '</script>';
@@ -196,7 +195,8 @@ CloseCon($conn);
                     echo $row['i_num'];
                     echo "</td>";
                     echo "<td>";
-                    echo $row['f_name'];
+                    echo $row['last_name'];
+                    echo " ".$row['first_name'];
                     echo "</td>";
                     echo "<td>";
                     echo $row['email'];

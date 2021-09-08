@@ -39,14 +39,16 @@
   echo "<b>"."Welcome, "."</b>" . $row['email'];
   echo "<br>";
   echo "<br>";
+  echo  "<img style='width:100px;height:100px' src='" . $row['profile_pic'] . "'>";
+  echo "<br>";
   echo "Your Imformation";
   echo "<br>";
   echo "<h5 style'margin:2% auto auto 40%;float:right;' >";
   echo "Identification Number : " . $row['i_num'];
   echo "<br>";
-  echo "First Name : " . $row['f_name'];
+  echo "First Name : " . $row['first_name'];
   echo "<br>";
-  echo "Last Name : " . $row['l_name'];
+  echo "Last Name : " . $row['last_name'];
   echo "<br>";
   echo "Email : " . $row['email'];
   echo "<br>";
@@ -59,6 +61,8 @@
   echo "City : " . $row['city'];
   echo "<br>";
   echo "Balance : " . $row['balance'];
+  echo "<br>";
+  echo "Registered Branch : " . $row['registered_branch'];
   echo "</div>";
   echo "</div>";
 

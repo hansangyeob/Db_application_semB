@@ -144,9 +144,9 @@ CloseCon($conn);
     $country  = $_POST['country'];
     $balance = 0;
 
-    // $destination = "UserPhoto/" . $_FILES['profile_pic']['name'];
-    // $filename    = $_FILES['profile_pic']['tmp_name'];
-    // move_uploaded_file($filename, $destination);
+    $destination = "UserPhoto/" . $_FILES['profile_pic']['name'];
+    $filename    = $_FILES['profile_pic']['tmp_name'];
+    move_uploaded_file($filename, $destination);
 
     $query = "INSERT INTO customer_account(i_num,f_name,l_name,email,phone,password,address,city,country,profile_pic,balance) 
     VALUES('$i_num','$f_name','$l_name','$email','$phone','$password','$address','$city','$country',null,$balance)";
@@ -263,7 +263,7 @@ CloseCon($conn);
             </div>
 
 
-            <!-- <div class="form-group">
+            <div class="form-group">
               <label class="cols-sm-2 control-label">Your Profile Picture</label>
               <div class="cols-sm-10">
                 <div class="input-group">
@@ -271,7 +271,7 @@ CloseCon($conn);
                   <input type="file" name="profile_pic">
                 </div>
               </div>
-            </div> -->
+            </div>
 
             <div class="form-group ">
               <input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button">

@@ -4,8 +4,8 @@
     function connection()
     {
         $DATABASE = "localhost";
-        $username = "admin";
-        $dbname = "db_a2";
+        $username = "root";
+        $dbname = "auction_db_a2";
         $psrd = "";
         $connection = mysqli_connect($DATABASE, $username, $psrd, $dbname);
 
@@ -15,9 +15,9 @@
     function OpenCon()
     {
         $dbhost = "localhost";
-        $dbuser = "admin";
+        $dbuser = "root";
         $dbpass = "";
-        $db = "db_a2";
+        $db = "auction_db_a2";
         $conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die("Connect failed: %s\n" . $conn->error);
 
         return $conn;

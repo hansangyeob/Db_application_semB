@@ -7,6 +7,7 @@
               <li><a href="AdminMagane.php"><b>&nbsp&nbsp&nbsp&nbspHome</b></a></li>
               <li><a href="AAddBalance.php"><b>Add Balance</b></a></li>
               <li><a href="ADeletePost.php"><b>Delete Post</b></a></li>
+              <li><a href="AManageTransaction.php"><b>Manage Transaction</b></a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">

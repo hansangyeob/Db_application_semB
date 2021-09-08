@@ -21,7 +21,7 @@ while ($row = mysqli_fetch_array($result)) {
   $prodid = $row['p_id'];
   if ($datenow >= $duedate) {
 
-    $buyer = $row['Buyer'];
+    $buyer = $row['buyer'];
 
     if ($buyer == "null") {
       $seller = $row['email'];
@@ -36,7 +36,7 @@ while ($row = mysqli_fetch_array($result)) {
       mysqli_query(connection(), $qry);
 
       $seller = $row['email'];
-      $buyer = $row['Buyer'];
+      $buyer = $row['buyer'];
       $ProductName = $row['p_name'];
 
       $qry1 = "select * from custoemr_account where email='$seller'";

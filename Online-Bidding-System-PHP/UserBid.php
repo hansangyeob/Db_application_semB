@@ -1,9 +1,9 @@
 <?php
-  session_start();
-  include 'DatabaseConnection.php';
-  $conn = OpenCon();
-  // echo "Connected Successfully";
-  CloseCon($conn);
+session_start();
+include 'DatabaseConnection.php';
+$conn = OpenCon();
+// echo "Connected Successfully";
+CloseCon($conn);
 
 ?>
 
@@ -43,34 +43,73 @@
 <body>
 
   <?php
+  // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  //   $id = $_GET['bid'];
+  //   $price = $_POST['price_min'];
+  //   $buyer = $_SESSION['email'];
+
+  //   $qry = "SELECT * FROM auction_product WHERE p_id='$id'";
+  //   $Rslt = mysqli_query(connection(), $qry);
+
+  //   $rw = mysqli_fetch_array($Rslt);
+
+  //   $postbuyer = $rw['buyer'];
+  //   $productname = $rw['p_name'];
+
+  //   $message = "Dear ".$postbuyer . ", Someone Bid heigher than your Bid price on product " . $productname . '! , You Can Bid Again This Product. ';
+
+  //   $insert = "INSERT INTO notification(n_id,buyer,note,status) VALUES(0,'$postbuyer','$message','Yes')";
+  //   mysqli_query(connection(), $insert);
+
+  //   $query = "UPDATE auction_product SET price_min='$price',buyer='$buyer' where p_id='$id'";
+
+  //   mysqli_query(connection(), $query);
+
+  //   header('Location:Bidding.php');
+  // }
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $id = $_GET['bid'];
-    $price = $_POST['price_min'];
-    $buyer = $_SESSION['email'];
+    $offered_price = $_POST['offer_price'];
+    $postbuyer = $_SESSION['email'];
 
-    $qry = "SELECT * FROM auction_product WHERE p_id='$id'";
-    $Rslt = mysqli_query(connection(), $qry);
+    $qy = "SELECT * FROM auction_product WHERE p_id='$id'";
 
-    $rw = mysqli_fetch_array($Rslt);
+    $Rst = mysqli_query(connection(), $qy);
 
-    $postbuyer = $rw['buyer'];
-    $productname = $rw['p_name'];
-    
-    echo $postbuyer;
-    echo $productname;
-    $message = "Dear ".$postbuyer . ", Someone Bid heigher than your Bid price on product" . $productname . '! , You Can Bid Again This Product. ';
+    $rws = mysqli_fetch_array($Rst);
 
-    $insert = "INSERT INTO notification(n_id,buyer,note,status) VALUES(0,'$postbuyer','$message','Yes')";
-    mysqli_query(connection(), $insert);
+    // $postbuyer = $rws['buyer'];
+    $seller = $rws['seller'];
+    $started_price = $rws['price_min'];
+    $productname = $rws['p_name'];
+    $offeredPrice = $rws['current_price'];
+    $offeredTime = date("Y-m-d h:i:sa");
 
-    $query = "UPDATE auction_product SET price_min='$price',buyer='$buyer' where p_id='$id'";
+    echo "bid ID : will be auto increased <br>";
+    echo "started price : " . $started_price . '<br>';
+    echo "seller : " . $seller . '<br>';
+    echo "bidder: " . $postbuyer . '<br>';
+    echo "product ID : " . $id . '<br>';
+    echo "p_name: " . $productname . '<br>';
+    echo "offered price: " . $offered_price . '<br>';
+    echo "bid time: " . $offeredTime . '<br>';
 
-    mysqli_query(connection(), $query);
+    $queryInsert = "INSERT INTO bids(b_id,bidder,product_id,offer_price,offer_time)
+    VALUES ('0','$postbuyer','$id','$offeredPrice','$offeredTime')";
 
-    header('Location:Bidding.php');
+    $exe = mysqli_query(connection(), $queryInsert);
+
+    if (!$exe) {
+      echo '<script language="javascript">';
+      echo 'alert("Something went wrong, please try again.")';
+      echo '</script>';
+      echo "Error creating database: " . mysqli_error(connection());
+    } else {
+      echo '<script language="javascript">';
+      echo 'alert("Your bid has been successfully added. Good luck to you!")';
+      echo '</script>';
+    }
   }
-
   ?>
 
   <?php
@@ -79,8 +118,8 @@
 
     $email = $_SESSION['email'];
     $id = $_GET['bid'];
-  //  echo $email;
-  
+    //  echo $email;
+
     $query = "SELECT * FROM auction_product WHERE p_id ='$id'";
 
     $Result = mysqli_query(connection(), $query);
@@ -98,7 +137,7 @@
       $qry = "SELECT * FROM auction_product WHERE p_id ='$id'";
       $Result = mysqli_query(connection(), $qry);
       $row = mysqli_fetch_array($Result);
-      $Price = $row['price_min'];
+      $Price = $row['current_price'];
 
       $price1 = $Price + 50;
       $price2 = $Price + 100;
@@ -109,9 +148,9 @@
 
       $row = mysqli_fetch_array($Result);
       echo '<table align="center">';
-      // echo '<td>';
-      // echo "<img src='" . $row['Image'] . "' width='350px' height='250px'>";
-      // echo '</td>';
+      echo '<td>';
+      echo "<img src='" . $row['picture'] . "' width='350px' height='250px'>";
+      echo '</td>';
       echo '<td>';
       echo "Product Name :";
       echo "<b>";
@@ -120,7 +159,7 @@
       echo "<br>";
       echo "Current Price: ";
       echo "<b>";
-      echo $row['price_min'];
+      echo $row['current_price'];
       echo "</b>";
       echo "<br>";
       echo "Closing time: ";
@@ -137,7 +176,7 @@
             <form method="POST" name="CatagoryForm"  onsubmit="return validform();">
               <br>
               <div align="center">
-                  <select name="price_min" id="price_min" onchange="fetch_select(this.value);">
+                  <select name="offer_price" id="offer_price" onchange="fetch_select(this.value);">
                     <option>' . $price1 . '</option>
                     <option>' . $price2 . '</option>
                     <option>' . $price3 . '</option>

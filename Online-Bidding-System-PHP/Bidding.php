@@ -107,7 +107,7 @@ CloseCon($conn);
     }
 
     .data-table tbody tr:hover td {
-      background-color:cadetblue;
+      background-color: cadetblue;
       border-color: #ffff0f;
     }
 
@@ -147,7 +147,7 @@ CloseCon($conn);
 
         $query = "SELECT * FROM auction_product WHERE status='No' and seller!='$seller'";
         $Rows = mysqli_query(connection(), $query);
-        $Result = mysqli_query(connection(), $query);
+
         $break = 0;
 
         if (mysqli_num_rows($Rows) > 0) {
@@ -157,8 +157,8 @@ CloseCon($conn);
           echo '<th>Product</th>';
           echo '<th>ID</th>';
           echo '<th>Product Name</th>';
-          echo '<th>Price</th>';
-          echo '<th>Seller</th>';
+          echo '<th>Price started</th>';
+          echo '<th>Current Price</th>';
           echo '<th>End Date</th>';
           echo '<th>Status</th>';
           echo '</tr>';
@@ -166,25 +166,27 @@ CloseCon($conn);
           echo '<tbody>';
 
           while ($row = mysqli_fetch_array($Rows)) {
+
+
             echo '<tr>
               <td>' . "<img style='width:100px;height:100px' src='" . $row['picture'] . "'>" . '</td>            
               <td>' . $row['p_id'] . '</td>
               <td>' . $row['p_name'] . '</td>
               <td>' . $row['price_min'] . '</td>
-              <td>' . $row['seller'] . '</td>
+              <td>' . $row['current_price'] . '</td>
               <td>' . $row['closing_time'] . '</td>
-              <td>'  
-              ?> 
-              <a href="javascript:bid(<?php echo $row[0]; ?>)"><span style="color: green;font-size: 15px"><b>Running</b></span> </a>
-              .<?php
+              <td>'
+        ?>
+            <a href="javascript:bid(<?php echo $row[0]; ?>)"><span style="color: green;font-size: 15px"><b>Running</b></span> </a>
+            .<?php
               '</td>
             </tr>';
+            }
+          } else {
+            echo "<script> window.alert('You Have Not Any Post Yet');</script>";
           }
-        } else {
-          echo "<script> window.alert('You Have Not Any Post Yet');</script>";
-        }
-        echo '</tbody>';
-        ?>
+          echo '</tbody>';
+              ?>
 
       </table>
 
