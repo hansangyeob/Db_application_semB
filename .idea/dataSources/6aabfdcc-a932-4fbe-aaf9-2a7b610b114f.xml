@@ -5043,13 +5043,11 @@
     <column id="1215" parent="416" name="seller">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1216" parent="416" name="buyer">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1217" parent="416" name="picture">

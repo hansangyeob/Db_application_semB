@@ -150,35 +150,36 @@ CloseCon($conn);
             <table>
 
                 <?php
-    // transaction table
-    $seller = $_SESSION['email'];
-    $query = "SELECT * FROM transaction ";
-    $delete = "DELETE * FROM transaction ";
+                // transaction table
+                $seller = $_SESSION['email'];
+                $query = "SELECT * FROM transaction ";
+                $delete = "DELETE * FROM transaction ";
 
 
-    $Rows = mysqli_query(connection(), $query);
+                $Rows = mysqli_query(connection(), $query);
 
-    $break = 0;
+                $break = 0;
 
-    if (mysqli_num_rows($Rows) > 0) {
+                if (mysqli_num_rows($Rows) > 0) {
 
-      echo '<table class="database-table">';
-      echo '<thead>';
-      echo '<tr>';
-      echo '<th>ID</th>';
-      echo '<th>START TIME</th>';
-      echo '<th>END TIME</th>';
-      echo '<th>AMOUNT</th>';
-      echo '<th>SELLER</th>';
-      echo '<th>PRODUCT</th>';
-      echo '<th>WINNER</th>';
-      echo '</tr>';
-      echo '</thead>';
-      echo '<tbody>';
+                    echo '<table class="data-table">';
+                    echo '<thead>';
+                    echo '<tr>';
+                    echo '<th>ID</th>';
+                    echo '<th>START TIME</th>';
+                    echo '<th>END TIME</th>';
+                    echo '<th>AMOUNT</th>';
+                    echo '<th>SELLER</th>';
+                    echo '<th>PRODUCT</th>';
+                    echo '<th>WINNER</th>';
+                    echo '<th>Rollback</th>';
+                    echo '</tr>';
+                    echo '</thead>';
+                    echo '<tbody>';
 
-      while ($row = mysqli_fetch_array($Rows)) {
+                    while ($row = mysqli_fetch_array($Rows)) {
 
-        echo '<tr>
+                        echo '<tr>
           <td>' . $row['t_id']  . '</td>
           <td>' . $row['start_time'] . '</td>
           <td>' . $row['end_time'] . '</td>
@@ -186,21 +187,21 @@ CloseCon($conn);
           <td>' . $row['t_seller'] . '</td>
           <td>' . $row['pro_id'] . '</td>
           <td>' . $row['win_bidder'] . '</td>
-          <td>'        
+          <td>'
 
-      ?>
+                ?>
 
-                <a href="javascript:tid(<?php echo $row[0];?>)"><b>Undo</b> </a>
+                <a href="javascript:tid(<?php echo $row[0]; ?>)"><b>Undo</b> </a>
 
                 <?php
-          '</td>
+                        '</td>
           </tr>';
-      }
-    } else {
-      echo "you have an error";
-    }
-    echo '</tbody>';
-    ?>
+                    }
+                } else {
+                    echo "you have an error";
+                }
+                echo '</tbody>';
+                ?>
             </table>
 
         </div>
