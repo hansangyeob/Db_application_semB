@@ -70,36 +70,28 @@ CloseCon($conn);
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_GET['bid'];
     $offered_price = $_POST['offer_price'];
-    $postbuyer = $_SESSION['email'];
 
     $qy = "SELECT * FROM auction_product WHERE p_id='$id'";
-
     $Rst = mysqli_query(connection(), $qy);
-
     $rws = mysqli_fetch_array($Rst);
 
-    // $postbuyer = $rws['buyer'];
     $seller = $rws['seller'];
     $started_price = $rws['price_min'];
     $productname = $rws['p_name'];
     $offeredPrice = $rws['current_price'];
     $offeredTime = date("Y-m-d h:i:sa");
+    $postbuyer = $_SESSION['email'];
 
-    echo "bid ID : will be auto increased <br>";
-    echo "started price : " . $started_price . '<br>';
-    echo "seller : " . $seller . '<br>';
-    echo "bidder: " . $postbuyer . '<br>';
-    echo "product ID : " . $id . '<br>';
-    echo "p_name: " . $productname . '<br>';
-    echo "offered price: " . $offered_price . '<br>';
-    echo "bid time: " . $offeredTime . '<br>';
+    $queryInsert = "INSERT INTO bids(b_id,seller,bidder,product_id,offer_price,offer_time)
+    VALUES ('0','$seller','$postbuyer','$id','$offered_price','$offeredTime')";
 
-    $queryInsert = "INSERT INTO bids(b_id,bidder,product_id,offer_price,offer_time)
-    VALUES ('0','$postbuyer','$id','$offeredPrice','$offeredTime')";
+    $queryUpdate = "UPDATE auction_product SET current_price='$offered_price' where p_id='$id'";
 
-    $exe = mysqli_query(connection(), $queryInsert);
+    mysqli_query(connection(), $queryUpdate);
 
-    if (!$exe) {
+    // $exe1 = mysqli_query(connection(), $queryInsert);
+
+    if (!mysqli_query(connection(), $queryInsert)) {
       echo '<script language="javascript">';
       echo 'alert("Something went wrong, please try again.")';
       echo '</script>';
@@ -109,7 +101,10 @@ CloseCon($conn);
       echo 'alert("Your bid has been successfully added. Good luck to you!")';
       echo '</script>';
     }
+
+    header('Location:Bidding.php');
   }
+
   ?>
 
   <?php
@@ -118,15 +113,13 @@ CloseCon($conn);
 
     $email = $_SESSION['email'];
     $id = $_GET['bid'];
-    //  echo $email;
 
     $query = "SELECT * FROM auction_product WHERE p_id ='$id'";
-
     $Result = mysqli_query(connection(), $query);
 
     $row = mysqli_fetch_array($Result);
 
-    $Buyer = $row['buyer'];
+    $Buyer = $row['seller'];
 
     if ($Buyer == $email) {
       echo "<script>alert('This Is Your Product, You Can Not Bid Your Own Product!');</script>";

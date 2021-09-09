@@ -118,7 +118,6 @@ CloseCon($conn);
 
   <?php
   $seller = $_SESSION['email'];
-
   $query = "SELECT * FROM auction_product WHERE seller='$seller'";
   $Rows = mysqli_query(connection(), $query);
 

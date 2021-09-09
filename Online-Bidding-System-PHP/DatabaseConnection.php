@@ -5,7 +5,7 @@
     {
         $DATABASE = "localhost";
         $username = "root";
-        $dbname = "auction_db_a2";
+        $dbname = "a2";
         $psrd = "";
         $connection = mysqli_connect($DATABASE, $username, $psrd, $dbname);
 
@@ -17,7 +17,7 @@
         $dbhost = "localhost";
         $dbuser = "root";
         $dbpass = "";
-        $db = "auction_db_a2";
+        $db = "a2";
         $conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die("Connect failed: %s\n" . $conn->error);
 
         return $conn;

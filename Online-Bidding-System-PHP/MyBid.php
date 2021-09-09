@@ -105,16 +105,19 @@ CloseCon($conn);
 
   $email = $_SESSION['email'];
 
-  $query = "SELECT * FROM auction_product WHERE buyer='$email' and status='Yes'";
+  $query = "SELECT * FROM bids WHERE bidder='$email' ";
   $Rows = mysqli_query(connection(), $query);
 
   if (mysqli_num_rows($Rows) > 0) {
     echo '<table class="data-table">';
     echo '<thead>';
     echo '<tr>';
-    echo '<th>Product Name</th>';
-    echo '<th>SellerName</th>';
+    echo '<th>Bid ID</th>';
+    echo '<th>Name</th>';
+    echo '<th>Seller</th>';
+    echo '<th>Offered time</th>';
     echo '<th>Sold Price</th>';
+    echo '<th>Status</th>';
 
     echo '</tr>';
     echo '</thead>';
@@ -124,9 +127,12 @@ CloseCon($conn);
     while ($row = mysqli_fetch_array($Rows)) {
 
       echo '<tr>
-           <td>' . $row['p_name'] . '</td>
-             <td>' . $row['buyer'] . '</td>
-             <td>' . $row['price_min'] . '</td>
+      <td>' . $row['b_id'] . '</td>       
+      <td>' . $row['product_id'] . '</td>
+      <td>' . $row['seller'] . '</td>
+      <td>' . $row['offer_time'] . '</td>
+      <td>' . $row['offer_price'] . '</td>
+
         </tr>';
     }
   } else {

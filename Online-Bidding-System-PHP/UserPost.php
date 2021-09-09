@@ -1,8 +1,8 @@
 <?php
 session_start();
 include 'DatabaseConnection.php';
+// include '../Online-Bidding-System-PHP/phpmongo/insert.php';
 $conn = OpenCon();
-// echo "Connected Successfully";
 CloseCon($conn);
 
 ?>
@@ -92,20 +92,14 @@ CloseCon($conn);
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $name = $_POST['name'];
-    $price = $_POST['price'];
+    $p_id = 0;
+    $p_name = $_POST['name'];
+    $price_min = $_POST['price'];
+    $price_current = $_POST['price'];
     $closing_time = $_POST['closing_time'];
     $seller = $_SESSION['email'];
-    echo 'session email:' . $seller . '<br>';
-    //get i_num from current account(seller)
-    $query_seller = "SELECT * FROM customer_account WHERE email = '$seller'";
-    $Result = mysqli_query(connection(), $query_seller);
-    $row = mysqli_fetch_array($Result);
-    $seller_inum = $row['i_num'];
-    echo 'session i_num:' . $seller_inum . '<br>';
-    // $filename = $_FILES["uploadfile"]["name"];
-    // $tempname = $_FILES["uploadfile"]["tmp_name"];
-    // $folder = "image/" . basename($filename);
+    $status = 'No';
+    $buyer = null;
 
     // if (move_uploaded_file($tempname, $folder)) {
     //   $msg = "Image uploaded successfully";
@@ -117,34 +111,33 @@ CloseCon($conn);
     $filename    = $_FILES['Cpicture']['tmp_name'];
     move_uploaded_file($filename, $destination);
 
-    $query = "INSERT INTO auction_product(p_id,p_name,price_min,current_price,closing_time,seller,buyer,picture,status)
-    VALUES ('0','$name','$price','$price','$closing_time','$seller','null','$destination','No')";
+    $query_insert_post = "INSERT INTO auction_product(p_id,p_name,price_min,current_price,closing_time,seller,picture,status)
+    VALUES (0,'$p_name','$price_min','$price_current','$closing_time','$seller','$destination','$status')";
 
-    if (connection()->query($query) === TRUE) {
-      echo "New record created successfully";
+    if (mysqli_query(connection(), $query_insert_post)) {
+      echo '<script language="javascript">';
+      echo 'alert("Your item has been successfully added.")';
+      echo '</script>';
     } else {
-      echo "Error: " . $query . "##<br>" . connection()->error;
+      echo '<script language="javascript">';
+      echo 'alert("insertion Problem")';
+      echo '</script>';
+      echo "Error: " . $query_insert_post . " <br>" . mysqli_error(connection());
     }
-    
-    // $exe = mysqli_query(connection(), $query);
-    // $new_rows = mysqli_fetch_array($exe);
-    // $p_id = $new_rows['p_id'];
-    // echo $p_id;
-
-
-
-    // $conn->close();
-    // if (!$exe) {
-    //   echo '<script language="javascript">';
-    //   echo 'alert("insertion Problem")';
-    //   echo '</script>';
-    //   echo "Error creating database: " . mysqli_error(connection());
-    // } else {
-    //   echo '<script language="javascript">';
-    //   echo 'alert("Your item has been successfully added.")';
-    //   echo '</script>';
-    // }
+    mysqli_close(connection());
   }
+
+  // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  //   $res = $collection->insertOne([
+  //       '_id' => $p_id,
+  //       'attributes' => $attributes([
+  //           'attibute1name' => $_POST['attribute1name'],
+  //           'attibute1' => $_POST['attribute1name'],
+  //           'attibute2name' => $_POST['attribute2name'],
+  //           'attibute2' => $_POST['attribute2name']
+  //       ])
+  //   ]);
+  // }
 
   ?>
 
@@ -179,6 +172,18 @@ CloseCon($conn);
               <label class="control-label">Product Picture</label>
               <input type="file" name="Cpicture">
             </div>
+            <hr>
+            <!-- <div class="form-group">
+              <label class="control-label">Extra Fields</label><br>
+              <input type="text" name="attribute1name" class="control-label" placeholder="Attribute1 Name">
+              <br><br>
+              <input type="text" name="attribute1" maxlength="50" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" name="attribute2name" class="control-label" placeholder="Attribute2 Name">
+              <br><br>
+              <input type="text" name="attribute2" maxlength="50" class="form-control">
+            </div> -->
 
             <div class="form-group">
 

@@ -148,8 +148,8 @@ CloseCon($conn);
     $filename    = $_FILES['profile_pic']['tmp_name'];
     move_uploaded_file($filename, $destination);
 
-    $query = "INSERT INTO customer_account(i_num,f_name,l_name,email,phone,password,address,city,country,profile_pic,balance) 
-    VALUES('$i_num','$f_name','$l_name','$email','$phone','$password','$address','$city','$country',null,$balance)";
+    $query = "INSERT INTO customer_account(i_num,f_name,l_name,email,phone,password,address,city,country,profile_pic,balance,registered_branch) 
+    VALUES('$i_num','$f_name','$l_name','$email','$phone','$password','$address','$city','$country',null,$balance,0)";
 
     // if (connection()->query($query) === TRUE) {
     //   echo "New record created successfully";

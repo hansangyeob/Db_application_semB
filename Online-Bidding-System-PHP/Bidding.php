@@ -142,15 +142,20 @@ CloseCon($conn);
       <table>
 
         <?php
+
+        if (isset($_GET['asc'])){
+          $result = "SELECT * FROM websites ORDER BY name ASC";
+        }else{
+          $result = "SELECT * FROM websites ORDER BY name DESC";
+        }
+          
+
         // bidding table
         $seller = $_SESSION['email'];
-
         $query = "SELECT * FROM auction_product WHERE status='No' and seller!='$seller'";
         $Rows = mysqli_query(connection(), $query);
-
         $break = 0;
-
-        if (mysqli_num_rows($Rows) > 0) {
+        if (mysqli_num_rows($Rows)) {
           echo '<table class="data-table">';
           echo '<thead>';
           echo '<tr>';
@@ -158,8 +163,8 @@ CloseCon($conn);
           echo '<th>ID</th>';
           echo '<th>Product Name</th>';
           echo '<th>Price started</th>';
-          echo '<th>Current Price</th>';
-          echo '<th>End Date</th>';
+          echo '<th> <a href=``>Current Price</th>';
+          echo '<th> <a href=` `>End Date</th>';
           echo '<th>Status</th>';
           echo '</tr>';
           echo '</thead>';
@@ -186,6 +191,8 @@ CloseCon($conn);
             echo "<script> window.alert('You Have Not Any Post Yet');</script>";
           }
           echo '</tbody>';
+
+
               ?>
 
       </table>
