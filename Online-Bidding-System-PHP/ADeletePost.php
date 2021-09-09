@@ -10,127 +10,127 @@ CloseCon($conn);
 <html lang="en">
 
 <head>
-  <title>Bidding System(ADMIN)</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Bidding System(ADMIN)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <style>
+    <style>
     table {
-      margin: auto;
-      font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
-      font-size: 12px;
+        margin: auto;
+        font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
+        font-size: 12px;
     }
 
     h1 {
-      margin: 25px auto 0;
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 17px;
+        margin: 25px auto 0;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 17px;
     }
 
     table td {
-      transition: all .5s;
+        transition: all .5s;
     }
 
     /* Table */
     .data-table {
-      border-collapse: collapse;
-      font-size: 14px;
-      min-width: 537px;
+        border-collapse: collapse;
+        font-size: 14px;
+        min-width: 537px;
     }
 
     .data-table th,
     .data-table td {
-      border: 1px solid #e1edff;
-      padding: 7px 17px;
+        border: 1px solid #e1edff;
+        padding: 7px 17px;
     }
 
     .data-table caption {
-      margin: 7px;
+        margin: 7px;
     }
 
     /* Table Header */
     .data-table thead th {
-      background-color: #508abb;
-      color: #FFFFFF;
-      border-color: #6ea1cc !important;
-      text-transform: uppercase;
+        background-color: #508abb;
+        color: #FFFFFF;
+        border-color: #6ea1cc !important;
+        text-transform: uppercase;
     }
 
     /* Table Body */
     .data-table tbody td {
-      color: #353535;
+        color: #353535;
     }
 
     .data-table tbody td:first-child,
     .data-table tbody td:nth-child(4),
     .data-table tbody td:last-child {
-      text-align: right;
+        text-align: right;
     }
 
     .data-table tbody tr:nth-child(odd) td {
-      background-color: #f4fbff;
+        background-color: #f4fbff;
     }
 
     .data-table tbody tr:hover td {
-      background-color: lightgray;
-      border-color: #ffff0f;
+        background-color: lightgray;
+        border-color: #ffff0f;
     }
 
     /* Table Footer */
     .data-table tfoot th {
-      background-color: #e5f5ff;
-      text-align: right;
+        background-color: #e5f5ff;
+        text-align: right;
     }
 
     .data-table tfoot th:first-child {
-      text-align: left;
+        text-align: left;
     }
 
     .data-table tbody td:empty {
-      background-color: #ffcccc;
+        background-color: #ffcccc;
     }
-  </style>
+    </style>
 
-  <script type="text/javascript">
+    <script type="text/javascript">
     function bid(id) {
-      if (confirm('Are You Sure you want to delete This Post?')) {
-        alert(id);
-        window.location = 'APostDelete.php?bid=' + id
-      }
+        if (confirm('Are You Sure you want to delete This Post?')) {
+            alert(id);
+            window.location = 'APostDelete.php?bid=' + id
+        }
     }
-  </script>
+    </script>
 
 </head>
 
 <body>
 
-  <?php
+    <?php
   require("AHeader.php");
   ?>
 
-  <form action="" method="POST">
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>End Date</th>
-          <th>Seller</th>
-          <th>Buyer</th>
-          <th>Sold or Not</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
+    <form action="" method="POST">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>End Date</th>
+                    <th>Seller</th>
+                    <th>Buyer</th>
+                    <th>Sold or Not</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
 
-      <tbody>
+            <tbody>
 
-        <?php
+                <?php
 
         $query = "select * from auction_product";
         $Result = mysqli_query(connection(), $query);
@@ -162,16 +162,16 @@ CloseCon($conn);
           echo "</td>";
           echo "<td>";
         ?>
-          <a href="javascript:bid(<?php echo $row[0]; ?>)"> Delete </a>
-        <?php
+                <a href="javascript:bid(<?php echo $row[0]; ?>)"> Delete </a>
+                <?php
 
           echo '</td>';
         }
         ?>
 
-      </tbody>
-    </table>
-  </form>
+            </tbody>
+        </table>
+    </form>
 </body>
 
 </html>

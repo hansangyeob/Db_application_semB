@@ -36,3 +36,15 @@ SELECT p_name, count(B.product_id) as Number_of_bids
 FROM auction_product A, bids B
 WHERE A.p_id = B.product_id
 GROUP BY B.product_id;
+
+-- Undo Transaction
+DELETE FROM transaction;
+
+-- Rollback Transaction.
+CREATE PROCEDURE prcd_rollback()
+BEGIN
+    SELECT * FROM transaction;
+END
+
+
+

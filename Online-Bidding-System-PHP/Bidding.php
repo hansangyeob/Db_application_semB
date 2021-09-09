@@ -53,7 +53,7 @@ CloseCon($conn);
     h1 {
         margin: 25px auto 0;
         text-align: center;
-        text-transform: uppercase;
+        text-transfopercase;
         font-size: 17px;
     }
 
@@ -131,8 +131,8 @@ CloseCon($conn);
 <body>
 
     <?php
-  require("Header.php");
-  ?>
+    require("Header.php");
+    ?>
     <h2 style="text-align:center;">Current Auction</h2>
 
     <div class="bodysection templete clear">
@@ -142,33 +142,33 @@ CloseCon($conn);
             <table>
 
                 <?php
-        // bidding table
-        $seller = $_SESSION['email'];
+                // bidding table
+                $seller = $_SESSION['email'];
 
-        $query = "SELECT * FROM auction_product WHERE status='No' and seller!='$seller'";
-        $Rows = mysqli_query(connection(), $query);
+                $query = "SELECT * FROM auction_product WHERE status='No' and seller!='$seller'";
+                $Rows = mysqli_query(connection(), $query);
 
-        $break = 0;
+                $break = 0;
 
-        if (mysqli_num_rows($Rows) > 0) {
-          echo '<table class="data-table">';
-          echo '<thead>';
-          echo '<tr>';
-          echo '<th>Product</th>';
-          echo '<th>ID</th>';
-          echo '<th>Product Name</th>';
-          echo '<th>Price started</th>';
-          echo '<th>Current Price</th>';
-          echo '<th>End Date</th>';
-          echo '<th>Status</th>';
-          echo '</tr>';
-          echo '</thead>';
-          echo '<tbody>';
+                if (mysqli_num_rows($Rows) > 0) {
+                    echo '<table class="data-table">';
+                    echo '<thead>';
+                    echo '<tr>';
+                    echo '<th>Product</th>';
+                    echo '<th>ID</th>';
+                    echo '<th>Product Name</th>';
+                    echo '<th>Price started</th>';
+                    echo '<th>Current Price</th>';
+                    echo '<th>End Date</th>';
+                    echo '<th>Status</th>';
+                    echo '</tr>';
+                    echo '</thead>';
+                    echo '<tbody>';
 
-          while ($row = mysqli_fetch_array($Rows)) {
+                    while ($row = mysqli_fetch_array($Rows)) {
 
 
-            echo '<tr>
+                        echo '<tr>
               <td>' . "<img style='width:100px;height:100px' src='" . $row['picture'] . "'>" . '</td>            
               <td>' . $row['p_id'] . '</td>
               <td>' . $row['p_name'] . '</td>
@@ -176,18 +176,18 @@ CloseCon($conn);
               <td>' . $row['current_price'] . '</td>
               <td>' . $row['closing_time'] . '</td>
               <td>'
-        ?>
+                ?>
                 <a href="javascript:bid(<?php echo $row[0]; ?>)"><span
                         style="color: green;font-size: 15px"><b>Running</b></span> </a>
                 .<?php
-              '</td>
+                            '</td>
             </tr>';
-            }
-          } else {
-            echo "<script> window.alert('You Have Not Any Post Yet');</script>";
-          }
-          echo '</tbody>';
-              ?>
+                        }
+                    } else {
+                        echo "<script> window.alert('You Have Not Any Post Yet');</script>";
+                    }
+                    echo '</tbody>';
+                            ?>
 
             </table>
 

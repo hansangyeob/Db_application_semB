@@ -3,7 +3,7 @@
 session_start();
 include 'DatabaseConnection.php';
 $conn = OpenCon();
-// echo "Connected Successfully";
+echo "Connected Successfully";
 CloseCon($conn);
 
 ?>
@@ -13,13 +13,13 @@ CloseCon($conn);
 <html lang="en">
 
 <head>
-    <title>Bidding System(ADMIN)</title>
+    <title>Transaction System(ADMIN)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="CSS/Bidding.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/AManageTransaction.css">
 
     <script type="text/javascript">
     function tid(id) {
@@ -154,8 +154,10 @@ CloseCon($conn);
                 $seller = $_SESSION['email'];
                 $query = "SELECT * FROM transaction ";
                 $delete = "DELETE * FROM transaction ";
-
-
+                $query_seller = "SELECT * FROM customer_account WHERE i_num = '$seller'";
+                $Result = mysqli_query(connection(), $query_seller);
+                $row = mysqli_fetch_array($Result);
+                $seller_inum = $row['i_num'];
                 $Rows = mysqli_query(connection(), $query);
 
                 $break = 0;
@@ -190,6 +192,7 @@ CloseCon($conn);
           <td>'
 
                 ?>
+
 
                 <a href="javascript:tid(<?php echo $row[0]; ?>)"><b>Undo</b> </a>
 
