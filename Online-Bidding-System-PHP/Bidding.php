@@ -143,16 +143,24 @@ CloseCon($conn);
 
         <?php
 
-        if (isset($_GET['asc'])){
-          $result = "SELECT * FROM websites ORDER BY name ASC";
-        }else{
-          $result = "SELECT * FROM websites ORDER BY name DESC";
+        $field = 'current_price';
+        $sort = 'ASC';
+        if (isset($_GET['sorting'])) {
+          if ($_GET['sorting'] == 'ASC') {
+            $sort = 'DESC';
+          } else {
+            $sort = 'ASC';
+          }
         }
-          
+        if ($_GET['field'] == 'current_price') {
+          $field = "current_price";
+        } else {
+          $field = "closing_time";
+        }
 
         // bidding table
         $seller = $_SESSION['email'];
-        $query = "SELECT * FROM auction_product WHERE status='No' and seller!='$seller'";
+        $query = "SELECT * FROM auction_product WHERE status='No' and seller!='$seller'  ORDER BY $field $sort";
         $Rows = mysqli_query(connection(), $query);
         $break = 0;
         if (mysqli_num_rows($Rows)) {
@@ -163,8 +171,8 @@ CloseCon($conn);
           echo '<th>ID</th>';
           echo '<th>Product Name</th>';
           echo '<th>Price started</th>';
-          echo '<th> <a href=``>Current Price</th>';
-          echo '<th> <a href=` `>End Date</th>';
+          echo '<th><a style="color:black;" href="Bidding.php?sorting=' . $sort . '&field=current_price">Current Price</a></th>';
+          echo '<th> <a style="color:black;" href="Bidding.php?sorting=' . $sort . '&field=closing_time">End Date</a></th>';
           echo '<th>Status</th>';
           echo '</tr>';
           echo '</thead>';
