@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'DatabaseConnection.php';
-// include '../Online-Bidding-System-PHP/phpmongo/insert.php';
+include '../Online-Bidding-System-PHP/phpmongo/insert.php';
 $conn = OpenCon();
 CloseCon($conn);
 
@@ -127,20 +127,32 @@ CloseCon($conn);
     mysqli_close(connection());
   }
 
-  // if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  //   $res = $collection->insertOne([
-  //       '_id' => $p_id,
-  //       'attributes' => $attributes([
-  //           'attibute1name' => $_POST['attribute1name'],
-  //           'attibute1' => $_POST['attribute1name'],
-  //           'attibute2name' => $_POST['attribute2name'],
-  //           'attibute2' => $_POST['attribute2name']
-  //       ])
-  //   ]);
-  // }
+  ?>
+  <?php
+  $seller = $_SESSION['email'];
+ 
+  $queryy = "SELECT p_id FROM auction_product WHERE seller='$seller' ORDER BY p_id DESC LIMIT 0, 1";
+  $Rows = mysqli_query(connection(), $queryy);
+ 
+  if(mysqli_num_rows($Rows)>0){
+  while ($row = mysqli_fetch_array($Rows)) {
+  ?>
+    <?php $newp_id = $row['p_id']; ?>
+    
+  <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $res = $collection->insertOne([
+        '_id' => $newp_id,
+        'attibute1' => $_POST['attribute1'],
+        'attibute2' => $_POST['attribute2']
+      ]);
+    }
+  }
+  }
+  // echo $Rows['p_id'];
+
 
   ?>
-
   <?php
   require("Header.php");
   ?>
@@ -157,8 +169,6 @@ CloseCon($conn);
               <label class="control-label" for="signupName">Product Name</label>
               <input type="text" name="name" maxlength="50" class="form-control" required>
             </div>
-
-
             <div class="form-group">
               <label class="control-label" for="signupEmail">Priduct Price</label>
               <input type="number" name="price" maxlength="50" class="form-control" required>
@@ -173,20 +183,16 @@ CloseCon($conn);
               <input type="file" name="Cpicture">
             </div>
             <hr>
-            <!-- <div class="form-group">
-              <label class="control-label">Extra Fields</label><br>
-              <input type="text" name="attribute1name" class="control-label" placeholder="Attribute1 Name">
-              <br><br>
+            <div class="form-group">
+              <label class="control-label">Extra Information 1</label>
               <input type="text" name="attribute1" maxlength="50" class="form-control">
             </div>
             <div class="form-group">
-              <input type="text" name="attribute2name" class="control-label" placeholder="Attribute2 Name">
+              <label class="control-label">Extra Information 2</label>
               <br><br>
               <input type="text" name="attribute2" maxlength="50" class="form-control">
-            </div> -->
-
+            </div>
             <div class="form-group">
-
               <button id="signupSubmit" type="submit" class="btn btn-info btn-block" onclick="return ValidateBidForm();">Add Now</button>
             </div>
 
