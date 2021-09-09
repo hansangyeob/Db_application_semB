@@ -14,3 +14,7 @@ How to use
 - ID: user1@gmail.com
 - phone: 00000000
 - PASSWORD: 1234
+
+For mongodb,
+create db name `product_mongo`
+and collection name `product`
