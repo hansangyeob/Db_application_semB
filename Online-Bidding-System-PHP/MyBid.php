@@ -103,9 +103,25 @@ CloseCon($conn);
   ?>
   <?php
 
+  $field = 'offer_price';
+  $sort = 'ASC';
+  if (isset($_GET['sorting'])) {
+    if ($_GET['sorting'] == 'ASC') {
+      $sort = 'DESC';
+    } else {
+      $sort = 'ASC';
+    }
+  }
+  if ($_GET['field'] == 'offer_price') {
+    $field = "offer_price";
+  } elseif ($_GET['field'] == 'offer_time') {
+    $field = "offer_time";
+  } 
+
+
   $email = $_SESSION['email'];
 
-  $query = "SELECT * FROM bids WHERE bidder='$email' ";
+  $query = "SELECT * FROM bids WHERE bidder='$email' ORDER BY $field $sort";
   $Rows = mysqli_query(connection(), $query);
 
   if (mysqli_num_rows($Rows) > 0) {
@@ -115,8 +131,8 @@ CloseCon($conn);
     echo '<th>Bid ID</th>';
     echo '<th>Name</th>';
     echo '<th>Seller</th>';
-    echo '<th>Offered time</th>';
-    echo '<th>Sold Price</th>';
+    echo '<th><a style="color:black;" href="MyBid.php?sorting=' . $sort . '&field=offer_time">Offer Time</a></th>';
+    echo '<th><a style="color:black;" href="MyBid.php?sorting=' . $sort . '&field=offer_price">Offer Price</a></th>';
     echo '<th>Status</th>';
 
     echo '</tr>';
