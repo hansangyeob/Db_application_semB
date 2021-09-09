@@ -20,36 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbc74f9d-da0d-42e1-9d37-decd30098b3b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Db_application_semB.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/.idea/Data.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/ASM.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/ASM.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/db-test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/db-test.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/db-test_no_key.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/db-test_no_key.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/index+queries.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/index+queries.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/technical_requirements.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/technical_requirements.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AAddBalance.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/AAddBalance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/ADeletePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/ADeletePost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/AHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/APostDelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/APostDelete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AUserPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/AUserPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AddAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/AddAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AdminLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/AdminLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AdminMagane.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/AdminMagane.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/BidProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/BidProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AManageTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/AManageTransaction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/Bidding.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/Bidding.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Adminlogin.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Adminlogin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Bidding.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Bidding.css" afterDir="false" />
@@ -58,22 +31,9 @@
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/UserReg.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/UserReg.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/u.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/u.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/user.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/userlogin.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/userlogin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/DatabaseConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/DatabaseConnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/Header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/Header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/MyBid.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/MyBid.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/MyPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/MyPost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/Registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UNotification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UUpdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UUpdate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserBid.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserBid.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserBidLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserBidLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/databases.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/databases.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +63,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="Database Script.db-test.sql">
     <configuration type="DatabaseScript" editBeforeRun="true" singleton="false" temporary="true">
@@ -134,7 +95,7 @@
       <workItem from="1630921522366" duration="183000" />
       <workItem from="1630922840936" duration="1051000" />
       <workItem from="1630924932039" duration="9682000" />
-      <workItem from="1631117291606" duration="2228000" />
+      <workItem from="1631117291606" duration="6901000" />
     </task>
     <servers />
   </component>
@@ -174,26 +135,30 @@
       <screen x="0" y="30" width="1536" height="834" />
     </state>
     <state x="484" y="96" key="#joo/0.30.1536.834@0.30.1536.834" timestamp="1630921604578" />
-    <state width="0" height="0" key="GridCell.Tab.0.bottom" timestamp="1631117315962">
+    <state width="1220" height="129" key="GridCell.Tab.0.bottom" timestamp="1631184403046">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="0" height="0" key="GridCell.Tab.0.bottom/0.30.1536.834@0.30.1536.834" timestamp="1631117315962" />
-    <state width="0" height="0" key="GridCell.Tab.0.center" timestamp="1631117315961">
+    <state width="1220" height="129" key="GridCell.Tab.0.bottom/0.30.1536.834@0.30.1536.834" timestamp="1631184403046" />
+    <state width="1220" height="129" key="GridCell.Tab.0.center" timestamp="1631184403046">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="0" height="0" key="GridCell.Tab.0.center/0.30.1536.834@0.30.1536.834" timestamp="1631117315961" />
-    <state width="0" height="0" key="GridCell.Tab.0.left" timestamp="1631117315959">
+    <state width="1220" height="129" key="GridCell.Tab.0.center/0.30.1536.834@0.30.1536.834" timestamp="1631184403046" />
+    <state width="1220" height="129" key="GridCell.Tab.0.left" timestamp="1631184403044">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="0" height="0" key="GridCell.Tab.0.left/0.30.1536.834@0.30.1536.834" timestamp="1631117315959" />
-    <state width="0" height="0" key="GridCell.Tab.0.right" timestamp="1631117315962">
+    <state width="1220" height="129" key="GridCell.Tab.0.left/0.30.1536.834@0.30.1536.834" timestamp="1631184403044" />
+    <state width="1220" height="129" key="GridCell.Tab.0.right" timestamp="1631184403046">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="0" height="0" key="GridCell.Tab.0.right/0.30.1536.834@0.30.1536.834" timestamp="1631117315962" />
+    <state width="1220" height="129" key="GridCell.Tab.0.right/0.30.1536.834@0.30.1536.834" timestamp="1631184403046" />
     <state width="265" height="457" key="HiddenNamespacesPopup" timestamp="1630941224479">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
     <state width="265" height="457" key="HiddenNamespacesPopup/0.30.1536.834@0.30.1536.834" timestamp="1630941224479" />
+    <state x="277" y="92" key="SettingsEditor" timestamp="1631184560898">
+      <screen x="0" y="30" width="1536" height="834" />
+    </state>
+    <state x="277" y="92" key="SettingsEditor/0.30.1536.834@0.30.1536.834" timestamp="1631184560898" />
     <state x="607" y="282" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1630925429414">
       <screen x="0" y="30" width="1536" height="834" />
     </state>

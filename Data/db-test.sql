@@ -56,13 +56,30 @@ create table notification(
 create table bids(
     b_id mediumint(8),
     bidder varchar(255) NOT NULL,
-    product_id int(8) unsigned NOT NULL auto_increment,
+    product_id int(8) unsigned NOT NULL ,
     offer_price decimal(8,2),
     offer_time datetime,
     primary key (b_id)
     ,foreign key (bidder) references customer_account(i_num),
     foreign key (product_id) references auction_product(p_id)
 )engine = innoDB;
+
+drop table transaction;
+create table transaction(
+    t_id int(8) unsigned not null auto_increment,
+    start_time datetime,
+    end_time datetime,
+    t_amount decimal(8,2),
+    t_seller varchar(255) NOT NULL,
+    pro_id int(8) unsigned NOT NULL,
+    win_bidder varchar(255) NOT NULL,
+    primary key (t_id),
+    foreign key (t_seller) references customer_account(i_num),
+    foreign key (win_bidder) references bids(bidder),
+    foreign key (pro_id) references bids(product_id)
+
+#     seller_bal decimal(8,2),
+) engine = innoDB;
 
 -- INSERT DATA INTO 'BRANCH' TABLE
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (1,'Orlando','P.O. Box 637, 6345 Lacus. Ave','6326365471');
@@ -75,6 +92,7 @@ INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (7,'Buda
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (8,'putrajaya','2871 Lectus Street','8174589596');
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (9,'Galapa','P.O. Box 618, 6603 Vivamus Road','9146735117');
 INSERT INTO `branch` (`b_code`,`b_name`,`address`,`hotline_num`) VALUES (10,'Méru','Ap #560-2240 Gravida St.','3131096876');
+
 
 -- INSERT DATA INTO 'CUSTOMER_ACCOUNT' TABLE
 insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance, registered_branch) values (1, 'Demetria', 'Orniz', 'dorniz0@forbes.com', '7788169754', '2MTnEm5IJ', '8121 Arrowood Place', 'Izmaylovo', 'Russia', 'http://dummyimage.com/237x100.png/ff4444/ffffff', 91.8,10);
@@ -151,3 +169,15 @@ INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (8,12,4,
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (9,1,5,98.32,'2022-03-14 02:54:21');
 INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,8,10,14.42,'2022-09-06 01:48:48');
 
+-- INSERT DATA INTO 'TRANSACTION' TABLE
+
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (1,'2021-02-03 12:07:46','2021-12-18 23:21:57','100.92','Rafael',1,'Zahir','5.88');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (2,'2021-10-13 23:51:22','2022-02-14 20:53:23','300.15','Karly',2,'Stone','7.90');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (3,'2022-02-15 04:49:39','2022-07-27 23:00:05','400.15','Rooney',3,'Castor','9.64');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (4,'2021-07-17 02:20:09','2022-03-15 10:29:58','400.51','Jack',4,'Melodie','5.29');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (5,'2021-04-15 01:18:14','2020-10-20 06:58:22','800.32','Bell',5,'Brandon','4.26');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (6,'2020-09-30 11:13:25','2020-12-13 00:02:36','800.17','Burton',6,'Carter','4.02');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (7,'2021-03-06 12:09:45','2021-08-22 11:33:36','900.38','Quyn',7,'Hilel','7.16');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (8,'2021-01-02 19:09:36','2020-10-09 21:24:02','700.62','Noah',8,'Robert','8.79');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (9,'2021-12-20 08:20:39','2022-09-03 09:39:06','700.27','Rajah',9,'Zenia','2.42');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (10,'2020-10-15 02:24:14','2020-11-09 17:38:47','200.14','Flynn',10,'Brent','3.07');
