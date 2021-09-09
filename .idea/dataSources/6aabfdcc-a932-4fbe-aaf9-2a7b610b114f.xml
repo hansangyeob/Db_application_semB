@@ -5043,11 +5043,13 @@
     <column id="1215" parent="416" name="seller">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1216" parent="416" name="buyer">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1217" parent="416" name="picture">
@@ -5060,297 +5062,309 @@
       <DataType>varchar(4)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="1219" parent="416" name="idx_p_name">
-      <ColNames>p_name</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="1220" parent="416" name="seller">
+    <index id="1219" parent="416" name="seller">
       <ColNames>seller</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1221" parent="416" name="buyer">
+    <index id="1220" parent="416" name="buyer">
       <ColNames>buyer</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1222" parent="416" name="PRIMARY">
+    <key id="1221" parent="416" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>p_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="1223" parent="416" name="auction_product_ibfk_1">
+    <foreign-key id="1222" parent="416" name="auction_product_ibfk_1">
       <ColNames>seller</ColNames>
       <RefTableName>customer_account</RefTableName>
       <RefColNames>i_num</RefColNames>
     </foreign-key>
-    <foreign-key id="1224" parent="416" name="auction_product_ibfk_2">
+    <foreign-key id="1223" parent="416" name="auction_product_ibfk_2">
       <ColNames>buyer</ColNames>
       <RefTableName>customer_account</RefTableName>
       <RefColNames>i_num</RefColNames>
     </foreign-key>
-    <column id="1225" parent="417" name="b_id">
+    <column id="1224" parent="417" name="b_id">
       <Position>1</Position>
-      <DataType>int(8)|0s</DataType>
+      <DataType>mediumint(8)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="1225" parent="417" name="seller">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1226" parent="417" name="bidder">
-      <Position>2</Position>
+      <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="1227" parent="417" name="product_id">
-      <Position>3</Position>
+      <Position>4</Position>
+      <DataType>int(8) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="1228" parent="417" name="offer_price">
+      <Position>5</Position>
+      <DataType>decimal(8,2 digit)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="1229" parent="417" name="offer_time">
+      <Position>6</Position>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="1230" parent="417" name="seller">
+      <ColNames>seller</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="1231" parent="417" name="bidder">
+      <ColNames>bidder</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="1232" parent="417" name="product_id">
+      <ColNames>product_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="1233" parent="417" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>b_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="1234" parent="417" name="bids_ibfk_2">
+      <ColNames>seller</ColNames>
+      <RefTableName>customer_account</RefTableName>
+      <RefColNames>i_num</RefColNames>
+    </foreign-key>
+    <foreign-key id="1235" parent="417" name="bids_ibfk_1">
+      <ColNames>bidder</ColNames>
+      <RefTableName>customer_account</RefTableName>
+      <RefColNames>i_num</RefColNames>
+    </foreign-key>
+    <foreign-key id="1236" parent="417" name="bids_ibfk_3">
+      <ColNames>product_id</ColNames>
+      <RefTableName>auction_product</RefTableName>
+      <RefColNames>p_id</RefColNames>
+    </foreign-key>
+    <column id="1237" parent="418" name="b_code">
+      <Position>1</Position>
       <DataType>int(8) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1228" parent="417" name="offer_price">
-      <Position>4</Position>
-      <DataType>decimal(8,2 digit)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="1229" parent="417" name="offer_time">
-      <Position>5</Position>
-      <DataType>datetime|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="1230" parent="417" name="bidder">
-      <ColNames>bidder</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="1231" parent="417" name="product_id">
-      <ColNames>product_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="1232" parent="417" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>b_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="1233" parent="417" name="bids_ibfk_1">
-      <ColNames>bidder</ColNames>
-      <RefTableName>customer_account</RefTableName>
-      <RefColNames>i_num</RefColNames>
-    </foreign-key>
-    <foreign-key id="1234" parent="417" name="bids_ibfk_2">
-      <ColNames>product_id</ColNames>
-      <RefTableName>auction_product</RefTableName>
-      <RefColNames>p_id</RefColNames>
-    </foreign-key>
-    <column id="1235" parent="418" name="b_code">
-      <Position>1</Position>
-      <DataType>int(8)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="1236" parent="418" name="b_name">
+    <column id="1238" parent="418" name="b_name">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1237" parent="418" name="address">
+    <column id="1239" parent="418" name="address">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1238" parent="418" name="hotline_num">
+    <column id="1240" parent="418" name="hotline_num">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="1239" parent="418" name="PRIMARY">
+    <key id="1241" parent="418" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>b_code</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="1240" parent="419" name="i_num">
+    <column id="1242" parent="419" name="i_num">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1241" parent="419" name="first_name">
+    <column id="1243" parent="419" name="first_name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1242" parent="419" name="last_name">
+    <column id="1244" parent="419" name="last_name">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1243" parent="419" name="email">
+    <column id="1245" parent="419" name="email">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1244" parent="419" name="phone">
+    <column id="1246" parent="419" name="phone">
       <Position>5</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1245" parent="419" name="password">
+    <column id="1247" parent="419" name="password">
       <Position>6</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1246" parent="419" name="address">
+    <column id="1248" parent="419" name="address">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1247" parent="419" name="city">
+    <column id="1249" parent="419" name="city">
       <Position>8</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1248" parent="419" name="country">
+    <column id="1250" parent="419" name="country">
       <Position>9</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1249" parent="419" name="profile_pic">
+    <column id="1251" parent="419" name="profile_pic">
       <Position>10</Position>
       <DataType>blob|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1250" parent="419" name="balance">
+    <column id="1252" parent="419" name="balance">
       <Position>11</Position>
       <DataType>decimal(8,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1251" parent="419" name="registered_branch">
+    <column id="1253" parent="419" name="registered_branch">
       <Position>12</Position>
-      <DataType>int(8)|0s</DataType>
+      <DataType>int(8) unsigned|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="1252" parent="419" name="registered_branch">
+    <index id="1254" parent="419" name="registered_branch">
       <ColNames>registered_branch</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1253" parent="419" name="PRIMARY">
+    <key id="1255" parent="419" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>i_num</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="1254" parent="419" name="customer_account_ibfk_1">
+    <foreign-key id="1256" parent="419" name="customer_account_ibfk_1">
       <ColNames>registered_branch</ColNames>
       <RefTableName>branch</RefTableName>
       <RefColNames>b_code</RefColNames>
     </foreign-key>
-    <column id="1255" parent="420" name="n_id">
+    <column id="1257" parent="420" name="n_id">
       <Position>1</Position>
       <DataType>int(8)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1256" parent="420" name="buyer">
+    <column id="1258" parent="420" name="buyer">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1257" parent="420" name="note">
+    <column id="1259" parent="420" name="note">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1258" parent="420" name="status">
+    <column id="1260" parent="420" name="status">
       <Position>4</Position>
       <DataType>varchar(4)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="1259" parent="420" name="buyer">
+    <index id="1261" parent="420" name="buyer">
       <ColNames>buyer</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1260" parent="420" name="PRIMARY">
+    <key id="1262" parent="420" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>n_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="1261" parent="420" name="notification_ibfk_1">
+    <foreign-key id="1263" parent="420" name="notification_ibfk_1">
       <ColNames>buyer</ColNames>
       <RefTableName>customer_account</RefTableName>
       <RefColNames>i_num</RefColNames>
     </foreign-key>
-    <column id="1262" parent="421" name="t_id">
+    <column id="1264" parent="421" name="t_id">
       <Position>1</Position>
       <DataType>int(8) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1263" parent="421" name="start_time">
+    <column id="1265" parent="421" name="start_time">
       <Position>2</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1264" parent="421" name="end_time">
+    <column id="1266" parent="421" name="end_time">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1265" parent="421" name="t_amount">
+    <column id="1267" parent="421" name="t_amount">
       <Position>4</Position>
       <DataType>decimal(8,2 digit)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1266" parent="421" name="t_seller">
+    <column id="1268" parent="421" name="t_seller">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1267" parent="421" name="pro_id">
+    <column id="1269" parent="421" name="pro_id">
       <Position>6</Position>
       <DataType>int(8) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="1268" parent="421" name="win_bidder">
+    <column id="1270" parent="421" name="win_bidder">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="1269" parent="421" name="t_seller">
+    <index id="1271" parent="421" name="t_seller">
       <ColNames>t_seller</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1270" parent="421" name="pro_id">
+    <index id="1272" parent="421" name="pro_id">
       <ColNames>pro_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1271" parent="421" name="win_bidder">
+    <index id="1273" parent="421" name="win_bidder">
       <ColNames>win_bidder</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1272" parent="421" name="PRIMARY">
+    <key id="1274" parent="421" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>t_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="1273" parent="421" name="transaction_ibfk_1">
+    <foreign-key id="1275" parent="421" name="transaction_ibfk_1">
       <ColNames>t_seller</ColNames>
-      <RefTableName>customer_account</RefTableName>
-      <RefColNames>i_num</RefColNames>
+      <RefTableName>bids</RefTableName>
+      <RefColNames>seller</RefColNames>
     </foreign-key>
-    <foreign-key id="1274" parent="421" name="transaction_ibfk_3">
+    <foreign-key id="1276" parent="421" name="transaction_ibfk_3">
       <ColNames>pro_id</ColNames>
       <RefTableName>bids</RefTableName>
       <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <foreign-key id="1275" parent="421" name="transaction_ibfk_2">
+    <foreign-key id="1277" parent="421" name="transaction_ibfk_2">
       <ColNames>win_bidder</ColNames>
       <RefTableName>bids</RefTableName>
       <RefColNames>bidder</RefColNames>

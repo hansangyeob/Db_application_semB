@@ -1,4 +1,14 @@
 
+use test;
+drop table transaction;
+drop table bids;
+drop table notification;
+drop table admin;
+drop table auction_product;
+drop table customer_account;
+drop table branch;
+
+
 CREATE TABLE branch (
   `b_code` int(8) unsigned NOT NULL auto_increment,
   `b_name` varchar(50),
@@ -55,16 +65,17 @@ create table notification(
 
 create table bids(
     b_id mediumint(8),
+    seller varchar (255) NOT NULL,
     bidder varchar(255) NOT NULL,
     product_id int(8) unsigned NOT NULL ,
     offer_price decimal(8,2),
     offer_time datetime,
-    primary key (b_id)
-    ,foreign key (bidder) references customer_account(i_num),
+    primary key (b_id),
+    foreign key (bidder) references customer_account(i_num),
+    foreign key (seller) references customer_account(i_num),
     foreign key (product_id) references auction_product(p_id)
 )engine = innoDB;
 
-drop table transaction;
 create table transaction(
     t_id int(8) unsigned not null auto_increment,
     start_time datetime,
@@ -74,7 +85,7 @@ create table transaction(
     pro_id int(8) unsigned NOT NULL,
     win_bidder varchar(255) NOT NULL,
     primary key (t_id),
-    foreign key (t_seller) references customer_account(i_num),
+    foreign key (t_seller) references bids(seller),
     foreign key (win_bidder) references bids(bidder),
     foreign key (pro_id) references bids(product_id)
 
@@ -158,26 +169,26 @@ INSERT INTO notification (n_id,buyer,note,status) VALUES (10,19,'vulputate,  auc
 
 
 -- INSERT DATA INTO 'BIDS' TABLE
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (1,4,3,60.22,'2020-11-17 16:55:15');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (2,5,7,53.83,'2022-01-06 14:00:19');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (4,9,8,54.64,'2021-03-05 19:59:08');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (4,11,9,52.40,'2021-07-24 23:54:39');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (5,17,2,25.38,'2022-01-26 19:21:50');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (6,19,1,58.01,'2022-07-10 08:41:28');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (7,3,6,44.75,'2021-10-21 16:53:50');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (8,12,4,85.38,'2020-09-26 02:08:38');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (9,1,5,98.32,'2022-03-14 02:54:21');
-INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,8,10,14.42,'2022-09-06 01:48:48');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time) VALUES (1,19,4,3,60.22,'2020-11-17 16:55:15');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time) VALUES (2,12,5,7,53.83,'2022-01-06 14:00:19');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time) VALUES (3,13,9,8,54.64,'2021-03-05 19:59:08');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time) VALUES (4,14,11,9,52.40,'2021-07-24 23:54:39');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time) VALUES (5,2,17,2,25.38,'2022-01-26 19:21:50');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time) VALUES (6,9,19,1,58.01,'2022-07-10 08:41:28');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time) VALUES (7,1,13,6,44.75,'2021-10-21 16:53:50');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time) VALUES (8,6,12,4,85.38,'2020-09-26 02:08:38');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time) VALUES (9,4,1,5,98.32,'2022-03-14 02:54:21');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time) VALUES (10,7,8,10,14.42,'2022-09-06 01:48:48');
 
 -- INSERT DATA INTO 'TRANSACTION' TABLE
 
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (1,'2021-02-03 12:07:46','2021-12-18 23:21:57','100.92','Rafael',1,'Zahir','5.88');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (2,'2021-10-13 23:51:22','2022-02-14 20:53:23','300.15','Karly',2,'Stone','7.90');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (3,'2022-02-15 04:49:39','2022-07-27 23:00:05','400.15','Rooney',3,'Castor','9.64');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (4,'2021-07-17 02:20:09','2022-03-15 10:29:58','400.51','Jack',4,'Melodie','5.29');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (5,'2021-04-15 01:18:14','2020-10-20 06:58:22','800.32','Bell',5,'Brandon','4.26');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (6,'2020-09-30 11:13:25','2020-12-13 00:02:36','800.17','Burton',6,'Carter','4.02');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (7,'2021-03-06 12:09:45','2021-08-22 11:33:36','900.38','Quyn',7,'Hilel','7.16');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (8,'2021-01-02 19:09:36','2020-10-09 21:24:02','700.62','Noah',8,'Robert','8.79');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (9,'2021-12-20 08:20:39','2022-09-03 09:39:06','700.27','Rajah',9,'Zenia','2.42');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`,`winner_bal`) VALUES (10,'2020-10-15 02:24:14','2020-11-09 17:38:47','200.14','Flynn',10,'Brent','3.07');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (1,'2021-02-03 12:07:46','2021-12-18 23:21:57','100.92','19',1,'4');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (2,'2021-10-13 23:51:22','2022-02-14 20:53:23','300.15','12',2,'5');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (3,'2022-02-15 04:49:39','2022-07-27 23:00:05','400.15','13',3,'9');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (4,'2021-07-17 02:20:09','2022-03-15 10:29:58','400.51','14',4,'11');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (5,'2021-04-15 01:18:14','2020-10-20 06:58:22','800.32','2',5,'17');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (6,'2020-09-30 11:13:25','2020-12-13 00:02:36','800.17','9',6,'19');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (7,'2021-03-06 12:09:45','2021-08-22 11:33:36','900.38','1',7,'13');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (8,'2021-01-02 19:09:36','2020-10-09 21:24:02','700.62','6',8,'12');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (9,'2021-12-20 08:20:39','2022-09-03 09:39:06','700.27','4',9,'1');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (10,'2020-10-15 02:24:14','2020-11-09 17:38:47','200.14','7',10,'8');
