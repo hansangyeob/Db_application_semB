@@ -167,7 +167,7 @@ select {
             <form method="POST" name="CatagoryForm">
               <br>
               <div align="center">
-                  <input type="text" name="offer_price" id="offer_price" >
+                  <input type="number" name="offer_price" id="offer_price" >
                   <input type="submit" class="btn btn-primary">
               </div>   
                       </center>

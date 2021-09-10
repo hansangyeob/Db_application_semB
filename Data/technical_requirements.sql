@@ -93,15 +93,15 @@ create trigger check_updated_price
 delimiter ;
 
 
-drop trigger check_balance;
+drop trigger check_baprice decimal;
+lance;
 # 3
 delimiter $$
 create trigger check_balance
     before insert on bids
     for each row
     begin
-        declare current_max_price decimal;
-
+        declare current_max_
         select current_price into current_max_price
         from auction_product
         where p_id = new.product_id;
