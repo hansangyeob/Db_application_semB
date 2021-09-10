@@ -1,18 +1,3 @@
-# Db_application_semB
-
-How to use
-
-1.Update the `databases.spl` to your local computer.
-
-2.Change `DatabaseConnection.php` to your setting.
-
-3. For admin login,
-
-- ID: admin1@gmail.com
-- PASSWORD: 123456
-
-4. For user login,
-
-- ID: user1@gmail.com
-- phone: 00000000
-- PASSWORD: 1234
+# Online-Bidding-System-PHP
+An Online Auction, where users can sell or bid for products through the internet. 
+Tools and Technology: PHP,MYSQL,JAVASCRIPT,BOOTSTRAP,HTML,CSS

@@ -1,5 +1,4 @@
-
- <?php
+<?php
 
     function connection()
     {
@@ -31,4 +30,4 @@
 
 
 
-    ?> 
+    ?>

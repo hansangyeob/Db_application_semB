@@ -10,7 +10,7 @@
             <li><a href="MyPost.php"><b>MyPost</b></a></li>
             <li><a href="MyBid.php"><b>MyBid</b></a></li>
             <li><a href="Bidding.php"><b>Bidding</b></a></li>
-            <li><a href="UNotification.php"><b>Notification</b></a></li>
+            <!-- <li><a href="UNotification.php"><b>Notification</b></a></li> -->
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

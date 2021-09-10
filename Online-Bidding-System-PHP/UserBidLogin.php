@@ -1,43 +1,42 @@
-
 <?php session_start(); ?>
 
 
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Bidding System</title>
-	  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Bidding System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
-	
-	select
-{
- width:300px;
- height:40px;
- border:1px solid #20B2AA;
- margin-top:20px;
- padding:2px;
- font-size:20px;
- color:grey;
- border-radius:5px;
+select {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #20B2AA;
+    margin-top: 20px;
+    padding: 2px;
+    font-size: 20px;
+    color: grey;
+    border-radius: 5px;
 
 }
-#heading
-{
- text-align:center;
- margin-top:10px;
- font-size:30px;
- color:#228B22;
+
+#heading {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+    color: #228B22;
 }
 </style>
+
 <body>
 
 
-<?php
+    <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
 
@@ -75,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
  
 ?>
 
-<?php
+    <?php
 
   
 
@@ -174,4 +173,5 @@ if(isset($_GET['bid']))
 ?>
 
 </body>
+
 </html>

@@ -1,20 +1,21 @@
 [
-  {
-    "id": "0001",
+    {
+    "id":"0001",
     "username": "Tony ",
-    "password": "1234",
+    "password":"1234",
     "interest": "null",
-    "location": "Vietnam",
-    "profile_picture": "null",
-    "history": "null"
-  },
-  {
-    "id": "0002",
-    "username": "sarah",
-    "password": "1234",
+    "location":"Vietnam",
+    "profile_picture":"null",
+    "history":"null"
+    },
+    {
+    "id":"0002",
+    "username":"sarah",
+    "password":"1234",
     "interest": "null",
-    "location": "Vietnam",
-    "profile_picture": "null",
-    "history": "null"
-  }
+    "location":"Vietnam",
+    "profile_picture":"null",
+    "history":"null"
+
+    }
 ]

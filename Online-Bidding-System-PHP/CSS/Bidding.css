@@ -1,23 +1,26 @@
-* {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
 }
 
-.templete {
-  width: 100%;
-  z-index: -1;
+.templete
+{
+    width: 1350px;
 }
-.clear {
-  overflow: hidden;
+.clear{
+    overflow: hidden;
 }
-.bodysection {
+.bodysection
+{
+  
 }
 .mainsection {
-  z-index: 10000;
-  background-color: lightgray;
-  width: 100%;
-  padding: 30px;
-  float: left;
+    background-color: lightgray;
+   width: 1344px;
+    padding: 30PX;
+    float: left;
+    margin: 10px;
 }
+
+

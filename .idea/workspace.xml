@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbc74f9d-da0d-42e1-9d37-decd30098b3b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6aabfdcc-a932-4fbe-aaf9-2a7b610b114f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6aabfdcc-a932-4fbe-aaf9-2a7b610b114f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/db-test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/db-test.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/index+queries.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/index+queries.sql" afterDir="false" />
@@ -28,11 +27,26 @@
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/ADeletePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/ADeletePost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AManageTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/AManageTransaction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/Bidding.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/Bidding.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/AManageTransaction.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/AManageTransaction.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Adminlogin.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Adminlogin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Bidding.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Bidding.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Bidproduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Bidproduct.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/UserReg.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/UserReg.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/u.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/u.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/user.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/userlogin.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/userlogin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/DatabaseConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/DatabaseConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/Header.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/Header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/MyBid.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/MyBid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/MyPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/MyPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/Registration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserBid.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserBid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserBidLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserBidLogin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +107,7 @@
       <workItem from="1630921522366" duration="183000" />
       <workItem from="1630922840936" duration="1051000" />
       <workItem from="1630924932039" duration="9682000" />
-      <workItem from="1631117291606" duration="23609000" />
+      <workItem from="1631117291606" duration="25997000" />
     </task>
     <servers />
   </component>
@@ -133,22 +147,22 @@
       <screen x="0" y="30" width="1536" height="834" />
     </state>
     <state x="484" y="96" key="#joo/0.30.1536.834@0.30.1536.834" timestamp="1630921604578" />
-    <state width="578" height="129" key="GridCell.Tab.0.bottom" timestamp="1631209262165">
+    <state width="917" height="147" key="GridCell.Tab.0.bottom" timestamp="1631261274657">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="578" height="129" key="GridCell.Tab.0.bottom/0.30.1536.834@0.30.1536.834" timestamp="1631209262164" />
-    <state width="578" height="129" key="GridCell.Tab.0.center" timestamp="1631209262163">
+    <state width="917" height="147" key="GridCell.Tab.0.bottom/0.30.1536.834@0.30.1536.834" timestamp="1631261274657" />
+    <state width="917" height="147" key="GridCell.Tab.0.center" timestamp="1631261274657">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="578" height="129" key="GridCell.Tab.0.center/0.30.1536.834@0.30.1536.834" timestamp="1631209262163" />
-    <state width="578" height="129" key="GridCell.Tab.0.left" timestamp="1631209262111">
+    <state width="917" height="147" key="GridCell.Tab.0.center/0.30.1536.834@0.30.1536.834" timestamp="1631261274657" />
+    <state width="917" height="147" key="GridCell.Tab.0.left" timestamp="1631261274657">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="578" height="129" key="GridCell.Tab.0.left/0.30.1536.834@0.30.1536.834" timestamp="1631209262111" />
-    <state width="578" height="129" key="GridCell.Tab.0.right" timestamp="1631209262164">
+    <state width="917" height="147" key="GridCell.Tab.0.left/0.30.1536.834@0.30.1536.834" timestamp="1631261274657" />
+    <state width="917" height="147" key="GridCell.Tab.0.right" timestamp="1631261274657">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="578" height="129" key="GridCell.Tab.0.right/0.30.1536.834@0.30.1536.834" timestamp="1631209262164" />
+    <state width="917" height="147" key="GridCell.Tab.0.right/0.30.1536.834@0.30.1536.834" timestamp="1631261274657" />
     <state width="265" height="457" key="HiddenNamespacesPopup" timestamp="1630941224479">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
