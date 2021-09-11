@@ -20,5 +20,7 @@ if (isset($_GET['tid'])) {
   // mysqli_query(connection(), $query_BidderBalance);
   // mysqli_query(connection(), $query_SellerBalance);
   header('Location:Z-TAManageTransaction.php');
+
+  
 }
 ?>
