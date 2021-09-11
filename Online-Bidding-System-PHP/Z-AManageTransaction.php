@@ -139,6 +139,12 @@ CloseCon($conn);
 <body>
 
     <?php
+    1. transaction 하려면 [bids] status = 'win'이면 insert into tansaction values 
+
+$query = "SELECT * FROM auction_product WHERE status = 'No' ";
+
+$result = mysqli_query(connection(), $query);
+    while ($row = mysqli_fetch_array($result)) {
     require("AHeader.php");
     ?>
     <center>
@@ -155,24 +161,7 @@ CloseCon($conn);
         <div class="mainsection templete clear">
 
             <table>
-                try {
-                // First of all, let's begin a transaction
-                $db->beginTransaction();
 
-                // A set of queries; if one fails, an exception should be thrown
-                $db->query('first query');
-                $db->query('second query');
-                $db->query('third query');
-
-                // If we arrive here, it means that no exception was thrown
-                // i.e. no query has failed, and we can commit the transaction
-                $db->commit();
-                } catch (\Throwable $e) {
-                // An exception has been thrown
-                // We must rollback the transaction
-                $db->rollback();
-                throw $e; // but the error must be handled anyway
-                }
                 <?php
 
                 //Declare varible
@@ -248,6 +237,41 @@ CloseCon($conn);
 
 
     </div>
+
+    <?php
+
+try {
+    // First of all, let's begin a transaction
+    function begin(){
+    mysql_query("AUTO COMMIT = 0;
+                 START TRANSACTION");
+    }
+
+    function commit(){
+    mysql_query("COMMIT");
+    }
+
+    function rollback(){
+    mysql_query("ROLLBACK");
+    }
+    $db->begin();
+
+    // A set of queries; if one fails, an exception should be thrown
+    $db->query('first query');
+    $db->query('second query');
+    $db->query('third query');
+    begin(); // transaction begins
+    $result = mysql_query($query);
+
+    if(!$result){
+        rollback(); // transaction rolls back
+        echo "transaction rolled back";
+        exit;
+    }else{
+        commit(); // transaction is committed
+        echo "Database transaction was successful";
+    }
+    ?>
 
 </body>
 

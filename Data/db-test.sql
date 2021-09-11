@@ -8,6 +8,7 @@ drop table auction_product;
 drop table customer_account;
 drop table branch;
 
+START TRANSACTION;
 
 CREATE TABLE branch (
   `b_code` int(8) unsigned NOT NULL auto_increment,

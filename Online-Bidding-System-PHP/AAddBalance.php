@@ -142,7 +142,7 @@ CloseCon($conn);
     ?>
 
     <?php
-    require("AHeaer.php");
+    require("AHeader.php");
     ?>
 
     <div class="container-fluid">
