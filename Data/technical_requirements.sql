@@ -1,7 +1,3 @@
-drop table customer_account;
--- PARTITIONING
-
-
 -- STORED PROCEDURE / FUNCTION
 #i_num, balance, offer_price of the customer who bids for the product
 delimiter $$
@@ -60,7 +56,7 @@ end $$
 delimiter ;
 
 
-drop trigger only_one_bid;
+
 # -- TRIGGER
 # 1. check the customer place bids for only one product
 delimiter $$
@@ -69,15 +65,13 @@ create trigger only_one_bid
     for each row
     begin
         declare bidder_dup varchar(255);
-
         select count(b_id) into bidder_dup from bids where bidder= new.bidder;
         if bidder_dup > 0 then
             signal sqlstate '45000' set message_text = 'you can bid for only one product';
         end if ;
     end $$
 delimiter ;
-
-# INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (11,8,12,500.38,'2022-01-26 19:21:50');
+drop trigger only_one_bid;
 
 
 # 2. check the updated product price > maximum existing price
@@ -91,17 +85,18 @@ create trigger check_updated_price
         end if ;
     end $$
 delimiter ;
+drop trigger check_updated_price;
 
-
-drop trigger check_baprice decimal;
-lance;
+UPDATE auction_product set (p_id,p_name,price_min,current_price,closing_time,seller,picture,status) VALUES (23,'Avila','90.33','99','2022-03-05 11:18:01',19,'18.png','Yes');
+drop trigger check_balance;
 # 3
 delimiter $$
 create trigger check_balance
     before insert on bids
     for each row
     begin
-        declare current_max_
+        declare current_max_price decimal;
+
         select current_price into current_max_price
         from auction_product
         where p_id = new.product_id;
@@ -127,7 +122,7 @@ DELIMITER ;
 # INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,19,11,50.42,'2022-09-06 01:48:48');
 # INSERT INTO bids (product_id,bidder,b_id,offer_price,offer_time) VALUES (10,19,11,500,'2022-09-06 01:48:48');
 
-
+drop trigger prevent_bid_deletion;
 # 4. cannot delete or withdraw once the customer bid for a product
 Delimiter $$
 create trigger prevent_bid_deletion
@@ -140,3 +135,18 @@ create trigger prevent_bid_deletion
         END IF;
     end $$
 delimiter ;
+
+Delimiter $$
+create trigger startTransaction
+    before insert
+    on bids
+    for each row
+    begin
+        IF status = 'win' AND t_seller = seller AND win_bidder = bidder
+            THEN
+            INSERT INTO transaction (`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (offer_price,seller,product_id,bidder);
+            END IF;
+    end $$
+delimiter ;
+
+

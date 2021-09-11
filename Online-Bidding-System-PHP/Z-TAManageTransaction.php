@@ -127,10 +127,10 @@ CloseCon($conn);
     }
     </style>
     <script type="text/javascript">
-    function bid(id) {
+    function tid(id) {
         if (confirm('Are you sure to ROLLBACK this transaction?')) {
-            alert(id);
-            window.location = 'AManageTransaction.php?bid=' + id
+            alert("The trasaction has been rollback.");
+            window.location = 'Z-ATransactionDelete.php?tid=' + id
         }
     }
     </script>
@@ -155,45 +155,31 @@ CloseCon($conn);
         <div class="mainsection templete clear">
 
             <table>
-                try {
-                // First of all, let's begin a transaction
-                $db->beginTransaction();
-
-                // A set of queries; if one fails, an exception should be thrown
-                $db->query('first query');
-                $db->query('second query');
-                $db->query('third query');
-
-                // If we arrive here, it means that no exception was thrown
-                // i.e. no query has failed, and we can commit the transaction
-                $db->commit();
-                } catch (\Throwable $e) {
-                // An exception has been thrown
-                // We must rollback the transaction
-                $db->rollback();
-                throw $e; // but the error must be handled anyway
-                }
-
 
                 <?php
 
                 //Declare varible
-                $seller = $_SESSION['email'];
-                $winBidder = "SELECT bidder FROM bids";
-                $amount = "SELECT t_amount FROM bids WHERE bidder = '$winBidder'";
+                $seller = "SELECT seller FROM bids";
+
+                //for updating balance
+                // $winBidder = "SELECT bidder FROM bids";
+                // $amount = "SELECT t_amount FROM bids WHERE bidder = '$winBidder'";
+                // $query_BidderBalance =  "UPDATE customer_account
+                //                 SET balance = balance + $amount 
+                //                 WHERE i_num = '$winBidder'";
+                // $query_SellerBalance = "UPDATE customer_account
+                //                 SET balance = balance - $amount
+                //                 WHERE i_num = '$winBidder'";
+
+                //original query
                 $query_seller = "SELECT * FROM customer_account WHERE email = '$seller'";
-                $query = "SELECT * FROM transaction "; // for delete row.
-                $query_BidderBalance =  "UPDATE customer_account
-                                         SET balance += $amount 
-                                         WHERE win_bidder = '$winBidder'";
 
                 $Result = mysqli_query(connection(), $query_seller);
-                $row = mysqli_fetch_array($Result);
 
+                $query = "SELECT * FROM transaction ";  // for delete row
                 $Rows = mysqli_query(connection(), $query);
                 $break = 0;
                 // transaction table
-
                 if (mysqli_num_rows($Rows) > 0) {
 
                     echo '<table class="data-table">';
@@ -222,58 +208,23 @@ CloseCon($conn);
                          <td>' . $row['pro_id'] . '</td>
                          <td>' . $row['win_bidder'] . '</td>
                          <td>'
-                                                 '</td>
-          </tr>';
-                    }
-                }
-
 
                 ?>
 
-
+                <!-- show transaction button -->
                 <a href="javascript:tid(<?php echo $row[0]; ?>)"><b>Rollback</b> </a>
 
                 <?php
-
-
-                
-                // trans.php
-                function begin()
-                {
-                    mysql_query("SET AUTOCOMMIT=0");
-                    mysql_query("START transaction");
-
-                }
-
-                function commit()
-                {
-                    mysql_query("COMMIT");
-                }
-
-                function rollback()
-                {
-                    mysql_query("ROLLBACK");
-                }
-
-                mysql_connect("localhost", "Dude1", "SuperSecret") or die(mysql_error());
-
-                mysql_select_db("bedrock") or die(mysql_error());
-
-                $query = "INSERT INTO employee (ssn,name,phone) values ('123-45-6789','Matt','1-800-555-1212')";
-
-                begin(); // transaction begins
-
-                $result = mysql_query($query);
-
-                if (!$result) {
-                    rollback(); // transaction rolls back
-                    echo "transaction rolled back";
-                    exit;
+                        '</td>
+          </tr>';
+                    }
                 } else {
-                    commit(); // transaction is committed
-                    echo "Database transaction was successful";
+                    echo "you have an error";
                 }
+                echo '</tbody>';
                 ?>
+
+
             </table>
 
         </div>

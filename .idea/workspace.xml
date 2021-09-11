@@ -25,11 +25,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/db-test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/db-test.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/technical_requirements.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/technical_requirements.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AAddBalance.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/AAddBalance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AManageTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/AManageTransaction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/AManageTransaction.css" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/CSS/AManageTransaction.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/MyBid.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/MyBid.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserBid.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/UserBid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AManageTTransaction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/AManageTransaction.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +87,7 @@
       <workItem from="1630921522366" duration="183000" />
       <workItem from="1630922840936" duration="1051000" />
       <workItem from="1630924932039" duration="9682000" />
-      <workItem from="1631117291606" duration="31714000" />
+      <workItem from="1631117291606" duration="42074000" />
     </task>
     <servers />
   </component>
@@ -130,22 +127,22 @@
       <screen x="0" y="30" width="1536" height="834" />
     </state>
     <state x="484" y="96" key="#joo/0.30.1536.834@0.30.1536.834" timestamp="1630921604578" />
-    <state width="1220" height="129" key="GridCell.Tab.0.bottom" timestamp="1631279143223">
+    <state width="1220" height="128" key="GridCell.Tab.0.bottom" timestamp="1631363762300">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="1220" height="129" key="GridCell.Tab.0.bottom/0.30.1536.834@0.30.1536.834" timestamp="1631279143223" />
-    <state width="1220" height="129" key="GridCell.Tab.0.center" timestamp="1631279143223">
+    <state width="1220" height="128" key="GridCell.Tab.0.bottom/0.30.1536.834@0.30.1536.834" timestamp="1631363762300" />
+    <state width="1220" height="128" key="GridCell.Tab.0.center" timestamp="1631363762298">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="1220" height="129" key="GridCell.Tab.0.center/0.30.1536.834@0.30.1536.834" timestamp="1631279143223" />
-    <state width="1220" height="129" key="GridCell.Tab.0.left" timestamp="1631279143223">
+    <state width="1220" height="128" key="GridCell.Tab.0.center/0.30.1536.834@0.30.1536.834" timestamp="1631363762298" />
+    <state width="1220" height="128" key="GridCell.Tab.0.left" timestamp="1631363762298">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="1220" height="129" key="GridCell.Tab.0.left/0.30.1536.834@0.30.1536.834" timestamp="1631279143223" />
-    <state width="1220" height="129" key="GridCell.Tab.0.right" timestamp="1631279143223">
+    <state width="1220" height="128" key="GridCell.Tab.0.left/0.30.1536.834@0.30.1536.834" timestamp="1631363762298" />
+    <state width="1220" height="128" key="GridCell.Tab.0.right" timestamp="1631363762299">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state width="1220" height="129" key="GridCell.Tab.0.right/0.30.1536.834@0.30.1536.834" timestamp="1631279143223" />
+    <state width="1220" height="128" key="GridCell.Tab.0.right/0.30.1536.834@0.30.1536.834" timestamp="1631363762299" />
     <state width="265" height="457" key="HiddenNamespacesPopup" timestamp="1630941224479">
       <screen x="0" y="30" width="1536" height="834" />
     </state>

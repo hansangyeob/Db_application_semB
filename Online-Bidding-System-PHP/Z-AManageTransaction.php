@@ -155,27 +155,40 @@ CloseCon($conn);
         <div class="mainsection templete clear">
 
             <table>
+                try {
+                // First of all, let's begin a transaction
+                $db->beginTransaction();
 
+                // A set of queries; if one fails, an exception should be thrown
+                $db->query('first query');
+                $db->query('second query');
+                $db->query('third query');
+
+                // If we arrive here, it means that no exception was thrown
+                // i.e. no query has failed, and we can commit the transaction
+                $db->commit();
+                } catch (\Throwable $e) {
+                // An exception has been thrown
+                // We must rollback the transaction
+                $db->rollback();
+                throw $e; // but the error must be handled anyway
+                }
                 <?php
 
                 //Declare varible
                 $seller = $_SESSION['email'];
-                $winBidder = "SELECT bidder FROM bids";
-                $amount = "SELECT t_amount FROM bids WHERE bidder = '$winBidder'";
+
                 $query_seller = "SELECT * FROM customer_account WHERE email = '$seller'";
-                $query = "SELECT * FROM transaction "; // for delete row.
-                $query_BidderBalance =  "UPDATE customer_account
-                                         SET balance += $amount 
-                                         WHERE win_bidder = '$winBidder'";
 
                 $Result = mysqli_query(connection(), $query_seller);
-                $row = mysqli_fetch_array($Result);
-
+     
+                $query = "SELECT * FROM transaction "; 
                 $Rows = mysqli_query(connection(), $query);
                 $break = 0;
                 // transaction table
 
                 if (mysqli_num_rows($Rows) > 0) {
+
                     echo '<table class="data-table">';
                     echo '<thead>';
                     echo '<tr>';
@@ -192,6 +205,7 @@ CloseCon($conn);
                     echo '<tbody>';
 
                     while ($row = mysqli_fetch_array($Rows)) {
+
                         echo '<tr>
                          <td>' . $row['t_id']  . '</td>
                          <td>' . $row['start_time'] . '</td>
@@ -200,18 +214,34 @@ CloseCon($conn);
                          <td>' . $row['t_seller'] . '</td>
                          <td>' . $row['pro_id'] . '</td>
                          <td>' . $row['win_bidder'] . '</td>
-                         </tr>';
-                    }
-                }
-                                   
-                               
+                         <td>'
 
                 ?>
 
-
+                <!-- show transaction button -->
                 <a href="javascript:tid(<?php echo $row[0]; ?>)"><b>Rollback</b> </a>
 
+                <?php
+                        '</td>
+          </tr>';
+                    }
+                } else {
+                    echo "you have an error";
+                }
+                echo '</tbody>';
+                ?>
 
+
+
+                <?php
+                $query_BidderBalance =  "UPDATE customer_account
+                                        SET balance += $amount 
+                                        WHERE win_bidder = '$winBidder'";
+                $winBidder = "SELECT bidder FROM bids";
+                $amount = "SELECT t_amount FROM bids WHERE bidder = '$winBidder'";
+
+
+                ?>
             </table>
 
         </div>
