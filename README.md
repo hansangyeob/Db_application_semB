@@ -11,8 +11,8 @@ Explain about `Data`file
 2. `test_performance.sql` is to test perfromance,
    which will be done at the demo video.
 3. `trigger.sql` is for adding the trigger. We contain 4 trigger which is
-   3.1) Check the customer place bids for only one product
-   3.2) Check the updated product price is higher than maximum existing price
-   3.3) Checkinng user balance.
-   3.4) Cannot delete or withdraw once the customer bid for a product
+  - Check the customer place bids for only one product
+  - Check the updated product price is higher than maximum existing price
+  - Checkinng user balance.
+  - Cannot delete or withdraw once the customer bid for a product
 
