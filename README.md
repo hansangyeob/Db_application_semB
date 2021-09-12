@@ -16,3 +16,18 @@ Explain about `Data`file
   - Checkinng user balance.
   - Cannot delete or withdraw once the customer bid for a product
 
+
+For the simplicity for you to use inserted databases for login,
+user 1
+id : user1@gmail.com
+phone number : 00000000
+password:1234
+
+user2
+id : user2@gmail.com
+phone number : 00000001
+password:1234
+
+admin
+id: admin1@gmail.com
+password:123456
