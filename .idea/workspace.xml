@@ -20,12 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbc74f9d-da0d-42e1-9d37-decd30098b3b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6aabfdcc-a932-4fbe-aaf9-2a7b610b114f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6aabfdcc-a932-4fbe-aaf9-2a7b610b114f.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6aabfdcc-a932-4fbe-aaf9-2a7b610b114f/storage_v2/_src_/schema/test.kkQ2AA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6aabfdcc-a932-4fbe-aaf9-2a7b610b114f/storage_v2/_src_/schema/test.kkQ2AA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/db-test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/db-test.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/technical_requirements.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data/technical_requirements.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Bidding-System-PHP/Z-AManageTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Bidding-System-PHP/Z-AManageTransaction.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +82,7 @@
       <workItem from="1630921522366" duration="183000" />
       <workItem from="1630922840936" duration="1051000" />
       <workItem from="1630924932039" duration="9682000" />
-      <workItem from="1631117291606" duration="49724000" />
+      <workItem from="1631117291606" duration="51925000" />
     </task>
     <servers />
   </component>

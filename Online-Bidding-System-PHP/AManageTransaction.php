@@ -130,7 +130,7 @@ CloseCon($conn);
     function tid(id) {
         if (confirm('Are you sure to ROLLBACK this transaction?')) {
             alert("The trasaction has been rollback.");
-            window.location = 'Z-ATransactionDelete.php?tid=' + id
+            window.location = 'ATransactionDelete.php?tid=' + id
         }
     }
     </script>

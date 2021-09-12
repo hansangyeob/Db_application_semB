@@ -116,26 +116,26 @@ insert into customer_account (i_num, first_name, last_name, email, phone, passwo
 insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance, registered_branch) values (18, 'Hube', 'Huncoot', 'hhuncooth@nps.gov', '2916540633', 'MD8jF6p', '43246 Nancy Court', 'Shijie', 'China', 'http://dummyimage.com/107x100.png/dddddd/000000', 6043.75,1);
 insert into customer_account (i_num, first_name, last_name, email, phone, password, address, city, country, profile_pic, balance, registered_branch) values (19, 'Gaylord', 'Twatt', 'gtwatti@netvibes.com', '3121243341', '07NJz5zeiqs', '45952 Ramsey Crossing', 'Denton', 'United Kingdom', 'http://dummyimage.com/249x100.png/cc0000/ffffff', 35438.0,2);
  -- INSERT DATA INTO 'AUCTION_PRODUCT' TABLE
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (1,'Dejesus','99.94','300','2025-09-19 12:11:17',9,10,'1.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (2,'Leblanc','10.22','10.22','2024-06-17 22:09:42',2,9,'2.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (3,'Santiago','50.04','50.04','2022-06-17 03:46:02',3,8,'3.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (4,'Bond','423.10','430','2026-02-12 02:02:51',4,7,'4.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (5,'Parrish','54.32','55','2027-10-16 12:26:28',5,6,'5.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (6,'Bruce','83.89','100','2027-10-13 05:55:27',6,5,'6.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (7,'Richards','21.99','21.99','2022-02-16 08:17:18',7,4,'7.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (8,'Vaughan','69.36','69.36','2023-06-24 05:32:59',8,3,'8.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (9,'Weiss','22.53','23','2033-10-02 12:59:04',9,2,'9.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (10,'Gibson','49.83','49.83','2021-07-15 06:53:39',12,1,'10.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (11,'Wolf','117.62','118','2021-04-10 22:33:24',13,18,'11.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (12,'Vang','33.29','34','2021-12-23 23:43:06',14,17,'12.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (13,'Pickett','27.93','28','2021-12-13 02:57:28',15,16,'13.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (14,'Gibson','22.63','23','2021-09-16 06:57:40',16,15,'14.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (15,'Grimes','70.07','71','2022-03-25 07:58:03',17,23,'Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (16,'Blankenship','14.50','15','2022-07-11 21:58:56',2,13,'16.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (17,'Knight','22.75','23','2021-12-04 22:26:32',1,12,'17.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (18,'Avila','90.33','100','2022-03-05 11:18:01',19,11,'18.png','Yes');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (19,'Davis','77.87','78','2022-05-26 16:15:23',7,20,'19.png','No');
-INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (20,'Bright','500.87','501','2020-09-25 21:56:58',5,19,'20.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (1,'Dejesus','99.94','300','2025-09-19 12:11:17','iexposito8@geocities.com','dmaccorley9@jiathis.com','1.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (2,'Leblanc','10.22','10.22','2024-06-17 22:09:42','bpeirazzi1@pinterest.com','iexposito8@geocities.com','2.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (3,'Santiago','50.04','50.04','2022-06-17 03:46:02','mskinner2@t.co','rdacca7@census.gov','3.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (4,'Bond','423.10','430','2026-02-12 02:02:51','bgable3@freewebs.com','gbartlet6@addthis.com','4.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (5,'Parrish','54.32','55','2027-10-16 12:26:28','rkovalski4@google.com.au','smasurel5@wired.com','5.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (6,'Bruce','83.89','100','2027-10-13 05:55:27','smasurel5@wired.com','rkovalski4@google.com.au','6.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (7,'Richards','21.99','21.99','2022-02-16 08:17:18','gbartlet6@addthis.com','bgable3@freewebs.com','7.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (8,'Vaughan','69.36','69.36','2023-06-24 05:32:59','rdacca7@census.gov','mskinner2@t.co','8.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (9,'Weiss','22.53','23','2033-10-02 12:59:04','iexposito8@geocities.com','bpeirazzi1@pinterest.com','9.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (10,'Gibson','49.83','49.83','2021-07-15 06:53:39','ckeasyb@uol.com.br','dorniz0@forbes.com','10.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (11,'Wolf','117.62','118','2021-04-10 22:33:24','mtabourc@blinklist.com','hhuncooth@nps.gov','11.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (12,'Vang','33.29','34','2021-12-23 23:43:06','ckidneyd@reference.com','cwiltshireg@wikimedia.org','12.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (13,'Pickett','27.93','28','2021-12-13 02:57:28','kmessume@craigslist.org','ccarvilf@nhs.uk','13.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (14,'Gibson','22.63','23','2021-09-16 06:57:40','ccarvilf@nhs.uk','kmessume@craigslist.org','14.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (15,'Grimes','70.07','71','2022-03-25 07:58:03','cwiltshireg@wikimedia.org','gtwatti@netvibes.com','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (16,'Blankenship','14.50','15','2022-07-11 21:58:56','bpeirazzi1@pinterest.com','mtabourc@blinklist.com','16.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (17,'Knight','22.75','23','2021-12-04 22:26:32','dorniz0@forbes.com','ckeasyb@uol.com.br','17.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (18,'Avila','90.33','100','2022-03-05 11:18:01','gtwatti@netvibes.com','ltilzeya@github.com','18.png','Yes');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (19,'Davis','77.87','78','2022-05-26 16:15:23','gbartlet6@addthis.com','hhuncooth@nps.gov','19.png','No');
+INSERT INTO auction_product (p_id,p_name,price_min,current_price,closing_time,seller,bidder,picture,status) VALUES (20,'Bright','500.87','501','2020-09-25 21:56:58','rkovalski4@google.com.au','gtwatti@netvibes.com','20.png','No');
 -- INSERT DATA INTO 'ADMIN' TABLE
 insert into admin (a_email, a_password) values ('jsawnwy0@tuttocitta.it', 'gPKc9Tz');
 insert into admin (a_email, a_password) values ('pklais1@vistaprint.com', 'xCdpnDycKcy');
@@ -143,40 +143,40 @@ insert into admin (a_email, a_password) values ('fpaulitschke2@opensource.org', 
 insert into admin (a_email, a_password) values ('bswidenbank3@ehow.com', 'J64ZiV');
 insert into admin (a_email, a_password) values ('awight4@nsw.gov.au', 'hq44Lz8y2khN');
 -- INSERT DATA INTO 'NOTIFICATION' TABLE
-INSERT INTO notification (n_id,buyer,note,status) VALUES (1,1,'tortor nibh sit amet orci.','No');
-INSERT INTO notification (n_id,buyer,note,status) VALUES (2,11,'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices','Yes');
-INSERT INTO notification (n_id,buyer,note,status) VALUES (3,17,'dignissim  aucs. Aliquam rutrum lorem ac risus.','Yes');
-INSERT INTO notification (n_id,buyer,note,status) VALUES (4,18,'est. Nunc ullamcorper, velit in','Yes');
-INSERT INTO notification (n_id,buyer,note,status) VALUES (5,3,'Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet','No');
-INSERT INTO notification (n_id,buyer,note,status) VALUES (6,4,'vitae','No');
-INSERT INTO notification (n_id,buyer,note,status) VALUES (7,5,'porttitor scelerisque neque. Nullam nisl. Maecenas','Yes');
-INSERT INTO notification (n_id,buyer,note,status) VALUES (8,5,'tincidunt, neque vitae semper egestas, urna justo faucibus','Yes');
-INSERT INTO notification (n_id,buyer,note,status) VALUES (9,8,'porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris','Yes');
-INSERT INTO notification (n_id,buyer,note,status) VALUES (10,19,'vulputate,  aucs. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non','Yes');
+INSERT INTO notification (n_id,buyer,note,status) VALUES (1,'dorniz0@forbes.com','tortor nibh sit amet orci.','No');
+INSERT INTO notification (n_id,buyer,note,status) VALUES (2,'ltilzeya@github.com','Vestibulum ante ipsum primis in faucibus orci luctus et ultrices','Yes');
+INSERT INTO notification (n_id,buyer,note,status) VALUES (3,'cwiltshireg@wikimedia.org','dignissim  aucs. Aliquam rutrum lorem ac risus.','Yes');
+INSERT INTO notification (n_id,buyer,note,status) VALUES (4,'hhuncooth@nps.gov','est. Nunc ullamcorper, velit in','Yes');
+INSERT INTO notification (n_id,buyer,note,status) VALUES (5,'mskinner2@t.co','Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet','No');
+INSERT INTO notification (n_id,buyer,note,status) VALUES (6,'bgable3@freewebs.com','vitae','No');
+INSERT INTO notification (n_id,buyer,note,status) VALUES (7,'rkovalski4@google.com.au','porttitor scelerisque neque. Nullam nisl. Maecenas','Yes');
+INSERT INTO notification (n_id,buyer,note,status) VALUES (8,'rkovalski4@google.com.au','tincidunt, neque vitae semper egestas, urna justo faucibus','Yes');
+INSERT INTO notification (n_id,buyer,note,status) VALUES (9,'rdacca7@census.gov','porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris','Yes');
+INSERT INTO notification (n_id,buyer,note,status) VALUES (10,'gtwatti@netvibes.com','vulputate,  aucs. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non','Yes');
 
 -- INSERT DATA INTO 'BIDS' TABLE
-INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (1,19,4,3,60.22,'2020-11-17 16:55:15','win');
-INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (2,12,5,7,53.83,'2022-01-06 14:00:19','lose');
-INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (3,13,9,8,54.64,'2021-03-05 19:59:08','win');
-INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (4,14,11,9,52.40,'2021-07-24 23:54:39','lose');
-INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (5,2,17,2,25.38,'2022-01-26 19:21:50','win');
-INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (6,9,19,1,58.01,'2022-07-10 08:41:28','lose');
-INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (7,1,13,6,44.75,'2021-10-21 16:53:50','win');
-INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (8,6,12,4,85.38,'2020-09-26 02:08:38','lose');
-INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (9,4,1,5,98.32,'2022-03-14 02:54:21','win');
-INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (10,7,8,10,14.42,'2022-09-06 01:48:48','win');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (1,'gtwatti@netvibes.com','bgable3@freewebs.com',3,60.22,'2020-11-17 16:55:15','win');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (2,'ckeasyb@uol.com.br','rkovalski4@google.com.au',7,53.83,'2022-01-06 14:00:19','lose');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (3,'mtabourc@blinklist.com','iexposito8@geocities.com',8,54.64,'2021-03-05 19:59:08','win');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (4,'ckidneyd@reference.com','ltilzeya@github.com',9,52.40,'2021-07-24 23:54:39','lose');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (5,'bpeirazzi1@pinterest.com','cwiltshireg@wikimedia.org',2,25.38,'2022-01-26 19:21:50','win');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (6,'iexposito8@geocities.com','gtwatti@netvibes.com',1,58.01,'2022-07-10 08:41:28','lose');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (7,'dorniz0@forbes.com','mtabourc@blinklist.com',6,44.75,'2021-10-21 16:53:50','win');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (8,'smasurel5@wired.com','ckeasyb@uol.com.br',4,85.38,'2020-09-26 02:08:38','lose');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (9,'bgable3@freewebs.com','dorniz0@forbes.com',5,98.32,'2022-03-14 02:54:21','win');
+INSERT INTO bids (product_id,seller,bidder,b_id,offer_price,offer_time,status) VALUES (10,'gbartlet6@addthis.com','rdacca7@census.gov',10,14.42,'2022-09-06 01:48:48','win');
 
 -- INSERT DATA INTO 'TRANSACTION' TABLE
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (1,'2021-02-03 12:07:46','2021-12-18 23:21:57','100.92','19',1,'4');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (2,'2021-10-13 23:51:22','2022-02-14 20:53:23','300.15','12',2,'5');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (3,'2022-02-15 04:49:39','2022-07-27 23:00:05','400.15','13',3,'9');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (4,'2021-07-17 02:20:09','2022-03-15 10:29:58','400.51','14',4,'11');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (5,'2021-04-15 01:18:14','2020-10-20 06:58:22','800.32','2',5,'17');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (6,'2020-09-30 11:13:25','2020-12-13 00:02:36','800.17','9',6,'19');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (7,'2021-03-06 12:09:45','2021-08-22 11:33:36','900.38','1',7,'13');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (8,'2021-01-02 19:09:36','2020-10-09 21:24:02','700.62','6',8,'12');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (9,'2021-12-20 08:20:39','2022-09-03 09:39:06','700.27','4',9,'1');
-INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (10,'2020-10-15 02:24:14','2020-11-09 17:38:47','200.14','7',10,'8');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (1,'2021-02-03 12:07:46','2021-12-18 23:21:57','100.92','gtwatti@netvibes.com',1,'bgable3@freewebs.com');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (2,'2021-10-13 23:51:22','2022-02-14 20:53:23','300.15','ckeasyb@uol.com.br',2,'rkovalski4@google.com.au');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (3,'2022-02-15 04:49:39','2022-07-27 23:00:05','400.15','mtabourc@blinklist.com',3,'iexposito8@geocities.com');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (4,'2021-07-17 02:20:09','2022-03-15 10:29:58','400.51','ckidneyd@reference.com',4,'ltilzeya@github.com');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (5,'2021-04-15 01:18:14','2020-10-20 06:58:22','800.32','bpeirazzi1@pinterest.com',5,'cwiltshireg@wikimedia.org');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (6,'2020-09-30 11:13:25','2020-12-13 00:02:36','800.17','iexposito8@geocities.com',6,'gtwatti@netvibes.com');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (7,'2021-03-06 12:09:45','2021-08-22 11:33:36','900.38','dorniz0@forbes.com',7,'mtabourc@blinklist.com');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (8,'2021-01-02 19:09:36','2020-10-09 21:24:02','700.62','smasurel5@wired.com',8,'ckeasyb@uol.com.br');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (9,'2021-12-20 08:20:39','2022-09-03 09:39:06','700.27','bgable3@freewebs.com',9,'dorniz0@forbes.com');
+INSERT INTO `transaction` (`t_id`,`start_time`,`end_time`,`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (10,'2020-10-15 02:24:14','2020-11-09 17:38:47','200.14','gbartlet6@addthis.com',10,'rdacca7@census.gov');
 
 
 
