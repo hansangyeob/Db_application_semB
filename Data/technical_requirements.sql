@@ -137,16 +137,3 @@ create trigger prevent_bid_deletion
 delimiter ;
 
 Delimiter $$
-create trigger startTransaction
-    before insert
-    on bids
-    for each row
-    begin
-        IF status = 'win' AND t_seller = seller AND win_bidder = bidder
-            THEN
-            INSERT INTO transaction (`t_amount`,`t_seller`,`pro_id`,`win_bidder`) VALUES (offer_price,seller,product_id,bidder);
-            END IF;
-    end $$
-delimiter ;
-
-
