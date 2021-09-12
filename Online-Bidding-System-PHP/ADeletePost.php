@@ -98,7 +98,7 @@ CloseCon($conn);
     <script type="text/javascript">
     function bid(id) {
         if (confirm('Are You Sure you want to delete This Post?')) {
-            alert(id);
+            alert("Successfully Deleted !");
             window.location = 'APostDelete.php?bid=' + id
         }
     }
