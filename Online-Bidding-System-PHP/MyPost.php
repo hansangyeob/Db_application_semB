@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'DatabaseConnection.php';
+include '../Online-Bidding-System-PHP/phpmongo/insert.php';
 $conn = OpenCon();
 // echo "Connected Successfully";
 CloseCon($conn);
@@ -121,6 +122,7 @@ CloseCon($conn);
   $query = "SELECT * FROM auction_product WHERE seller='$seller'";
   $Rows = mysqli_query(connection(), $query);
 
+
   if (mysqli_num_rows($Rows) > 0) {
     echo '<table class="data-table">';
     echo '<thead>';
@@ -132,23 +134,32 @@ CloseCon($conn);
     echo '<th>Current Price</th>';
     echo '<th>Closing Time</th>';
     echo '<th>Sold</th>';
+    echo '<th>extra</th>';
     echo '</tr>';
     echo '</thead>';
-
     echo '<tbody>';
 
     while ($row = mysqli_fetch_array($Rows)) {
+
+      $product = $collection->find([]);
+      
+      foreach ($product as $p) {
+        if (($p->_id) == $row['p_id']) {
   ?>
-      <tr>
-        <td> <img src="<?php echo $row['picture']; ?>" width="100" height="100"></td>
-        <td> <?php echo $row['p_id']; ?></td>
-        <td> <?php echo $row['p_name']; ?></td>
-        <td> <?php echo $row['price_min']; ?> </td>
-        <td> <?php echo $row['current_price']; ?> </td>
-        <td> <?php echo $row['closing_time']; ?></td>
-        <td> <?php echo $row['status']; ?> </td>
-      </tr>
+          <tr>
+            <td> <img src="<?php echo $row['picture']; ?>" width="100" height="100"></td>
+            <td> <?php echo $row['p_id']; ?></td>
+            <td> <?php echo $row['p_name']; ?></td>
+            <td> <?php echo $row['price_min']; ?> </td>
+            <td> <?php echo $row['current_price']; ?> </td>
+            <td> <?php echo $row['closing_time']; ?></td>
+            <td> <?php echo $row['status']; ?> </td>
+            <td> <?php echo var_dump($p) ?></td>
+
+          </tr>
   <?php
+        }
+      }
       // }else {
 
       // <script> window.alert('You Have Not Any Post Yet');</script>

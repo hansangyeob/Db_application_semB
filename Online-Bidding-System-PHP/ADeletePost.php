@@ -155,7 +155,7 @@ CloseCon($conn);
           echo $row['seller'];
           echo "</td>";
           echo "<td>";
-          echo $row['buyer'];
+          echo $row['bidder'];
           echo "</td>";
           echo "<td>";
           echo $row['status'];

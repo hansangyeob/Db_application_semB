@@ -2,7 +2,6 @@
 session_start();
 include 'DatabaseConnection.php';
 $conn = OpenCon();
-// echo "Connected Successfully";
 CloseCon($conn);
 ?>
 
@@ -148,24 +147,16 @@ CloseCon($conn);
     $filename    = $_FILES['profile_pic']['tmp_name'];
     move_uploaded_file($filename, $destination);
 
-    $query = "INSERT INTO customer_account(i_num,f_name,l_name,email,phone,password,address,city,country,profile_pic,balance,registered_branch) 
+    $query = "INSERT INTO customer_account(i_num,first_name,last_name,email,phone,password,address,city,country,profile_pic,balance,registered_branch) 
     VALUES('$i_num','$f_name','$l_name','$email','$phone','$password','$address','$city','$country',null,$balance,0)";
 
-    // if (connection()->query($query) === TRUE) {
-    //   echo "New record created successfully";
-    // } else {
-    //   echo "Error: " . $query . "<br>" . connection()->error;
-    // }
-
-    // connection()->close();
 
     // $destination
     $ret = mysqli_query(connection(), $query);
 
     echo '<script language="javascript">';
-    echo 'alert("Registration successfully.")';
+    echo 'alert("Registration successfully done. Please move to login page.")';
     echo '</script>';
-    header("Location:Home.php");
   }
 
   ?>

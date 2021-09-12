@@ -114,7 +114,7 @@ CloseCon($conn);
   }
   if ($_GET['field'] == 'offer_price') {
     $field = "offer_price";
-  } elseif ($_GET['field'] == 'offer_time') {
+  } else {
     $field = "offer_time";
   } 
 

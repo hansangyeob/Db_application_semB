@@ -101,12 +101,6 @@ CloseCon($conn);
     $status = 'No';
     $buyer = null;
 
-    // if (move_uploaded_file($tempname, $folder)) {
-    //   $msg = "Image uploaded successfully";
-    // } else {
-    //   $msg = "Failed to upload image";
-    // }
-    // echo $msg;
     $destination = "ProductPhoto/" . $_FILES['Cpicture']['name'];
     $filename    = $_FILES['Cpicture']['tmp_name'];
     move_uploaded_file($filename, $destination);
@@ -130,26 +124,25 @@ CloseCon($conn);
   ?>
   <?php
   $seller = $_SESSION['email'];
- 
+
   $queryy = "SELECT p_id FROM auction_product WHERE seller='$seller' ORDER BY p_id DESC LIMIT 0, 1";
   $Rows = mysqli_query(connection(), $queryy);
- 
-  if(mysqli_num_rows($Rows)>0){
-  while ($row = mysqli_fetch_array($Rows)) {
+
+  if (mysqli_num_rows($Rows) > 0) {
+    while ($row = mysqli_fetch_array($Rows)) {
   ?>
-    <?php $newp_id = $row['p_id']; ?>
-    
+      <?php $newp_id = $row['p_id']; ?>
+
   <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $res = $collection->insertOne([
-        '_id' => $newp_id,
-        'attibute1' => $_POST['attribute1'],
-        'attibute2' => $_POST['attribute2']
-      ]);
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $res = $collection->insertOne([
+          '_id' => $newp_id,
+          $_POST['attribute1doc'] => $_POST['attribute1'],
+          $_POST['attribute2doc'] => $_POST['attribute2']
+        ]);
+      }
     }
   }
-  }
-  // echo $Rows['p_id'];
 
 
   ?>
@@ -184,14 +177,16 @@ CloseCon($conn);
             </div>
             <hr>
             <div class="form-group">
-              <label class="control-label">Extra Information 1</label>
+              <input type="text" name="attribute1doc" maxlength="50" class="form-control" placeholder="Attribute1 Title">
               <input type="text" name="attribute1" maxlength="50" class="form-control">
             </div>
+            <br>
+
             <div class="form-group">
-              <label class="control-label">Extra Information 2</label>
-              <br><br>
+              <input type="text" name="attribute2doc" maxlength="50" class="form-control" placeholder="Attribute2 Title">
               <input type="text" name="attribute2" maxlength="50" class="form-control">
             </div>
+
             <div class="form-group">
               <button id="signupSubmit" type="submit" class="btn btn-info btn-block" onclick="return ValidateBidForm();">Add Now</button>
             </div>
